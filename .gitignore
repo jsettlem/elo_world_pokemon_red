@@ -1,0 +1,34 @@
+#ROM image
+/Pokemon - Red Version*
+
+#emulator
+/bgb/
+/bgb.lnk
+
+#notes
+/notes.txt
+/failures.txt
+
+#old scripts
+/battle_random_trainer.py
+/trainer_id_incrementer.py
+/trainer_id_incrementer_pyboy.py
+
+#scratch/output files
+/output/
+/loadstate.sn1
+/outdemo.dem
+/state_1.sna
+/state_2.sna
+/test.out
+/OUT_SAVE
+/outstate.sn1
+/outstate.sn1.bak
+/ai_choose_state.sn1.old
+/parser/output.json
+/trainers_sample.json
+
+#other
+/*.zip
+/desktop.ini
+/.idea/

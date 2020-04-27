@@ -1,0 +1,6602 @@
+[
+    {
+        "class": "Youngster",
+        "id": 201,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Route 3",
+                "party": [
+                    {
+                        "level": 11,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 11,
+                        "species": "EKANS"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Route 3",
+                "party": [
+                    {
+                        "level": 14,
+                        "species": "SPEAROW"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Mt. Moon 1F",
+                "party": [
+                    {
+                        "level": 10,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 10,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 10,
+                        "species": "ZUBAT"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 24",
+                "party": [
+                    {
+                        "level": 14,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 14,
+                        "species": "EKANS"
+                    },
+                    {
+                        "level": 14,
+                        "species": "ZUBAT"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 25",
+                "party": [
+                    {
+                        "level": 15,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 15,
+                        "species": "SPEAROW"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Route 25",
+                "party": [
+                    {
+                        "level": 17,
+                        "species": "SLOWPOKE"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Route 25",
+                "party": [
+                    {
+                        "level": 14,
+                        "species": "EKANS"
+                    },
+                    {
+                        "level": 14,
+                        "species": "SANDSHREW"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "SS Anne 1F Rooms",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "NIDORAN_M"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Route 11",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "EKANS"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Route 11",
+                "party": [
+                    {
+                        "level": 19,
+                        "species": "SANDSHREW"
+                    },
+                    {
+                        "level": 19,
+                        "species": "ZUBAT"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Route 11",
+                "party": [
+                    {
+                        "level": 17,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 17,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 17,
+                        "species": "RATICATE"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "Route 11",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "NIDORAN_M"
+                    },
+                    {
+                        "level": 18,
+                        "species": "NIDORINO"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 17,
+                        "species": "SPEAROW"
+                    },
+                    {
+                        "level": 17,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 17,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 17,
+                        "species": "SPEAROW"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "BugCatcher",
+        "id": 202,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Viridian Forest",
+                "party": [
+                    {
+                        "level": 6,
+                        "species": "WEEDLE"
+                    },
+                    {
+                        "level": 6,
+                        "species": "CATERPIE"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Viridian Forest",
+                "party": [
+                    {
+                        "level": 7,
+                        "species": "WEEDLE"
+                    },
+                    {
+                        "level": 7,
+                        "species": "KAKUNA"
+                    },
+                    {
+                        "level": 7,
+                        "species": "WEEDLE"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Viridian Forest",
+                "party": [
+                    {
+                        "level": 9,
+                        "species": "WEEDLE"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 3",
+                "party": [
+                    {
+                        "level": 10,
+                        "species": "CATERPIE"
+                    },
+                    {
+                        "level": 10,
+                        "species": "WEEDLE"
+                    },
+                    {
+                        "level": 10,
+                        "species": "CATERPIE"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 3",
+                "party": [
+                    {
+                        "level": 9,
+                        "species": "WEEDLE"
+                    },
+                    {
+                        "level": 9,
+                        "species": "KAKUNA"
+                    },
+                    {
+                        "level": 9,
+                        "species": "CATERPIE"
+                    },
+                    {
+                        "level": 9,
+                        "species": "METAPOD"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Route 3",
+                "party": [
+                    {
+                        "level": 11,
+                        "species": "CATERPIE"
+                    },
+                    {
+                        "level": 11,
+                        "species": "METAPOD"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Mt. Moon 1F",
+                "party": [
+                    {
+                        "level": 11,
+                        "species": "WEEDLE"
+                    },
+                    {
+                        "level": 11,
+                        "species": "KAKUNA"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Mt. Moon 1F",
+                "party": [
+                    {
+                        "level": 10,
+                        "species": "CATERPIE"
+                    },
+                    {
+                        "level": 10,
+                        "species": "METAPOD"
+                    },
+                    {
+                        "level": 10,
+                        "species": "CATERPIE"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Route 24",
+                "party": [
+                    {
+                        "level": 14,
+                        "species": "CATERPIE"
+                    },
+                    {
+                        "level": 14,
+                        "species": "WEEDLE"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Route 6",
+                "party": [
+                    {
+                        "level": 16,
+                        "species": "WEEDLE"
+                    },
+                    {
+                        "level": 16,
+                        "species": "CATERPIE"
+                    },
+                    {
+                        "level": 16,
+                        "species": "WEEDLE"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Route 6",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "BUTTERFREE"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "METAPOD"
+                    },
+                    {
+                        "level": 18,
+                        "species": "CATERPIE"
+                    },
+                    {
+                        "level": 18,
+                        "species": "VENONAT"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "location": "Route 9",
+                "party": [
+                    {
+                        "level": 19,
+                        "species": "BEEDRILL"
+                    },
+                    {
+                        "level": 19,
+                        "species": "BEEDRILL"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "location": "Route 9",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "CATERPIE"
+                    },
+                    {
+                        "level": 20,
+                        "species": "WEEDLE"
+                    },
+                    {
+                        "level": 20,
+                        "species": "VENONAT"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Lass",
+        "id": 203,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Route 3",
+                "party": [
+                    {
+                        "level": 9,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 9,
+                        "species": "PIDGEY"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Route 3",
+                "party": [
+                    {
+                        "level": 10,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 10,
+                        "species": "NIDORAN_M"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Route 3",
+                "party": [
+                    {
+                        "level": 14,
+                        "species": "JIGGLYPUFF"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 4",
+                "party": [
+                    {
+                        "level": 31,
+                        "species": "PARAS"
+                    },
+                    {
+                        "level": 31,
+                        "species": "PARAS"
+                    },
+                    {
+                        "level": 31,
+                        "species": "PARASECT"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Mt. Moon 1F",
+                "party": [
+                    {
+                        "level": 11,
+                        "species": "ODDISH"
+                    },
+                    {
+                        "level": 11,
+                        "species": "BELLSPROUT"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Mt. Moon 1F",
+                "party": [
+                    {
+                        "level": 14,
+                        "species": "CLEFAIRY"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Route 24",
+                "party": [
+                    {
+                        "level": 16,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 16,
+                        "species": "NIDORAN_F"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Route 24",
+                "party": [
+                    {
+                        "level": 14,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 14,
+                        "species": "NIDORAN_F"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Route 25",
+                "party": [
+                    {
+                        "level": 15,
+                        "species": "NIDORAN_M"
+                    },
+                    {
+                        "level": 15,
+                        "species": "NIDORAN_F"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Route 25",
+                "party": [
+                    {
+                        "level": 13,
+                        "species": "ODDISH"
+                    },
+                    {
+                        "level": 13,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 13,
+                        "species": "ODDISH"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "SS Anne 1F Rooms",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 18,
+                        "species": "NIDORAN_F"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "SS Anne 2F Rooms",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 18,
+                        "species": "PIKACHU"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "location": "Route 8",
+                "party": [
+                    {
+                        "level": 23,
+                        "species": "NIDORAN_F"
+                    },
+                    {
+                        "level": 23,
+                        "species": "NIDORINA"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "location": "Route 8",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "MEOWTH"
+                    },
+                    {
+                        "level": 24,
+                        "species": "MEOWTH"
+                    },
+                    {
+                        "level": 24,
+                        "species": "MEOWTH"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "location": "Route 8",
+                "party": [
+                    {
+                        "level": 19,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 19,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 19,
+                        "species": "NIDORAN_M"
+                    },
+                    {
+                        "level": 19,
+                        "species": "MEOWTH"
+                    },
+                    {
+                        "level": 19,
+                        "species": "PIKACHU"
+                    }
+                ]
+            },
+            {
+                "index": 16,
+                "location": "Route 8",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "CLEFAIRY"
+                    },
+                    {
+                        "level": 22,
+                        "species": "CLEFAIRY"
+                    }
+                ]
+            },
+            {
+                "index": 17,
+                "location": "Celadon Gym",
+                "party": [
+                    {
+                        "level": 23,
+                        "species": "BELLSPROUT"
+                    },
+                    {
+                        "level": 23,
+                        "species": "WEEPINBELL"
+                    }
+                ]
+            },
+            {
+                "index": 18,
+                "location": "Celadon Gym",
+                "party": [
+                    {
+                        "level": 23,
+                        "species": "ODDISH"
+                    },
+                    {
+                        "level": 23,
+                        "species": "GLOOM"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Sailor",
+        "id": 204,
+        "instances": [
+            {
+                "index": 1,
+                "location": "SS Anne Stern",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 18,
+                        "species": "SHELLDER"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "SS Anne Stern",
+                "party": [
+                    {
+                        "level": 17,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 17,
+                        "species": "TENTACOOL"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "SS Anne B1F Rooms",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "SHELLDER"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "SS Anne B1F Rooms",
+                "party": [
+                    {
+                        "level": 17,
+                        "species": "HORSEA"
+                    },
+                    {
+                        "level": 17,
+                        "species": "SHELLDER"
+                    },
+                    {
+                        "level": 17,
+                        "species": "TENTACOOL"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "SS Anne B1F Rooms",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "TENTACOOL"
+                    },
+                    {
+                        "level": 18,
+                        "species": "STARYU"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "SS Anne B1F Rooms",
+                "party": [
+                    {
+                        "level": 17,
+                        "species": "HORSEA"
+                    },
+                    {
+                        "level": 17,
+                        "species": "HORSEA"
+                    },
+                    {
+                        "level": 17,
+                        "species": "HORSEA"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "SS Anne B1F Rooms",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "MACHOP"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Vermilion Gym",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "PIKACHU"
+                    },
+                    {
+                        "level": 21,
+                        "species": "PIKACHU"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "JrTrainerM",
+        "id": 205,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Pewter Gym",
+                "party": [
+                    {
+                        "level": 11,
+                        "species": "DIGLETT"
+                    },
+                    {
+                        "level": 11,
+                        "species": "SANDSHREW"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Route 24/Route 25",
+                "party": [
+                    {
+                        "level": 14,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 14,
+                        "species": "EKANS"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Route 24",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "MANKEY"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 6",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "SQUIRTLE"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 6",
+                "party": [
+                    {
+                        "level": 16,
+                        "species": "SPEAROW"
+                    },
+                    {
+                        "level": 16,
+                        "species": "RATICATE"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "DIGLETT"
+                    },
+                    {
+                        "level": 18,
+                        "species": "DIGLETT"
+                    },
+                    {
+                        "level": 18,
+                        "species": "SANDSHREW"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Route 9",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 21,
+                        "species": "CHARMANDER"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Route 9",
+                "party": [
+                    {
+                        "level": 19,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 19,
+                        "species": "DIGLETT"
+                    },
+                    {
+                        "level": 19,
+                        "species": "EKANS"
+                    },
+                    {
+                        "level": 19,
+                        "species": "SANDSHREW"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Route 12",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "NIDORAN_M"
+                    },
+                    {
+                        "level": 29,
+                        "species": "NIDORINO"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "JrTrainerF",
+        "id": 206,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Cerulean Gym",
+                "party": [
+                    {
+                        "level": 19,
+                        "species": "GOLDEEN"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Route 6",
+                "party": [
+                    {
+                        "level": 16,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 16,
+                        "species": "PIKACHU"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Route 6",
+                "party": [
+                    {
+                        "level": 16,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 16,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 16,
+                        "species": "PIDGEY"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "BULBASAUR"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 9",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "ODDISH"
+                    },
+                    {
+                        "level": 18,
+                        "species": "BELLSPROUT"
+                    },
+                    {
+                        "level": 18,
+                        "species": "ODDISH"
+                    },
+                    {
+                        "level": 18,
+                        "species": "BELLSPROUT"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Route 9",
+                "party": [
+                    {
+                        "level": 23,
+                        "species": "MEOWTH"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Route 10",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "PIKACHU"
+                    },
+                    {
+                        "level": 20,
+                        "species": "CLEFAIRY"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Route 10",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 21,
+                        "species": "PIDGEOTTO"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Rock Tunnel B1F",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "JIGGLYPUFF"
+                    },
+                    {
+                        "level": 21,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 21,
+                        "species": "MEOWTH"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Rock Tunnel B1F",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "ODDISH"
+                    },
+                    {
+                        "level": 22,
+                        "species": "BULBASAUR"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Celadon Gym",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "BULBASAUR"
+                    },
+                    {
+                        "level": 24,
+                        "species": "IVYSAUR"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "Route 13",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 24,
+                        "species": "MEOWTH"
+                    },
+                    {
+                        "level": 24,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 24,
+                        "species": "PIKACHU"
+                    },
+                    {
+                        "level": 24,
+                        "species": "MEOWTH"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "location": "Route 13",
+                "party": [
+                    {
+                        "level": 30,
+                        "species": "POLIWAG"
+                    },
+                    {
+                        "level": 30,
+                        "species": "POLIWAG"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "location": "Route 13",
+                "party": [
+                    {
+                        "level": 27,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 27,
+                        "species": "MEOWTH"
+                    },
+                    {
+                        "level": 27,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 27,
+                        "species": "PIDGEOTTO"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "location": "Route 13",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "GOLDEEN"
+                    },
+                    {
+                        "level": 28,
+                        "species": "POLIWAG"
+                    },
+                    {
+                        "level": 28,
+                        "species": "HORSEA"
+                    }
+                ]
+            },
+            {
+                "index": 16,
+                "location": "Route 20",
+                "party": [
+                    {
+                        "level": 31,
+                        "species": "GOLDEEN"
+                    },
+                    {
+                        "level": 31,
+                        "species": "SEAKING"
+                    }
+                ]
+            },
+            {
+                "index": 17,
+                "location": "Rock Tunnel 1F",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "BELLSPROUT"
+                    },
+                    {
+                        "level": 22,
+                        "species": "CLEFAIRY"
+                    }
+                ]
+            },
+            {
+                "index": 18,
+                "location": "Rock Tunnel 1F",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "MEOWTH"
+                    },
+                    {
+                        "level": 20,
+                        "species": "ODDISH"
+                    },
+                    {
+                        "level": 20,
+                        "species": "PIDGEY"
+                    }
+                ]
+            },
+            {
+                "index": 19,
+                "location": "Rock Tunnel 1F",
+                "party": [
+                    {
+                        "level": 19,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 19,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 19,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 19,
+                        "species": "BELLSPROUT"
+                    }
+                ]
+            },
+            {
+                "index": 20,
+                "location": "Route 15",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "GLOOM"
+                    },
+                    {
+                        "level": 28,
+                        "species": "ODDISH"
+                    },
+                    {
+                        "level": 28,
+                        "species": "ODDISH"
+                    }
+                ]
+            },
+            {
+                "index": 21,
+                "location": "Route 15",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "PIKACHU"
+                    },
+                    {
+                        "level": 29,
+                        "species": "RAICHU"
+                    }
+                ]
+            },
+            {
+                "index": 22,
+                "location": "Route 15",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "CLEFAIRY"
+                    }
+                ]
+            },
+            {
+                "index": 23,
+                "location": "Route 15",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "BELLSPROUT"
+                    },
+                    {
+                        "level": 29,
+                        "species": "ODDISH"
+                    },
+                    {
+                        "level": 29,
+                        "species": "TANGELA"
+                    }
+                ]
+            },
+            {
+                "index": 24,
+                "location": "Route 20",
+                "party": [
+                    {
+                        "level": 30,
+                        "species": "TENTACOOL"
+                    },
+                    {
+                        "level": 30,
+                        "species": "HORSEA"
+                    },
+                    {
+                        "level": 30,
+                        "species": "SEEL"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Pokemaniac",
+        "id": 207,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Route 10",
+                "party": [
+                    {
+                        "level": 30,
+                        "species": "RHYHORN"
+                    },
+                    {
+                        "level": 30,
+                        "species": "LICKITUNG"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Route 10",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "CUBONE"
+                    },
+                    {
+                        "level": 20,
+                        "species": "SLOWPOKE"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Rock Tunnel B1F",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "SLOWPOKE"
+                    },
+                    {
+                        "level": 20,
+                        "species": "SLOWPOKE"
+                    },
+                    {
+                        "level": 20,
+                        "species": "SLOWPOKE"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Rock Tunnel B1F",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "CHARMANDER"
+                    },
+                    {
+                        "level": 22,
+                        "species": "CUBONE"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Rock Tunnel B1F",
+                "party": [
+                    {
+                        "level": 25,
+                        "species": "SLOWPOKE"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Victory Road 2F",
+                "party": [
+                    {
+                        "level": 40,
+                        "species": "CHARMELEON"
+                    },
+                    {
+                        "level": 40,
+                        "species": "LAPRAS"
+                    },
+                    {
+                        "level": 40,
+                        "species": "LICKITUNG"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Rock Tunnel 1F",
+                "party": [
+                    {
+                        "level": 23,
+                        "species": "CUBONE"
+                    },
+                    {
+                        "level": 23,
+                        "species": "SLOWPOKE"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "SuperNerd",
+        "id": 208,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Mt. Moon 1F",
+                "party": [
+                    {
+                        "level": 11,
+                        "species": "MAGNEMITE"
+                    },
+                    {
+                        "level": 11,
+                        "species": "VOLTORB"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Mt. Moon B2F",
+                "party": [
+                    {
+                        "level": 12,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 12,
+                        "species": "VOLTORB"
+                    },
+                    {
+                        "level": 12,
+                        "species": "KOFFING"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Route 8",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "VOLTORB"
+                    },
+                    {
+                        "level": 20,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 20,
+                        "species": "VOLTORB"
+                    },
+                    {
+                        "level": 20,
+                        "species": "MAGNEMITE"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 8",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 22,
+                        "species": "MUK"
+                    },
+                    {
+                        "level": 22,
+                        "species": "GRIMER"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 8",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "KOFFING"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 22,
+                        "species": "MAGNEMITE"
+                    },
+                    {
+                        "level": 22,
+                        "species": "WEEZING"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "MAGNEMITE"
+                    },
+                    {
+                        "level": 20,
+                        "species": "MAGNEMITE"
+                    },
+                    {
+                        "level": 20,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 20,
+                        "species": "MAGNEMITE"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "MAGNEMITE"
+                    },
+                    {
+                        "level": 24,
+                        "species": "VOLTORB"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Cinnabar Gym",
+                "party": [
+                    {
+                        "level": 36,
+                        "species": "VULPIX"
+                    },
+                    {
+                        "level": 36,
+                        "species": "VULPIX"
+                    },
+                    {
+                        "level": 36,
+                        "species": "NINETALES"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Cinnabar Gym",
+                "party": [
+                    {
+                        "level": 34,
+                        "species": "PONYTA"
+                    },
+                    {
+                        "level": 34,
+                        "species": "CHARMANDER"
+                    },
+                    {
+                        "level": 34,
+                        "species": "VULPIX"
+                    },
+                    {
+                        "level": 34,
+                        "species": "GROWLITHE"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Cinnabar Gym",
+                "party": [
+                    {
+                        "level": 41,
+                        "species": "RAPIDASH"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "Cinnabar Gym",
+                "party": [
+                    {
+                        "level": 37,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 37,
+                        "species": "VULPIX"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Hiker",
+        "id": 209,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Mt. Moon 1F",
+                "party": [
+                    {
+                        "level": 10,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 10,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 10,
+                        "species": "ONIX"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Route 25",
+                "party": [
+                    {
+                        "level": 15,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 15,
+                        "species": "GEODUDE"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Route 25",
+                "party": [
+                    {
+                        "level": 13,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 13,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 13,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 13,
+                        "species": "GEODUDE"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 25",
+                "party": [
+                    {
+                        "level": 17,
+                        "species": "ONIX"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 9",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 21,
+                        "species": "ONIX"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Route 9",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 20,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 20,
+                        "species": "GEODUDE"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Route 10",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 21,
+                        "species": "ONIX"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Route 10",
+                "party": [
+                    {
+                        "level": 19,
+                        "species": "ONIX"
+                    },
+                    {
+                        "level": 19,
+                        "species": "GRAVELER"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Rock Tunnel B1F",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 21,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 21,
+                        "species": "GRAVELER"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Rock Tunnel B1F",
+                "party": [
+                    {
+                        "level": 25,
+                        "species": "GEODUDE"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Route 9/Rock Tunnel B1F",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 20,
+                        "species": "ONIX"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "Rock Tunnel 1F",
+                "party": [
+                    {
+                        "level": 19,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 19,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 19,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 19,
+                        "species": "GEODUDE"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "location": "Rock Tunnel 1F",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "ONIX"
+                    },
+                    {
+                        "level": 20,
+                        "species": "ONIX"
+                    },
+                    {
+                        "level": 20,
+                        "species": "GEODUDE"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "location": "Rock Tunnel 1F",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 21,
+                        "species": "GRAVELER"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Biker",
+        "id": 210,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Route 13",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 28,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 28,
+                        "species": "KOFFING"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Route 14",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 29,
+                        "species": "GRIMER"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Route 15",
+                "party": [
+                    {
+                        "level": 25,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 25,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 25,
+                        "species": "WEEZING"
+                    },
+                    {
+                        "level": 25,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 25,
+                        "species": "GRIMER"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 15",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 28,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 28,
+                        "species": "WEEZING"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 16",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 29,
+                        "species": "KOFFING"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Route 16",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "WEEZING"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Route 16",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 26,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 26,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 26,
+                        "species": "GRIMER"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Route 17",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "WEEZING"
+                    },
+                    {
+                        "level": 28,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 28,
+                        "species": "WEEZING"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Route 17",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "MUK"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Route 17",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "VOLTORB"
+                    },
+                    {
+                        "level": 29,
+                        "species": "VOLTORB"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Route 17",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "WEEZING"
+                    },
+                    {
+                        "level": 29,
+                        "species": "MUK"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "Route 17",
+                "party": [
+                    {
+                        "level": 25,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 25,
+                        "species": "WEEZING"
+                    },
+                    {
+                        "level": 25,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 25,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 25,
+                        "species": "WEEZING"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "location": "Route 14",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 26,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 26,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 26,
+                        "species": "KOFFING"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "location": "Route 14",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 28,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 28,
+                        "species": "KOFFING"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "location": "Route 14",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 29,
+                        "species": "MUK"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Burglar",
+        "id": 211,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 29,
+                        "species": "VULPIX"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "GROWLITHE"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "VULPIX"
+                    },
+                    {
+                        "level": 28,
+                        "species": "CHARMANDER"
+                    },
+                    {
+                        "level": 28,
+                        "species": "PONYTA"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Cinnabar Gym",
+                "party": [
+                    {
+                        "level": 36,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 36,
+                        "species": "VULPIX"
+                    },
+                    {
+                        "level": 36,
+                        "species": "NINETALES"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Cinnabar Gym",
+                "party": [
+                    {
+                        "level": 41,
+                        "species": "PONYTA"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Cinnabar Gym",
+                "party": [
+                    {
+                        "level": 37,
+                        "species": "VULPIX"
+                    },
+                    {
+                        "level": 37,
+                        "species": "GROWLITHE"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Mansion 2F",
+                "party": [
+                    {
+                        "level": 34,
+                        "species": "CHARMANDER"
+                    },
+                    {
+                        "level": 34,
+                        "species": "CHARMELEON"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Mansion 3F",
+                "party": [
+                    {
+                        "level": 38,
+                        "species": "NINETALES"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Mansion B1F",
+                "party": [
+                    {
+                        "level": 34,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 34,
+                        "species": "PONYTA"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Engineer",
+        "id": 212,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "VOLTORB"
+                    },
+                    {
+                        "level": 21,
+                        "species": "MAGNEMITE"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Route 11",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "MAGNEMITE"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Route 11",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "MAGNEMITE"
+                    },
+                    {
+                        "level": 18,
+                        "species": "MAGNEMITE"
+                    },
+                    {
+                        "level": 18,
+                        "species": "MAGNETON"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Fisher",
+        "id": 214,
+        "instances": [
+            {
+                "index": 1,
+                "location": "SS Anne 2F Rooms",
+                "party": [
+                    {
+                        "level": 17,
+                        "species": "GOLDEEN"
+                    },
+                    {
+                        "level": 17,
+                        "species": "TENTACOOL"
+                    },
+                    {
+                        "level": 17,
+                        "species": "GOLDEEN"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "SS Anne B1F Rooms",
+                "party": [
+                    {
+                        "level": 17,
+                        "species": "TENTACOOL"
+                    },
+                    {
+                        "level": 17,
+                        "species": "STARYU"
+                    },
+                    {
+                        "level": 17,
+                        "species": "SHELLDER"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Route 12",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "GOLDEEN"
+                    },
+                    {
+                        "level": 22,
+                        "species": "POLIWAG"
+                    },
+                    {
+                        "level": 22,
+                        "species": "GOLDEEN"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 12",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "TENTACOOL"
+                    },
+                    {
+                        "level": 24,
+                        "species": "GOLDEEN"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 12",
+                "party": [
+                    {
+                        "level": 27,
+                        "species": "GOLDEEN"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Route 12",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "POLIWAG"
+                    },
+                    {
+                        "level": 21,
+                        "species": "SHELLDER"
+                    },
+                    {
+                        "level": 21,
+                        "species": "GOLDEEN"
+                    },
+                    {
+                        "level": 21,
+                        "species": "HORSEA"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Route 21",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "SEAKING"
+                    },
+                    {
+                        "level": 28,
+                        "species": "GOLDEEN"
+                    },
+                    {
+                        "level": 28,
+                        "species": "SEAKING"
+                    },
+                    {
+                        "level": 28,
+                        "species": "SEAKING"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Route 21",
+                "party": [
+                    {
+                        "level": 31,
+                        "species": "SHELLDER"
+                    },
+                    {
+                        "level": 31,
+                        "species": "CLOYSTER"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Route 21",
+                "party": [
+                    {
+                        "level": 27,
+                        "species": "MAGIKARP"
+                    },
+                    {
+                        "level": 27,
+                        "species": "MAGIKARP"
+                    },
+                    {
+                        "level": 27,
+                        "species": "MAGIKARP"
+                    },
+                    {
+                        "level": 27,
+                        "species": "MAGIKARP"
+                    },
+                    {
+                        "level": 27,
+                        "species": "MAGIKARP"
+                    },
+                    {
+                        "level": 27,
+                        "species": "MAGIKARP"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Route 21",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "SEAKING"
+                    },
+                    {
+                        "level": 33,
+                        "species": "GOLDEEN"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Route 12",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "MAGIKARP"
+                    },
+                    {
+                        "level": 24,
+                        "species": "MAGIKARP"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Swimmer",
+        "id": 215,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Cerulean Gym",
+                "party": [
+                    {
+                        "level": 16,
+                        "species": "HORSEA"
+                    },
+                    {
+                        "level": 16,
+                        "species": "SHELLDER"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Route 19",
+                "party": [
+                    {
+                        "level": 30,
+                        "species": "TENTACOOL"
+                    },
+                    {
+                        "level": 30,
+                        "species": "SHELLDER"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Route 19",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "GOLDEEN"
+                    },
+                    {
+                        "level": 29,
+                        "species": "HORSEA"
+                    },
+                    {
+                        "level": 29,
+                        "species": "STARYU"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 19",
+                "party": [
+                    {
+                        "level": 30,
+                        "species": "POLIWAG"
+                    },
+                    {
+                        "level": 30,
+                        "species": "POLIWHIRL"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 19",
+                "party": [
+                    {
+                        "level": 27,
+                        "species": "HORSEA"
+                    },
+                    {
+                        "level": 27,
+                        "species": "TENTACOOL"
+                    },
+                    {
+                        "level": 27,
+                        "species": "TENTACOOL"
+                    },
+                    {
+                        "level": 27,
+                        "species": "GOLDEEN"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Route 19",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "GOLDEEN"
+                    },
+                    {
+                        "level": 29,
+                        "species": "SHELLDER"
+                    },
+                    {
+                        "level": 29,
+                        "species": "SEAKING"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Route 19",
+                "party": [
+                    {
+                        "level": 30,
+                        "species": "HORSEA"
+                    },
+                    {
+                        "level": 30,
+                        "species": "HORSEA"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Route 19",
+                "party": [
+                    {
+                        "level": 27,
+                        "species": "TENTACOOL"
+                    },
+                    {
+                        "level": 27,
+                        "species": "TENTACOOL"
+                    },
+                    {
+                        "level": 27,
+                        "species": "STARYU"
+                    },
+                    {
+                        "level": 27,
+                        "species": "HORSEA"
+                    },
+                    {
+                        "level": 27,
+                        "species": "TENTACRUEL"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Route 20",
+                "party": [
+                    {
+                        "level": 31,
+                        "species": "SHELLDER"
+                    },
+                    {
+                        "level": 31,
+                        "species": "CLOYSTER"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Route 20",
+                "party": [
+                    {
+                        "level": 35,
+                        "species": "STARYU"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Route 20",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "HORSEA"
+                    },
+                    {
+                        "level": 28,
+                        "species": "HORSEA"
+                    },
+                    {
+                        "level": 28,
+                        "species": "SEADRA"
+                    },
+                    {
+                        "level": 28,
+                        "species": "HORSEA"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "Route 21",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "SEADRA"
+                    },
+                    {
+                        "level": 33,
+                        "species": "TENTACRUEL"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "location": "Route 21",
+                "party": [
+                    {
+                        "level": 37,
+                        "species": "STARMIE"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "location": "Route 21",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "STARYU"
+                    },
+                    {
+                        "level": 33,
+                        "species": "WARTORTLE"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "location": "Route 21",
+                "party": [
+                    {
+                        "level": 32,
+                        "species": "POLIWHIRL"
+                    },
+                    {
+                        "level": 32,
+                        "species": "TENTACOOL"
+                    },
+                    {
+                        "level": 32,
+                        "species": "SEADRA"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "CueBall",
+        "id": 216,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Route 16",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 28,
+                        "species": "MANKEY"
+                    },
+                    {
+                        "level": 28,
+                        "species": "MACHOP"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Route 16",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "MANKEY"
+                    },
+                    {
+                        "level": 29,
+                        "species": "MACHOP"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Route 16",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "MACHOP"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 17",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "MANKEY"
+                    },
+                    {
+                        "level": 29,
+                        "species": "PRIMEAPE"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 17",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 29,
+                        "species": "MACHOKE"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Route 17",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "MACHOKE"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Route 17",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "MANKEY"
+                    },
+                    {
+                        "level": 26,
+                        "species": "MANKEY"
+                    },
+                    {
+                        "level": 26,
+                        "species": "MACHOKE"
+                    },
+                    {
+                        "level": 26,
+                        "species": "MACHOP"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Route 17",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "PRIMEAPE"
+                    },
+                    {
+                        "level": 29,
+                        "species": "MACHOKE"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Route 21",
+                "party": [
+                    {
+                        "level": 31,
+                        "species": "TENTACOOL"
+                    },
+                    {
+                        "level": 31,
+                        "species": "TENTACOOL"
+                    },
+                    {
+                        "level": 31,
+                        "species": "TENTACRUEL"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Gambler",
+        "id": 217,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Route 11",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "POLIWAG"
+                    },
+                    {
+                        "level": 18,
+                        "species": "HORSEA"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Route 11",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "BELLSPROUT"
+                    },
+                    {
+                        "level": 18,
+                        "species": "ODDISH"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Route 11",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "VOLTORB"
+                    },
+                    {
+                        "level": 18,
+                        "species": "MAGNEMITE"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 11",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 18,
+                        "species": "VULPIX"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 8",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "POLIWAG"
+                    },
+                    {
+                        "level": 22,
+                        "species": "POLIWAG"
+                    },
+                    {
+                        "level": 22,
+                        "species": "POLIWHIRL"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "ONIX"
+                    },
+                    {
+                        "level": 22,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 22,
+                        "species": "GRAVELER"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Route 8",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 24,
+                        "species": "VULPIX"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Beauty",
+        "id": 218,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Celadon Gym",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "ODDISH"
+                    },
+                    {
+                        "level": 21,
+                        "species": "BELLSPROUT"
+                    },
+                    {
+                        "level": 21,
+                        "species": "ODDISH"
+                    },
+                    {
+                        "level": 21,
+                        "species": "BELLSPROUT"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Celadon Gym",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "BELLSPROUT"
+                    },
+                    {
+                        "level": 24,
+                        "species": "BELLSPROUT"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Celadon Gym",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "EXEGGCUTE"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 13",
+                "party": [
+                    {
+                        "level": 27,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 27,
+                        "species": "PIKACHU"
+                    },
+                    {
+                        "level": 27,
+                        "species": "RATTATA"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 13",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "CLEFAIRY"
+                    },
+                    {
+                        "level": 29,
+                        "species": "MEOWTH"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Route 20",
+                "party": [
+                    {
+                        "level": 35,
+                        "species": "SEAKING"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Route 20",
+                "party": [
+                    {
+                        "level": 30,
+                        "species": "SHELLDER"
+                    },
+                    {
+                        "level": 30,
+                        "species": "SHELLDER"
+                    },
+                    {
+                        "level": 30,
+                        "species": "CLOYSTER"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Route 20",
+                "party": [
+                    {
+                        "level": 31,
+                        "species": "POLIWAG"
+                    },
+                    {
+                        "level": 31,
+                        "species": "SEAKING"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Route 15",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 29,
+                        "species": "WIGGLYTUFF"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Route 15",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "BULBASAUR"
+                    },
+                    {
+                        "level": 29,
+                        "species": "IVYSAUR"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "WEEPINBELL"
+                    },
+                    {
+                        "level": 33,
+                        "species": "BELLSPROUT"
+                    },
+                    {
+                        "level": 33,
+                        "species": "WEEPINBELL"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "Route 19",
+                "party": [
+                    {
+                        "level": 27,
+                        "species": "POLIWAG"
+                    },
+                    {
+                        "level": 27,
+                        "species": "GOLDEEN"
+                    },
+                    {
+                        "level": 27,
+                        "species": "SEAKING"
+                    },
+                    {
+                        "level": 27,
+                        "species": "GOLDEEN"
+                    },
+                    {
+                        "level": 27,
+                        "species": "POLIWAG"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "location": "Route 19",
+                "party": [
+                    {
+                        "level": 30,
+                        "species": "GOLDEEN"
+                    },
+                    {
+                        "level": 30,
+                        "species": "SEAKING"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "location": "Route 19",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "STARYU"
+                    },
+                    {
+                        "level": 29,
+                        "species": "STARYU"
+                    },
+                    {
+                        "level": 29,
+                        "species": "STARYU"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "location": "Route 20",
+                "party": [
+                    {
+                        "level": 30,
+                        "species": "SEADRA"
+                    },
+                    {
+                        "level": 30,
+                        "species": "HORSEA"
+                    },
+                    {
+                        "level": 30,
+                        "species": "SEADRA"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Psychic",
+        "id": 219,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Saffron Gym",
+                "party": [
+                    {
+                        "level": 31,
+                        "species": "KADABRA"
+                    },
+                    {
+                        "level": 31,
+                        "species": "SLOWPOKE"
+                    },
+                    {
+                        "level": 31,
+                        "species": "MR_MIME"
+                    },
+                    {
+                        "level": 31,
+                        "species": "KADABRA"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Saffron Gym",
+                "party": [
+                    {
+                        "level": 34,
+                        "species": "MR_MIME"
+                    },
+                    {
+                        "level": 34,
+                        "species": "KADABRA"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Saffron Gym",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "SLOWPOKE"
+                    },
+                    {
+                        "level": 33,
+                        "species": "SLOWPOKE"
+                    },
+                    {
+                        "level": 33,
+                        "species": "SLOWBRO"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Saffron Gym",
+                "party": [
+                    {
+                        "level": 38,
+                        "species": "SLOWBRO"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Rocker",
+        "id": 220,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Vermilion Gym",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "VOLTORB"
+                    },
+                    {
+                        "level": 20,
+                        "species": "MAGNEMITE"
+                    },
+                    {
+                        "level": 20,
+                        "species": "VOLTORB"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Route 12",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "VOLTORB"
+                    },
+                    {
+                        "level": 29,
+                        "species": "ELECTRODE"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Juggler",
+        "id": 221,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Silph Co. 5F",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "KADABRA"
+                    },
+                    {
+                        "level": 29,
+                        "species": "MR_MIME"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Victory Road 2F",
+                "party": [
+                    {
+                        "level": 41,
+                        "species": "DROWZEE"
+                    },
+                    {
+                        "level": 41,
+                        "species": "HYPNO"
+                    },
+                    {
+                        "level": 41,
+                        "species": "KADABRA"
+                    },
+                    {
+                        "level": 41,
+                        "species": "KADABRA"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Fuchsia Gym",
+                "party": [
+                    {
+                        "level": 31,
+                        "species": "DROWZEE"
+                    },
+                    {
+                        "level": 31,
+                        "species": "DROWZEE"
+                    },
+                    {
+                        "level": 31,
+                        "species": "KADABRA"
+                    },
+                    {
+                        "level": 31,
+                        "species": "DROWZEE"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Fuchsia Gym",
+                "party": [
+                    {
+                        "level": 34,
+                        "species": "DROWZEE"
+                    },
+                    {
+                        "level": 34,
+                        "species": "HYPNO"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Victory Road 2F",
+                "party": [
+                    {
+                        "level": 48,
+                        "species": "MR_MIME"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "HYPNO"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Fuchsia Gym",
+                "party": [
+                    {
+                        "level": 38,
+                        "species": "HYPNO"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Fuchsia Gym",
+                "party": [
+                    {
+                        "level": 34,
+                        "species": "DROWZEE"
+                    },
+                    {
+                        "level": 34,
+                        "species": "KADABRA"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Tamer",
+        "id": 222,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Fuchsia Gym",
+                "party": [
+                    {
+                        "level": 34,
+                        "species": "SANDSLASH"
+                    },
+                    {
+                        "level": 34,
+                        "species": "ARBOK"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Fuchsia Gym",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "ARBOK"
+                    },
+                    {
+                        "level": 33,
+                        "species": "SANDSLASH"
+                    },
+                    {
+                        "level": 33,
+                        "species": "ARBOK"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Viridian Gym",
+                "party": [
+                    {
+                        "level": 43,
+                        "species": "RHYHORN"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Viridian Gym",
+                "party": [
+                    {
+                        "level": 39,
+                        "species": "ARBOK"
+                    },
+                    {
+                        "level": 39,
+                        "species": "TAUROS"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Victory Road 2F",
+                "party": [
+                    {
+                        "level": 44,
+                        "species": "PERSIAN"
+                    },
+                    {
+                        "level": 44,
+                        "species": "GOLDUCK"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 42,
+                        "species": "RHYHORN"
+                    },
+                    {
+                        "level": 42,
+                        "species": "PRIMEAPE"
+                    },
+                    {
+                        "level": 42,
+                        "species": "ARBOK"
+                    },
+                    {
+                        "level": 42,
+                        "species": "TAUROS"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "BirdKeeper",
+        "id": 223,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Route 13",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 29,
+                        "species": "PIDGEOTTO"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Route 13",
+                "party": [
+                    {
+                        "level": 25,
+                        "species": "SPEAROW"
+                    },
+                    {
+                        "level": 25,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 25,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 25,
+                        "species": "SPEAROW"
+                    },
+                    {
+                        "level": 25,
+                        "species": "SPEAROW"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Route 13",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 26,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 26,
+                        "species": "SPEAROW"
+                    },
+                    {
+                        "level": 26,
+                        "species": "FEAROW"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 14",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "FARFETCHD"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 14",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "SPEAROW"
+                    },
+                    {
+                        "level": 29,
+                        "species": "FEAROW"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Route 15",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 26,
+                        "species": "FARFETCHD"
+                    },
+                    {
+                        "level": 26,
+                        "species": "DODUO"
+                    },
+                    {
+                        "level": 26,
+                        "species": "PIDGEY"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Route 15",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "DODRIO"
+                    },
+                    {
+                        "level": 28,
+                        "species": "DODUO"
+                    },
+                    {
+                        "level": 28,
+                        "species": "DODUO"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Route 18",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "SPEAROW"
+                    },
+                    {
+                        "level": 29,
+                        "species": "FEAROW"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Route 18",
+                "party": [
+                    {
+                        "level": 34,
+                        "species": "DODRIO"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Route 18",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "SPEAROW"
+                    },
+                    {
+                        "level": 26,
+                        "species": "SPEAROW"
+                    },
+                    {
+                        "level": 26,
+                        "species": "FEAROW"
+                    },
+                    {
+                        "level": 26,
+                        "species": "SPEAROW"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Route 20",
+                "party": [
+                    {
+                        "level": 30,
+                        "species": "FEAROW"
+                    },
+                    {
+                        "level": 30,
+                        "species": "FEAROW"
+                    },
+                    {
+                        "level": 30,
+                        "species": "PIDGEOTTO"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 39,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 39,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 39,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 39,
+                        "species": "PIDGEOTTO"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 42,
+                        "species": "FARFETCHD"
+                    },
+                    {
+                        "level": 42,
+                        "species": "FEAROW"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "location": "Route 14",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 28,
+                        "species": "DODUO"
+                    },
+                    {
+                        "level": 28,
+                        "species": "PIDGEOTTO"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "location": "Route 14",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 26,
+                        "species": "SPEAROW"
+                    },
+                    {
+                        "level": 26,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 26,
+                        "species": "FEAROW"
+                    }
+                ]
+            },
+            {
+                "index": 16,
+                "location": "Route 14",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 29,
+                        "species": "FEAROW"
+                    }
+                ]
+            },
+            {
+                "index": 17,
+                "location": "Route 14",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "SPEAROW"
+                    },
+                    {
+                        "level": 28,
+                        "species": "DODUO"
+                    },
+                    {
+                        "level": 28,
+                        "species": "FEAROW"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Blackbelt",
+        "id": 224,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Fighting Dojo",
+                "party": [
+                    {
+                        "level": 37,
+                        "species": "HITMONLEE"
+                    },
+                    {
+                        "level": 37,
+                        "species": "HITMONCHAN"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Fighting Dojo",
+                "party": [
+                    {
+                        "level": 31,
+                        "species": "MANKEY"
+                    },
+                    {
+                        "level": 31,
+                        "species": "MANKEY"
+                    },
+                    {
+                        "level": 31,
+                        "species": "PRIMEAPE"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Fighting Dojo",
+                "party": [
+                    {
+                        "level": 32,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 32,
+                        "species": "MACHOKE"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Fighting Dojo",
+                "party": [
+                    {
+                        "level": 36,
+                        "species": "PRIMEAPE"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Fighting Dojo",
+                "party": [
+                    {
+                        "level": 31,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 31,
+                        "species": "MANKEY"
+                    },
+                    {
+                        "level": 31,
+                        "species": "PRIMEAPE"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Viridian Gym",
+                "party": [
+                    {
+                        "level": 40,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 40,
+                        "species": "MACHOKE"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Viridian Gym",
+                "party": [
+                    {
+                        "level": 43,
+                        "species": "MACHOKE"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Viridian Gym",
+                "party": [
+                    {
+                        "level": 38,
+                        "species": "MACHOKE"
+                    },
+                    {
+                        "level": 38,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 38,
+                        "species": "MACHOKE"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Victory Road 2F",
+                "party": [
+                    {
+                        "level": 43,
+                        "species": "MACHOKE"
+                    },
+                    {
+                        "level": 43,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 43,
+                        "species": "MACHOKE"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Green1",
+        "id": 225,
+        "instances": [
+            {
+                "index": 1,
+                "location": "",
+                "party": [
+                    {
+                        "level": 5,
+                        "species": "SQUIRTLE"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "",
+                "party": [
+                    {
+                        "level": 5,
+                        "species": "BULBASAUR"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "",
+                "party": [
+                    {
+                        "level": 5,
+                        "species": "CHARMANDER"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Route 22",
+                "party": [
+                    {
+                        "level": 9,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 8,
+                        "species": "SQUIRTLE"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Route 22",
+                "party": [
+                    {
+                        "level": 9,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 8,
+                        "species": "BULBASAUR"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Route 22",
+                "party": [
+                    {
+                        "level": 9,
+                        "species": "PIDGEY"
+                    },
+                    {
+                        "level": 8,
+                        "species": "CHARMANDER"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Cerulean City",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 15,
+                        "species": "ABRA"
+                    },
+                    {
+                        "level": 15,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 17,
+                        "species": "SQUIRTLE"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Cerulean City",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 15,
+                        "species": "ABRA"
+                    },
+                    {
+                        "level": 15,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 17,
+                        "species": "BULBASAUR"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Cerulean City",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 15,
+                        "species": "ABRA"
+                    },
+                    {
+                        "level": 15,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 17,
+                        "species": "CHARMANDER"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "ProfOak",
+        "id": 226,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 66,
+                        "species": "TAUROS"
+                    },
+                    {
+                        "level": 67,
+                        "species": "EXEGGUTOR"
+                    },
+                    {
+                        "level": 68,
+                        "species": "ARCANINE"
+                    },
+                    {
+                        "level": 69,
+                        "species": "BLASTOISE"
+                    },
+                    {
+                        "level": 70,
+                        "species": "GYARADOS"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 66,
+                        "species": "TAUROS"
+                    },
+                    {
+                        "level": 67,
+                        "species": "EXEGGUTOR"
+                    },
+                    {
+                        "level": 68,
+                        "species": "ARCANINE"
+                    },
+                    {
+                        "level": 69,
+                        "species": "VENUSAUR"
+                    },
+                    {
+                        "level": 70,
+                        "species": "GYARADOS"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 66,
+                        "species": "TAUROS"
+                    },
+                    {
+                        "level": 67,
+                        "species": "EXEGGUTOR"
+                    },
+                    {
+                        "level": 68,
+                        "species": "ARCANINE"
+                    },
+                    {
+                        "level": 69,
+                        "species": "CHARIZARD"
+                    },
+                    {
+                        "level": 70,
+                        "species": "GYARADOS"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Scientist",
+        "id": 228,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 34,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 34,
+                        "species": "VOLTORB"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Silph Co. 2F",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 26,
+                        "species": "WEEZING"
+                    },
+                    {
+                        "level": 26,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 26,
+                        "species": "WEEZING"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Silph Co. 2F",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "MAGNEMITE"
+                    },
+                    {
+                        "level": 28,
+                        "species": "VOLTORB"
+                    },
+                    {
+                        "level": 28,
+                        "species": "MAGNETON"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Silph Co. 3F/Mansion 1F",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "ELECTRODE"
+                    },
+                    {
+                        "level": 29,
+                        "species": "WEEZING"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Silph Co. 4F",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "ELECTRODE"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Silph Co. 5F",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "MAGNETON"
+                    },
+                    {
+                        "level": 26,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 26,
+                        "species": "WEEZING"
+                    },
+                    {
+                        "level": 26,
+                        "species": "MAGNEMITE"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Silph Co. 6F",
+                "party": [
+                    {
+                        "level": 25,
+                        "species": "VOLTORB"
+                    },
+                    {
+                        "level": 25,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 25,
+                        "species": "MAGNETON"
+                    },
+                    {
+                        "level": 25,
+                        "species": "MAGNEMITE"
+                    },
+                    {
+                        "level": 25,
+                        "species": "KOFFING"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Silph Co. 7F",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "ELECTRODE"
+                    },
+                    {
+                        "level": 29,
+                        "species": "MUK"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Silph Co. 8F",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 29,
+                        "species": "ELECTRODE"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Silph Co. 9F",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "VOLTORB"
+                    },
+                    {
+                        "level": 28,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 28,
+                        "species": "MAGNETON"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Silph Co. 10F",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "MAGNEMITE"
+                    },
+                    {
+                        "level": 29,
+                        "species": "KOFFING"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "Mansion 3F",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "MAGNEMITE"
+                    },
+                    {
+                        "level": 33,
+                        "species": "MAGNETON"
+                    },
+                    {
+                        "level": 33,
+                        "species": "VOLTORB"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "location": "Mansion B1F",
+                "party": [
+                    {
+                        "level": 34,
+                        "species": "MAGNEMITE"
+                    },
+                    {
+                        "level": 34,
+                        "species": "ELECTRODE"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Giovanni",
+        "id": 229,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Rocket Hideout B4F",
+                "party": [
+                    {
+                        "level": 25,
+                        "species": "ONIX"
+                    },
+                    {
+                        "level": 24,
+                        "species": "RHYHORN"
+                    },
+                    {
+                        "level": 29,
+                        "species": "KANGASKHAN"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Silph Co. 11F",
+                "party": [
+                    {
+                        "level": 37,
+                        "species": "NIDORINO"
+                    },
+                    {
+                        "level": 35,
+                        "species": "KANGASKHAN"
+                    },
+                    {
+                        "level": 37,
+                        "species": "RHYHORN"
+                    },
+                    {
+                        "level": 41,
+                        "species": "NIDOQUEEN"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Viridian Gym",
+                "loneMoves": 8,
+                "party": [
+                    {
+                        "level": 45,
+                        "species": "RHYHORN"
+                    },
+                    {
+                        "level": 42,
+                        "species": "DUGTRIO"
+                    },
+                    {
+                        "level": 44,
+                        "species": "NIDOQUEEN"
+                    },
+                    {
+                        "level": 45,
+                        "species": "NIDOKING"
+                    },
+                    {
+                        "level": 50,
+                        "species": "RHYDON"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Rocket",
+        "id": 230,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Mt. Moon B2F",
+                "party": [
+                    {
+                        "level": 13,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 13,
+                        "species": "ZUBAT"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Mt. Moon B2F",
+                "party": [
+                    {
+                        "level": 11,
+                        "species": "SANDSHREW"
+                    },
+                    {
+                        "level": 11,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 11,
+                        "species": "ZUBAT"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Mt. Moon B2F",
+                "party": [
+                    {
+                        "level": 12,
+                        "species": "ZUBAT"
+                    },
+                    {
+                        "level": 12,
+                        "species": "EKANS"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Mt. Moon B2F",
+                "party": [
+                    {
+                        "level": 16,
+                        "species": "RATICATE"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Cerulean City",
+                "party": [
+                    {
+                        "level": 17,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 17,
+                        "species": "DROWZEE"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Route 24",
+                "party": [
+                    {
+                        "level": 15,
+                        "species": "EKANS"
+                    },
+                    {
+                        "level": 15,
+                        "species": "ZUBAT"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Game Corner",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "RATICATE"
+                    },
+                    {
+                        "level": 20,
+                        "species": "ZUBAT"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Rocket Hideout B1F",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "DROWZEE"
+                    },
+                    {
+                        "level": 21,
+                        "species": "MACHOP"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Rocket Hideout B1F",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "RATICATE"
+                    },
+                    {
+                        "level": 21,
+                        "species": "RATICATE"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Rocket Hideout B1F",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 20,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 20,
+                        "species": "KOFFING"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Rocket Hideout B1F",
+                "party": [
+                    {
+                        "level": 19,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 19,
+                        "species": "RATICATE"
+                    },
+                    {
+                        "level": 19,
+                        "species": "RATICATE"
+                    },
+                    {
+                        "level": 19,
+                        "species": "RATTATA"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "Rocket Hideout B1F",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 22,
+                        "species": "KOFFING"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "location": "Rocket Hideout B2F",
+                "party": [
+                    {
+                        "level": 17,
+                        "species": "ZUBAT"
+                    },
+                    {
+                        "level": 17,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 17,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 17,
+                        "species": "ZUBAT"
+                    },
+                    {
+                        "level": 17,
+                        "species": "RATICATE"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "location": "Rocket Hideout B3F",
+                "party": [
+                    {
+                        "level": 20,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 20,
+                        "species": "RATICATE"
+                    },
+                    {
+                        "level": 20,
+                        "species": "DROWZEE"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "location": "Rocket Hideout B3F",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 21,
+                        "species": "MACHOP"
+                    }
+                ]
+            },
+            {
+                "index": 16,
+                "location": "Rocket Hideout B4F",
+                "party": [
+                    {
+                        "level": 23,
+                        "species": "SANDSHREW"
+                    },
+                    {
+                        "level": 23,
+                        "species": "EKANS"
+                    },
+                    {
+                        "level": 23,
+                        "species": "SANDSLASH"
+                    }
+                ]
+            },
+            {
+                "index": 17,
+                "location": "Rocket Hideout B4F",
+                "party": [
+                    {
+                        "level": 23,
+                        "species": "EKANS"
+                    },
+                    {
+                        "level": 23,
+                        "species": "SANDSHREW"
+                    },
+                    {
+                        "level": 23,
+                        "species": "ARBOK"
+                    }
+                ]
+            },
+            {
+                "index": 18,
+                "location": "Rocket Hideout B4F",
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 21,
+                        "species": "ZUBAT"
+                    }
+                ]
+            },
+            {
+                "index": 19,
+                "location": "Pokémon Tower 7F",
+                "party": [
+                    {
+                        "level": 25,
+                        "species": "ZUBAT"
+                    },
+                    {
+                        "level": 25,
+                        "species": "ZUBAT"
+                    },
+                    {
+                        "level": 25,
+                        "species": "GOLBAT"
+                    }
+                ]
+            },
+            {
+                "index": 20,
+                "location": "Pokémon Tower 7F",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 26,
+                        "species": "DROWZEE"
+                    }
+                ]
+            },
+            {
+                "index": 21,
+                "location": "Pokémon Tower 7F",
+                "party": [
+                    {
+                        "level": 23,
+                        "species": "ZUBAT"
+                    },
+                    {
+                        "level": 23,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 23,
+                        "species": "RATICATE"
+                    },
+                    {
+                        "level": 23,
+                        "species": "ZUBAT"
+                    }
+                ]
+            },
+            {
+                "index": 22,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "DROWZEE"
+                    },
+                    {
+                        "level": 26,
+                        "species": "KOFFING"
+                    }
+                ]
+            },
+            {
+                "index": 23,
+                "location": "Silph Co. 2F",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "CUBONE"
+                    },
+                    {
+                        "level": 29,
+                        "species": "ZUBAT"
+                    }
+                ]
+            },
+            {
+                "index": 24,
+                "location": "Silph Co. 2F",
+                "party": [
+                    {
+                        "level": 25,
+                        "species": "GOLBAT"
+                    },
+                    {
+                        "level": 25,
+                        "species": "ZUBAT"
+                    },
+                    {
+                        "level": 25,
+                        "species": "ZUBAT"
+                    },
+                    {
+                        "level": 25,
+                        "species": "RATICATE"
+                    },
+                    {
+                        "level": 25,
+                        "species": "ZUBAT"
+                    }
+                ]
+            },
+            {
+                "index": 25,
+                "location": "Silph Co. 3F",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "RATICATE"
+                    },
+                    {
+                        "level": 28,
+                        "species": "HYPNO"
+                    },
+                    {
+                        "level": 28,
+                        "species": "RATICATE"
+                    }
+                ]
+            },
+            {
+                "index": 26,
+                "location": "Silph Co. 4F",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 29,
+                        "species": "DROWZEE"
+                    }
+                ]
+            },
+            {
+                "index": 27,
+                "location": "Silph Co. 4F",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "EKANS"
+                    },
+                    {
+                        "level": 28,
+                        "species": "ZUBAT"
+                    },
+                    {
+                        "level": 28,
+                        "species": "CUBONE"
+                    }
+                ]
+            },
+            {
+                "index": 28,
+                "location": "Silph Co. 5F",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "ARBOK"
+                    }
+                ]
+            },
+            {
+                "index": 29,
+                "location": "Silph Co. 5F",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "HYPNO"
+                    }
+                ]
+            },
+            {
+                "index": 30,
+                "location": "Silph Co. 6F",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "MACHOP"
+                    },
+                    {
+                        "level": 29,
+                        "species": "MACHOKE"
+                    }
+                ]
+            },
+            {
+                "index": 31,
+                "location": "Silph Co. 6F",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "ZUBAT"
+                    },
+                    {
+                        "level": 28,
+                        "species": "ZUBAT"
+                    },
+                    {
+                        "level": 28,
+                        "species": "GOLBAT"
+                    }
+                ]
+            },
+            {
+                "index": 32,
+                "location": "Silph Co. 7F",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "RATICATE"
+                    },
+                    {
+                        "level": 26,
+                        "species": "ARBOK"
+                    },
+                    {
+                        "level": 26,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 26,
+                        "species": "GOLBAT"
+                    }
+                ]
+            },
+            {
+                "index": 33,
+                "location": "Silph Co. 7F",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "CUBONE"
+                    },
+                    {
+                        "level": 29,
+                        "species": "CUBONE"
+                    }
+                ]
+            },
+            {
+                "index": 34,
+                "location": "Silph Co. 7F",
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "SANDSHREW"
+                    },
+                    {
+                        "level": 29,
+                        "species": "SANDSLASH"
+                    }
+                ]
+            },
+            {
+                "index": 35,
+                "location": "Silph Co. 8F",
+                "party": [
+                    {
+                        "level": 26,
+                        "species": "RATICATE"
+                    },
+                    {
+                        "level": 26,
+                        "species": "ZUBAT"
+                    },
+                    {
+                        "level": 26,
+                        "species": "GOLBAT"
+                    },
+                    {
+                        "level": 26,
+                        "species": "RATTATA"
+                    }
+                ]
+            },
+            {
+                "index": 36,
+                "location": "Silph Co. 8F",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "WEEZING"
+                    },
+                    {
+                        "level": 28,
+                        "species": "GOLBAT"
+                    },
+                    {
+                        "level": 28,
+                        "species": "KOFFING"
+                    }
+                ]
+            },
+            {
+                "index": 37,
+                "location": "Silph Co. 9F",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "DROWZEE"
+                    },
+                    {
+                        "level": 28,
+                        "species": "GRIMER"
+                    },
+                    {
+                        "level": 28,
+                        "species": "MACHOP"
+                    }
+                ]
+            },
+            {
+                "index": 38,
+                "location": "Silph Co. 9F",
+                "party": [
+                    {
+                        "level": 28,
+                        "species": "GOLBAT"
+                    },
+                    {
+                        "level": 28,
+                        "species": "DROWZEE"
+                    },
+                    {
+                        "level": 28,
+                        "species": "HYPNO"
+                    }
+                ]
+            },
+            {
+                "index": 39,
+                "location": "Silph Co. 10F",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "MACHOKE"
+                    }
+                ]
+            },
+            {
+                "index": 40,
+                "location": "Silph Co. 11F",
+                "party": [
+                    {
+                        "level": 25,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 25,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 25,
+                        "species": "ZUBAT"
+                    },
+                    {
+                        "level": 25,
+                        "species": "RATTATA"
+                    },
+                    {
+                        "level": 25,
+                        "species": "EKANS"
+                    }
+                ]
+            },
+            {
+                "index": 41,
+                "location": "Silph Co. 11F",
+                "party": [
+                    {
+                        "level": 32,
+                        "species": "CUBONE"
+                    },
+                    {
+                        "level": 32,
+                        "species": "DROWZEE"
+                    },
+                    {
+                        "level": 32,
+                        "species": "MAROWAK"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "CooltrainerM",
+        "id": 231,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Viridian Gym",
+                "party": [
+                    {
+                        "level": 39,
+                        "species": "NIDORINO"
+                    },
+                    {
+                        "level": 39,
+                        "species": "NIDOKING"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Victory Road 3F",
+                "party": [
+                    {
+                        "level": 43,
+                        "species": "EXEGGUTOR"
+                    },
+                    {
+                        "level": 43,
+                        "species": "CLOYSTER"
+                    },
+                    {
+                        "level": 43,
+                        "species": "ARCANINE"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Victory Road 3F",
+                "party": [
+                    {
+                        "level": 43,
+                        "species": "KINGLER"
+                    },
+                    {
+                        "level": 43,
+                        "species": "TENTACRUEL"
+                    },
+                    {
+                        "level": 43,
+                        "species": "BLASTOISE"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 45,
+                        "species": "KINGLER"
+                    },
+                    {
+                        "level": 45,
+                        "species": "STARMIE"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Victory Road 1F",
+                "party": [
+                    {
+                        "level": 42,
+                        "species": "IVYSAUR"
+                    },
+                    {
+                        "level": 42,
+                        "species": "WARTORTLE"
+                    },
+                    {
+                        "level": 42,
+                        "species": "CHARMELEON"
+                    },
+                    {
+                        "level": 42,
+                        "species": "CHARIZARD"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 44,
+                        "species": "IVYSAUR"
+                    },
+                    {
+                        "level": 44,
+                        "species": "WARTORTLE"
+                    },
+                    {
+                        "level": 44,
+                        "species": "CHARMELEON"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 49,
+                        "species": "NIDOKING"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 44,
+                        "species": "KINGLER"
+                    },
+                    {
+                        "level": 44,
+                        "species": "CLOYSTER"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Viridian Gym",
+                "party": [
+                    {
+                        "level": 39,
+                        "species": "SANDSLASH"
+                    },
+                    {
+                        "level": 39,
+                        "species": "DUGTRIO"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Viridian Gym",
+                "party": [
+                    {
+                        "level": 43,
+                        "species": "RHYHORN"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "CooltrainerF",
+        "id": 232,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Celadon Gym",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "WEEPINBELL"
+                    },
+                    {
+                        "level": 24,
+                        "species": "GLOOM"
+                    },
+                    {
+                        "level": 24,
+                        "species": "IVYSAUR"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Victory Road 3F",
+                "party": [
+                    {
+                        "level": 43,
+                        "species": "BELLSPROUT"
+                    },
+                    {
+                        "level": 43,
+                        "species": "WEEPINBELL"
+                    },
+                    {
+                        "level": 43,
+                        "species": "VICTREEBEL"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Victory Road 3F",
+                "party": [
+                    {
+                        "level": 43,
+                        "species": "PARASECT"
+                    },
+                    {
+                        "level": 43,
+                        "species": "DEWGONG"
+                    },
+                    {
+                        "level": 43,
+                        "species": "CHANSEY"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 46,
+                        "species": "VILEPLUME"
+                    },
+                    {
+                        "level": 46,
+                        "species": "BUTTERFREE"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Victory Road 1F",
+                "party": [
+                    {
+                        "level": 44,
+                        "species": "PERSIAN"
+                    },
+                    {
+                        "level": 44,
+                        "species": "NINETALES"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 45,
+                        "species": "IVYSAUR"
+                    },
+                    {
+                        "level": 45,
+                        "species": "VENUSAUR"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 45,
+                        "species": "NIDORINA"
+                    },
+                    {
+                        "level": 45,
+                        "species": "NIDOQUEEN"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 43,
+                        "species": "PERSIAN"
+                    },
+                    {
+                        "level": 43,
+                        "species": "NINETALES"
+                    },
+                    {
+                        "level": 43,
+                        "species": "RAICHU"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Bruno",
+        "id": 233,
+        "instances": [
+            {
+                "index": 1,
+                "location": "",
+                "party": [
+                    {
+                        "level": 53,
+                        "species": "ONIX"
+                    },
+                    {
+                        "level": 55,
+                        "species": "HITMONCHAN"
+                    },
+                    {
+                        "level": 55,
+                        "species": "HITMONLEE"
+                    },
+                    {
+                        "level": 56,
+                        "species": "ONIX"
+                    },
+                    {
+                        "level": 58,
+                        "species": "MACHAMP"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Brock",
+        "id": 234,
+        "instances": [
+            {
+                "index": 1,
+                "location": "",
+                "loneMoves": 1,
+                "party": [
+                    {
+                        "level": 12,
+                        "species": "GEODUDE"
+                    },
+                    {
+                        "level": 14,
+                        "species": "ONIX"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Misty",
+        "id": 235,
+        "instances": [
+            {
+                "index": 1,
+                "location": "",
+                "loneMoves": 2,
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "STARYU"
+                    },
+                    {
+                        "level": 21,
+                        "species": "STARMIE"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "LtSurge",
+        "id": 236,
+        "instances": [
+            {
+                "index": 1,
+                "location": "",
+                "loneMoves": 3,
+                "party": [
+                    {
+                        "level": 21,
+                        "species": "VOLTORB"
+                    },
+                    {
+                        "level": 18,
+                        "species": "PIKACHU"
+                    },
+                    {
+                        "level": 24,
+                        "species": "RAICHU"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Erika",
+        "id": 237,
+        "instances": [
+            {
+                "index": 1,
+                "location": "",
+                "loneMoves": 4,
+                "party": [
+                    {
+                        "level": 29,
+                        "species": "VICTREEBEL"
+                    },
+                    {
+                        "level": 24,
+                        "species": "TANGELA"
+                    },
+                    {
+                        "level": 29,
+                        "species": "VILEPLUME"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Koga",
+        "id": 238,
+        "instances": [
+            {
+                "index": 1,
+                "location": "",
+                "loneMoves": 5,
+                "party": [
+                    {
+                        "level": 37,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 39,
+                        "species": "MUK"
+                    },
+                    {
+                        "level": 37,
+                        "species": "KOFFING"
+                    },
+                    {
+                        "level": 43,
+                        "species": "WEEZING"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Blaine",
+        "id": 239,
+        "instances": [
+            {
+                "index": 1,
+                "location": "",
+                "loneMoves": 7,
+                "party": [
+                    {
+                        "level": 42,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 40,
+                        "species": "PONYTA"
+                    },
+                    {
+                        "level": 42,
+                        "species": "RAPIDASH"
+                    },
+                    {
+                        "level": 47,
+                        "species": "ARCANINE"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Sabrina",
+        "id": 240,
+        "instances": [
+            {
+                "index": 1,
+                "location": "",
+                "loneMoves": 6,
+                "party": [
+                    {
+                        "level": 38,
+                        "species": "KADABRA"
+                    },
+                    {
+                        "level": 37,
+                        "species": "MR_MIME"
+                    },
+                    {
+                        "level": 38,
+                        "species": "VENOMOTH"
+                    },
+                    {
+                        "level": 43,
+                        "species": "ALAKAZAM"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Gentleman",
+        "id": 241,
+        "instances": [
+            {
+                "index": 1,
+                "location": "SS Anne 1F Rooms",
+                "party": [
+                    {
+                        "level": 18,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 18,
+                        "species": "GROWLITHE"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "SS Anne 1F Rooms",
+                "party": [
+                    {
+                        "level": 19,
+                        "species": "NIDORAN_M"
+                    },
+                    {
+                        "level": 19,
+                        "species": "NIDORAN_F"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "SS Anne 2F Rooms/Vermilion Gym",
+                "party": [
+                    {
+                        "level": 23,
+                        "species": "PIKACHU"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 48,
+                        "species": "PRIMEAPE"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "SS Anne 2F Rooms",
+                "party": [
+                    {
+                        "level": 17,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 17,
+                        "species": "PONYTA"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Green2",
+        "id": 242,
+        "instances": [
+            {
+                "index": 1,
+                "location": "SS Anne 2F",
+                "party": [
+                    {
+                        "level": 19,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 16,
+                        "species": "RATICATE"
+                    },
+                    {
+                        "level": 18,
+                        "species": "KADABRA"
+                    },
+                    {
+                        "level": 20,
+                        "species": "WARTORTLE"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "SS Anne 2F",
+                "party": [
+                    {
+                        "level": 19,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 16,
+                        "species": "RATICATE"
+                    },
+                    {
+                        "level": 18,
+                        "species": "KADABRA"
+                    },
+                    {
+                        "level": 20,
+                        "species": "IVYSAUR"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "SS Anne 2F",
+                "party": [
+                    {
+                        "level": 19,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 16,
+                        "species": "RATICATE"
+                    },
+                    {
+                        "level": 18,
+                        "species": "KADABRA"
+                    },
+                    {
+                        "level": 20,
+                        "species": "CHARMELEON"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Pokémon Tower 2F",
+                "party": [
+                    {
+                        "level": 25,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 23,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 22,
+                        "species": "EXEGGCUTE"
+                    },
+                    {
+                        "level": 20,
+                        "species": "KADABRA"
+                    },
+                    {
+                        "level": 25,
+                        "species": "WARTORTLE"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Pokémon Tower 2F",
+                "party": [
+                    {
+                        "level": 25,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 23,
+                        "species": "GYARADOS"
+                    },
+                    {
+                        "level": 22,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 20,
+                        "species": "KADABRA"
+                    },
+                    {
+                        "level": 25,
+                        "species": "IVYSAUR"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Pokémon Tower 2F",
+                "party": [
+                    {
+                        "level": 25,
+                        "species": "PIDGEOTTO"
+                    },
+                    {
+                        "level": 23,
+                        "species": "EXEGGCUTE"
+                    },
+                    {
+                        "level": 22,
+                        "species": "GYARADOS"
+                    },
+                    {
+                        "level": 20,
+                        "species": "KADABRA"
+                    },
+                    {
+                        "level": 25,
+                        "species": "CHARMELEON"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Silph Co. 7F",
+                "party": [
+                    {
+                        "level": 37,
+                        "species": "PIDGEOT"
+                    },
+                    {
+                        "level": 38,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 35,
+                        "species": "EXEGGCUTE"
+                    },
+                    {
+                        "level": 35,
+                        "species": "ALAKAZAM"
+                    },
+                    {
+                        "level": 40,
+                        "species": "BLASTOISE"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Silph Co. 7F",
+                "party": [
+                    {
+                        "level": 37,
+                        "species": "PIDGEOT"
+                    },
+                    {
+                        "level": 38,
+                        "species": "GYARADOS"
+                    },
+                    {
+                        "level": 35,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 35,
+                        "species": "ALAKAZAM"
+                    },
+                    {
+                        "level": 40,
+                        "species": "VENUSAUR"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Silph Co. 7F",
+                "party": [
+                    {
+                        "level": 37,
+                        "species": "PIDGEOT"
+                    },
+                    {
+                        "level": 38,
+                        "species": "EXEGGCUTE"
+                    },
+                    {
+                        "level": 35,
+                        "species": "GYARADOS"
+                    },
+                    {
+                        "level": 35,
+                        "species": "ALAKAZAM"
+                    },
+                    {
+                        "level": 40,
+                        "species": "CHARIZARD"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Route 22",
+                "party": [
+                    {
+                        "level": 47,
+                        "species": "PIDGEOT"
+                    },
+                    {
+                        "level": 45,
+                        "species": "RHYHORN"
+                    },
+                    {
+                        "level": 45,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 47,
+                        "species": "EXEGGCUTE"
+                    },
+                    {
+                        "level": 50,
+                        "species": "ALAKAZAM"
+                    },
+                    {
+                        "level": 53,
+                        "species": "BLASTOISE"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Route 22",
+                "party": [
+                    {
+                        "level": 47,
+                        "species": "PIDGEOT"
+                    },
+                    {
+                        "level": 45,
+                        "species": "RHYHORN"
+                    },
+                    {
+                        "level": 45,
+                        "species": "GYARADOS"
+                    },
+                    {
+                        "level": 47,
+                        "species": "GROWLITHE"
+                    },
+                    {
+                        "level": 50,
+                        "species": "ALAKAZAM"
+                    },
+                    {
+                        "level": 53,
+                        "species": "VENUSAUR"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "Route 22",
+                "party": [
+                    {
+                        "level": 47,
+                        "species": "PIDGEOT"
+                    },
+                    {
+                        "level": 45,
+                        "species": "RHYHORN"
+                    },
+                    {
+                        "level": 45,
+                        "species": "EXEGGCUTE"
+                    },
+                    {
+                        "level": 47,
+                        "species": "GYARADOS"
+                    },
+                    {
+                        "level": 50,
+                        "species": "ALAKAZAM"
+                    },
+                    {
+                        "level": 53,
+                        "species": "CHARIZARD"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Green3",
+        "id": 243,
+        "instances": [
+            {
+                "index": 1,
+                "location": "",
+                "party": [
+                    {
+                        "level": 61,
+                        "species": "PIDGEOT"
+                    },
+                    {
+                        "level": 59,
+                        "species": "ALAKAZAM"
+                    },
+                    {
+                        "level": 61,
+                        "species": "RHYDON"
+                    },
+                    {
+                        "level": 61,
+                        "species": "ARCANINE"
+                    },
+                    {
+                        "level": 63,
+                        "species": "EXEGGUTOR"
+                    },
+                    {
+                        "level": 65,
+                        "species": "BLASTOISE"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "",
+                "party": [
+                    {
+                        "level": 61,
+                        "species": "PIDGEOT"
+                    },
+                    {
+                        "level": 59,
+                        "species": "ALAKAZAM"
+                    },
+                    {
+                        "level": 61,
+                        "species": "RHYDON"
+                    },
+                    {
+                        "level": 61,
+                        "species": "GYARADOS"
+                    },
+                    {
+                        "level": 63,
+                        "species": "ARCANINE"
+                    },
+                    {
+                        "level": 65,
+                        "species": "VENUSAUR"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "",
+                "party": [
+                    {
+                        "level": 61,
+                        "species": "PIDGEOT"
+                    },
+                    {
+                        "level": 59,
+                        "species": "ALAKAZAM"
+                    },
+                    {
+                        "level": 61,
+                        "species": "RHYDON"
+                    },
+                    {
+                        "level": 61,
+                        "species": "EXEGGUTOR"
+                    },
+                    {
+                        "level": 63,
+                        "species": "GYARADOS"
+                    },
+                    {
+                        "level": 65,
+                        "species": "CHARIZARD"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Lorelei",
+        "id": 244,
+        "instances": [
+            {
+                "index": 1,
+                "location": "",
+                "party": [
+                    {
+                        "level": 54,
+                        "species": "DEWGONG"
+                    },
+                    {
+                        "level": 53,
+                        "species": "CLOYSTER"
+                    },
+                    {
+                        "level": 54,
+                        "species": "SLOWBRO"
+                    },
+                    {
+                        "level": 56,
+                        "species": "JYNX"
+                    },
+                    {
+                        "level": 56,
+                        "species": "LAPRAS"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Channeler",
+        "id": 245,
+        "instances": [
+            {
+                "index": 1,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 23,
+                        "species": "GASTLY"
+                    },
+                    {
+                        "level": 23,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "location": "Pokémon Tower 3F",
+                "party": [
+                    {
+                        "level": 23,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "location": "Pokémon Tower 3F",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "HAUNTER"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "location": "Pokémon Tower 3F",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "location": "Pokémon Tower 4F",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "location": "Pokémon Tower 4F",
+                "party": [
+                    {
+                        "level": 23,
+                        "species": "GASTLY"
+                    },
+                    {
+                        "level": 23,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "location": "Pokémon Tower 4F",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "location": "Pokémon Tower 5F",
+                "party": [
+                    {
+                        "level": 23,
+                        "species": "HAUNTER"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "location": "Unused",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 16,
+                "location": "Pokémon Tower 5F",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 17,
+                "location": "Pokémon Tower 5F",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 18,
+                "location": "Pokémon Tower 5F",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "HAUNTER"
+                    }
+                ]
+            },
+            {
+                "index": 19,
+                "location": "Pokémon Tower 6F",
+                "party": [
+                    {
+                        "level": 22,
+                        "species": "GASTLY"
+                    },
+                    {
+                        "level": 22,
+                        "species": "GASTLY"
+                    },
+                    {
+                        "level": 22,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 20,
+                "location": "Pokémon Tower 6F",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 21,
+                "location": "Pokémon Tower 6F",
+                "party": [
+                    {
+                        "level": 24,
+                        "species": "GASTLY"
+                    }
+                ]
+            },
+            {
+                "index": 22,
+                "location": "Saffron Gym",
+                "party": [
+                    {
+                        "level": 34,
+                        "species": "GASTLY"
+                    },
+                    {
+                        "level": 34,
+                        "species": "HAUNTER"
+                    }
+                ]
+            },
+            {
+                "index": 23,
+                "location": "Saffron Gym",
+                "party": [
+                    {
+                        "level": 38,
+                        "species": "HAUNTER"
+                    }
+                ]
+            },
+            {
+                "index": 24,
+                "location": "Saffron Gym",
+                "party": [
+                    {
+                        "level": 33,
+                        "species": "GASTLY"
+                    },
+                    {
+                        "level": 33,
+                        "species": "GASTLY"
+                    },
+                    {
+                        "level": 33,
+                        "species": "HAUNTER"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Agatha",
+        "id": 246,
+        "instances": [
+            {
+                "index": 1,
+                "location": "",
+                "party": [
+                    {
+                        "level": 56,
+                        "species": "GENGAR"
+                    },
+                    {
+                        "level": 56,
+                        "species": "GOLBAT"
+                    },
+                    {
+                        "level": 55,
+                        "species": "HAUNTER"
+                    },
+                    {
+                        "level": 58,
+                        "species": "ARBOK"
+                    },
+                    {
+                        "level": 60,
+                        "species": "GENGAR"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Lance",
+        "id": 247,
+        "instances": [
+            {
+                "index": 1,
+                "location": "",
+                "party": [
+                    {
+                        "level": 58,
+                        "species": "GYARADOS"
+                    },
+                    {
+                        "level": 56,
+                        "species": "DRAGONAIR"
+                    },
+                    {
+                        "level": 56,
+                        "species": "DRAGONAIR"
+                    },
+                    {
+                        "level": 60,
+                        "species": "AERODACTYL"
+                    },
+                    {
+                        "level": 62,
+                        "species": "DRAGONITE"
+                    }
+                ]
+            }
+        ]
+    }
+]
