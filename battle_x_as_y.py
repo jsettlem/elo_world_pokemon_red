@@ -82,7 +82,7 @@ ENEMY_SELECTED_MOVE = 0xccdd
 
 BATTLE_MON = 0xd014
 BATTLE_MON_HP = 0xD015
-BATTLE_MON_PARTY_POS = 0xd017
+BATTLE_MON_PARTY_POS = 0xcc2f
 BATTLE_MON_MOVES = 0xd01c
 BATTLE_MON_SPEED = 0xd029
 BATTLE_MON_PP = 0xd02d
@@ -120,11 +120,13 @@ DOWN_BUTTON = 0b10000000
 
 BATTLE_ANIMATIONS = True
 OPTIONS = 0xd355
-ANIMATION_FLAG = 0b1100001
+ANIMATION_FLAG = 0b11111111
 
 INSTANT_TEXT = True
 LETTER_PRINTING_DELAY = 0xd355
 LETTER_PRINTING_DELAY_FLAG = 0b0100000
+
+PARTY_MENU_CHOICE = 0xcc2b
 
 
 def byte_to_pokestring(byte_array: Iterable[int]) -> str:
@@ -241,20 +243,21 @@ def generate_demo(buttons: Iterable[int], buffer_button: int = B_BUTTON, buffer_
 	])
 
 
-def select_move(current_move: int, target_move: int) -> bytearray:
-	if target_move < current_move:
-		move_button = UP_BUTTON
-		move_amount = current_move - target_move
+def select_menu_item(current: int, target: int) -> Iterable[int]:
+	if target < current:
+		return [UP_BUTTON] * (current - target)
 	else:
-		move_button = DOWN_BUTTON
-		move_amount = target_move - current_move
+		return [DOWN_BUTTON] * (target - current)
+
+
+def select_move(current_move: int, target_move: int) -> bytearray:
 	return generate_demo([
 		B_BUTTON,
 		UP_BUTTON,
 		LEFT_BUTTON,
 		A_BUTTON,
 		0, 0,
-		*([move_button] * move_amount),
+		*select_menu_item(current_move, target_move),
 		A_BUTTON
 	])
 
@@ -283,10 +286,10 @@ def get_pokemon_to_switch_to(battle_state: bytearray) -> int:
 	return 0
 
 
-def choose_pokemon(index: int) -> bytearray:
+def choose_pokemon(current: int, target: int) -> bytearray:
 	return generate_demo([
 		0, 0, 0, 0, 0,
-		*([DOWN_BUTTON] * index),
+		*select_menu_item(current, target),
 		A_BUTTON,
 		0, 0, 0, 0, 0,
 		A_BUTTON
@@ -372,6 +375,9 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	if INSTANT_TEXT:
 		set_value(base, LETTER_PRINTING_DELAY, [LETTER_PRINTING_DELAY_FLAG], 1)
 
+	base_ai_action_count = your_class["actionCount"] if "actionCount" in your_class else 3
+	ai_action_count = base_ai_action_count
+
 	print(f"You are {get_trainer_string(your_class, your_instance)}")
 	print(f"Your opponent is {get_trainer_string(enemy_class, enemy_instance)}")
 
@@ -381,8 +387,11 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	total_clocks = get_total_clocks(base)
 
 	using_item = False
+	last_pokemon = 0
 
 	while True:
+		print("you have", ai_action_count, "actions")
+
 		breakpoint_condition = f"TOTALCLKS>${total_clocks:x}"
 		subprocess.call([BGB_PATH, battle_save_path, *bgb_options,
 		                 "-br", f"4eb6/{breakpoint_condition},"
@@ -398,12 +407,14 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 		total_clocks = get_total_clocks(battle_state)
 		pc = get_program_counter(battle_state)
 
+		current_pokemon = get_value(battle_state, BATTLE_MON_PARTY_POS, 1)[0]
 		if pc == PARTY_MENU_INIT_OFFSET:
+			current_party_menu_choice = get_value(battle_state, PARTY_MENU_CHOICE, 1)[0]
 			if using_item:
-				button_sequence = choose_pokemon(get_value(battle_state, BATTLE_MON_PARTY_POS, 1)[0])
+				button_sequence = choose_pokemon(current_party_menu_choice, current_pokemon)
 				using_item = False
 			else:
-				button_sequence = choose_pokemon(get_pokemon_to_switch_to(battle_state))
+				button_sequence = choose_pokemon(current_party_menu_choice, get_pokemon_to_switch_to(battle_state))
 		elif pc == TRAINER_WIN_OFFSET:
 			print(f"{your_class['class']} wins!")
 			win = True
@@ -413,6 +424,10 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			win = False
 			break
 		else:
+			print(current_pokemon, last_pokemon)
+			if current_pokemon != last_pokemon:
+				last_pokemon = current_pokemon
+				ai_action_count = base_ai_action_count
 			using_item = False
 			copy_values(battle_state, BATTLE_MON, ai_base, ENEMY_BATTLE_MON, BATTLE_MON_SIZE - 1)
 			copy_values(battle_state, ENEMY_BATTLE_MON, ai_base, BATTLE_MON, BATTLE_MON_SIZE - 1)
@@ -431,7 +446,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			set_value(ai_base, BATTLE_MON_SPEED, [0, 0], 2)
 			set_value(ai_base, PLAYER_SELECTED_MOVE, [reverse_moves["COUNTER"]], 1)
 			set_value(ai_base, ENEMY_ITEM_USED, [0], 1)
-			set_value(ai_base, AI_ACTION_COUNT, [3], 1)
+			set_value(ai_base, AI_ACTION_COUNT, [ai_action_count], 1)
 
 			randomize_rdiv(ai_base)
 
@@ -445,6 +460,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			elif item_id:
 				set_value(battle_state, BAG_ITEM_COUNT, [1], 1)
 				set_value(battle_state, BAG_ITEMS, [item_id, 1, 0xFF], 3)
+				ai_action_count = max(ai_action_count - 1, 0)
 
 				using_item = True
 				button_sequence = use_item()

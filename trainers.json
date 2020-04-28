@@ -3374,6 +3374,7 @@
     {
         "class": "Juggler",
         "id": 221,
+        "actionCount": 3,
         "instances": [
             {
                 "index": 1,
@@ -3898,6 +3899,7 @@
     {
         "class": "Blackbelt",
         "id": 224,
+        "actionCount": 2,
         "instances": [
             {
                 "index": 1,
@@ -4490,6 +4492,7 @@
     {
         "class": "Giovanni",
         "id": 229,
+        "actionCount": 1,
         "instances": [
             {
                 "index": 1,
@@ -5247,6 +5250,7 @@
     {
         "class": "CooltrainerM",
         "id": 231,
+        "actionCount": 2,
         "instances": [
             {
                 "index": 1,
@@ -5405,6 +5409,7 @@
     {
         "class": "CooltrainerF",
         "id": 232,
+        "actionCount": 1,
         "instances": [
             {
                 "index": 1,
@@ -5539,6 +5544,7 @@
     {
         "class": "Bruno",
         "id": 233,
+        "actionCount": 2,
         "instances": [
             {
                 "index": 1,
@@ -5571,6 +5577,7 @@
     {
         "class": "Brock",
         "id": 234,
+        "actionCount": 5,
         "instances": [
             {
                 "index": 1,
@@ -5592,6 +5599,7 @@
     {
         "class": "Misty",
         "id": 235,
+        "actionCount": 1,
         "instances": [
             {
                 "index": 1,
@@ -5613,6 +5621,7 @@
     {
         "class": "LtSurge",
         "id": 236,
+        "actionCount": 1,
         "instances": [
             {
                 "index": 1,
@@ -5638,6 +5647,7 @@
     {
         "class": "Erika",
         "id": 237,
+        "actionCount": 1,
         "instances": [
             {
                 "index": 1,
@@ -5663,6 +5673,7 @@
     {
         "class": "Koga",
         "id": 238,
+        "actionCount": 2,
         "instances": [
             {
                 "index": 1,
@@ -5692,6 +5703,7 @@
     {
         "class": "Blaine",
         "id": 239,
+        "actionCount": 2,
         "instances": [
             {
                 "index": 1,
@@ -5721,6 +5733,7 @@
     {
         "class": "Sabrina",
         "id": 240,
+        "actionCount": 1,
         "instances": [
             {
                 "index": 1,
@@ -5818,6 +5831,7 @@
     {
         "class": "Green2",
         "id": 242,
+        "actionCount": 1,
         "instances": [
             {
                 "index": 1,
@@ -6136,6 +6150,7 @@
     {
         "class": "Green3",
         "id": 243,
+        "actionCount": 1,
         "instances": [
             {
                 "index": 1,
@@ -6232,6 +6247,7 @@
     {
         "class": "Lorelei",
         "id": 244,
+        "actionCount": 2,
         "instances": [
             {
                 "index": 1,
@@ -6538,6 +6554,7 @@
     {
         "class": "Agatha",
         "id": 246,
+        "actionCount": 2,
         "instances": [
             {
                 "index": 1,
@@ -6570,6 +6587,7 @@
     {
         "class": "Lance",
         "id": 247,
+        "actionCount": 1,
         "instances": [
             {
                 "index": 1,
