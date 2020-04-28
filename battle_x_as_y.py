@@ -85,6 +85,7 @@ BATTLE_MON_HP = 0xD015
 BATTLE_MON_PARTY_POS = 0xd017
 BATTLE_MON_MOVES = 0xd01c
 BATTLE_MON_SPEED = 0xd029
+BATTLE_MON_PP = 0xd02d
 ENEMY_BATTLE_MON = 0xcfe5
 BATTLE_MON_SIZE = 0x1c
 
@@ -430,7 +431,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			elif item_id:
 				set_value(battle_state, BAG_ITEM_COUNT, [1], 1)
 				set_value(battle_state, BAG_ITEMS, [item_id, 1, 0xFF], 3)
-				write_file(battle_save_path, battle_state)
+
 				using_item = True
 				button_sequence = use_item()
 			else:
@@ -438,6 +439,9 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 				current_move_index = get_value(battle_state, MOVE_LIST_INDEX, 1)[0]
 				button_sequence = select_move(current_move_index, target_move_index)
 
+		set_value(battle_state, BATTLE_MON_PP, [0xff, 0xff, 0xff, 0xff], 4)
+
+		write_file(battle_save_path, battle_state)
 		write_file(out_demo_path, button_sequence)
 
 		if save_movie:
