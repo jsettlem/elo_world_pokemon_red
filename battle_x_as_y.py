@@ -127,6 +127,7 @@ LETTER_PRINTING_DELAY = 0xd355
 LETTER_PRINTING_DELAY_FLAG = 0b0100000
 
 PARTY_MENU_CHOICE = 0xcc2b
+GAIN_EXP_FLAG = 0xd058
 
 
 def byte_to_pokestring(byte_array: Iterable[int]) -> str:
@@ -390,8 +391,6 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	last_pokemon = 0
 
 	while True:
-		print("you have", ai_action_count, "actions")
-
 		breakpoint_condition = f"TOTALCLKS>${total_clocks:x}"
 		subprocess.call([BGB_PATH, battle_save_path, *bgb_options,
 		                 "-br", f"4eb6/{breakpoint_condition},"
@@ -424,7 +423,6 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			win = False
 			break
 		else:
-			print(current_pokemon, last_pokemon)
 			if current_pokemon != last_pokemon:
 				last_pokemon = current_pokemon
 				ai_action_count = base_ai_action_count
@@ -470,6 +468,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 				button_sequence = select_move(current_move_index, target_move_index)
 
 		set_value(battle_state, BATTLE_MON_PP, [0xff, 0xff, 0xff, 0xff], 4)
+		set_value(battle_state, GAIN_EXP_FLAG, [0], 1)
 
 		write_file(battle_save_path, battle_state)
 		write_file(out_demo_path, button_sequence)
