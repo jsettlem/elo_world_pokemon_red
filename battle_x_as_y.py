@@ -476,8 +476,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 		audios = [ffmpeg.input(f) for f in files if f.endswith(".wav")]
 		clip_count = len(videos)
 		video_track = ffmpeg.concat(*[track for clip in zip(videos, audios) for track in clip], v=1, a=1, n=clip_count)
-		print(ffmpeg.output(video_track, output_movie, r=30).compile())
-		ffmpeg.output(video_track, output_movie, r=30, audio_bitrate=50000, ar=16000).run()
+		ffmpeg.output(video_track, output_movie, r=30, audio_bitrate=50000, ar=16000).run(quiet=True)
 		for f in files:
 			os.remove(f)
 		os.rmdir(movie_path)
