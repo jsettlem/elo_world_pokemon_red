@@ -118,6 +118,14 @@ LEFT_BUTTON = 0b00100000
 UP_BUTTON = 0b01000000
 DOWN_BUTTON = 0b10000000
 
+BATTLE_ANIMATIONS = True
+OPTIONS = 0xd355
+ANIMATION_FLAG = 0b1100001
+
+INSTANT_TEXT = True
+LETTER_PRINTING_DELAY = 0xd355
+LETTER_PRINTING_DELAY_FLAG = 0b0100000
+
 
 def byte_to_pokestring(byte_array: Iterable[int]) -> str:
 	return "".join(characters[b_int] if (b_int := int(b)) in characters else f"[0x{b:x}]" for b in byte_array)
@@ -357,6 +365,12 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 	if "loneMoves" in enemy_instance:
 		set_value(base, LONE_ATTACK_NO, [enemy_instance["loneMoves"]], 1)
+
+	if BATTLE_ANIMATIONS:
+		set_value(base, OPTIONS, [ANIMATION_FLAG], 1)
+
+	if INSTANT_TEXT:
+		set_value(base, LETTER_PRINTING_DELAY, [LETTER_PRINTING_DELAY_FLAG], 1)
 
 	print(f"You are {get_trainer_string(your_class, your_instance)}")
 	print(f"Your opponent is {get_trainer_string(enemy_class, enemy_instance)}")
