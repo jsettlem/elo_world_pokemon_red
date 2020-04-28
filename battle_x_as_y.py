@@ -5,8 +5,24 @@ import random
 import subprocess
 import time
 import struct
+import uuid
 from typing import Iterable, Tuple
 import shutil
+import ffmpeg
+
+WORKING_DIR_BASE = "D:/elo_world_pokemon_red_scratch"
+OUTPUT_BASE = "../elo_world_pokemon_red_output"
+
+BGB_PATH = "bgb/bgb.exe"
+LOSSLESS = True
+
+ROM_IMAGE = "Pokemon - Red Version (UE) [S][!].gb"
+BASE_SAVE = "basestate.sn1"
+AI_SAVE = "ai_choose_state.sn1"
+
+BATTLE_SAVE = "battlestate.sn1"
+OUT_SAVE = "outstate.sn1"
+OUT_DEMO = "outdemo.dem"
 
 
 def load_json(path: str) -> dict:
@@ -24,18 +40,6 @@ trainers = load_json("trainers.json")
 characters, reverse_characters = load_memory_map('charmap.json')
 moves, reverse_moves = load_memory_map('moves.json')
 items, reverse_items = load_memory_map('items.json')
-
-WORKING_DIR_BASE = "D:/elo_world_pokemon_red_scratch"
-OUTPUT_BASE = "./output"
-
-BGB_PATH = "bgb\\bgb.exe"
-ROM_IMAGE = "Pokemon - Red Version (UE) [S][!].gb"
-BASE_SAVE = "basestate.sn1"
-AI_SAVE = "ai_choose_state.sn1"
-
-BATTLE_SAVE = "battlestate.sn1"
-OUT_SAVE = "outstate.sn1"
-OUT_DEMO = "outdemo.dem"
 
 GLOBAL_OFFSET = 0xBBC3
 
@@ -122,14 +126,19 @@ def name_to_bytes(name: str, length: int = POKEMON_NAME_LENGTH) -> Iterable[int]
 	return (reverse_characters[name[i]] if i < len(name) else NAME_TERMINATOR for i in range(length))
 
 
-def load_trainer_info(trainer_id: int, trainer_index: int, lone_move_number: int, battle_save: str = BATTLE_SAVE, out_save: str = OUT_SAVE) -> None:
+def load_trainer_info(trainer_id: int, trainer_index: int, lone_move_number: int, battle_save: str = BATTLE_SAVE,
+                      out_save: str = OUT_SAVE) -> None:
 	save = load_save(BASE_SAVE)
 	save[TRAINER_CLASS - GLOBAL_OFFSET] = trainer_id
 	save[TRAINER_INSTANCE - GLOBAL_OFFSET] = trainer_index
 	save[LONE_ATTACK_NO - GLOBAL_OFFSET] = lone_move_number
 	write_file(battle_save, save)
 
-	subprocess.call([BGB_PATH, '-rom', battle_save, '-ab', 'da44//w', '-hf', '-nobatt', '-stateonexit', out_save])
+	subprocess.call([BGB_PATH, '-rom', battle_save,
+	                 '-ab', 'da44//w',
+	                 '-hf',
+	                 '-nobatt',
+	                 '-stateonexit', out_save])
 
 
 def get_trainer_string(trainer_class: dict, trainer_instance: dict) -> str:
@@ -141,7 +150,6 @@ def get_trainer_string(trainer_class: dict, trainer_instance: dict) -> str:
 
 def get_ai_action(out_save: str = OUT_SAVE) -> Tuple[int, int, bool]:
 	subprocess.call([BGB_PATH, '-rom', out_save,
-	                 # '-br', '5600',
 	                 '-br', '4349,6765',
 	                 '-ab', 'cf05//r',
 	                 '-hf',
@@ -293,12 +301,26 @@ def copy_dependencies(working_dir):
 		shutil.copyfile(file, f"{working_dir}/{file}")
 
 
-def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=""):
+def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number="", save_movie=True):
 	working_dir = f"{WORKING_DIR_BASE}/{run_number}"
 	os.makedirs(working_dir, exist_ok=True)
 
 	rom_image_path = f"{working_dir}/{ROM_IMAGE}"
 	shutil.copyfile(ROM_IMAGE, rom_image_path)
+
+	movie_path = f"{working_dir}/movies"
+	movie_index = 0
+
+	bgb_options = ["-hf", "-nowarn", "-nobatt"]
+	if save_movie:
+		os.makedirs(movie_path)
+		bgb_options = [*bgb_options,
+		               "-set", "RecordAVI=1",
+		               "-set", "WavFileOut=1",
+		               "-set", f"RecordAVIfourCC={'cscd' if LOSSLESS else 'X264'}",
+		               "-set", "RecordHalfSpeed=1",
+		               "-set", f"RecordPrefix={movie_path}/movie{movie_index:05}",
+		               ]
 
 	battle_save_path = f"{working_dir}/{BATTLE_SAVE}"
 	out_save_path = f"{working_dir}/{OUT_SAVE}"
@@ -347,17 +369,12 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 	while True:
 		breakpoint_condition = f"TOTALCLKS>${total_clocks:x}"
-		subprocess.call([BGB_PATH, battle_save_path,
-		                 "-autoexit",
+		subprocess.call([BGB_PATH, battle_save_path, *bgb_options,
 		                 "-br", f"4eb6/{breakpoint_condition},"
 		                        f"1420/{breakpoint_condition},"
 		                        f"4696/{breakpoint_condition},"
 		                        f"4837/{breakpoint_condition}",
 		                 "-stateonexit", battle_save_path,
-		                 "-nowarn",
-		                 # "-runfast",
-		                 "-hf",
-		                 "-nobatt",
 		                 "-demoplay", out_demo_path])
 
 		battle_state = load_save(battle_save_path)
@@ -423,8 +440,29 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 		write_file(out_demo_path, button_sequence)
 
+		if save_movie:
+			movie_index += 1
+			bgb_options[-1] = f"RecordPrefix={movie_path}/movie{movie_index:05}"
+
 	for file in [battle_save_path, out_save_path, out_demo_path, rom_image_path]:
 		os.remove(file)
+
+	output_dir = OUTPUT_BASE
+	output_movie = f"{output_dir}/{run_number}.mp4"
+	os.makedirs(output_dir, exist_ok=True)
+
+	if save_movie:
+		files = [f"{movie_path}/{f}" for f in os.listdir(movie_path)]
+		files.sort()
+		videos = [ffmpeg.input(f).setpts("5/3*PTS") for f in files if f.endswith(".avi")]
+		audios = [ffmpeg.input(f) for f in files if f.endswith(".wav")]
+		clip_count = len(videos)
+		video_track = ffmpeg.concat(*[clip for track in zip(videos, audios) for clip in track], v=1, a=1, n=clip_count)
+		print(ffmpeg.output(video_track, output_movie, r=30).compile())
+		ffmpeg.output(video_track, output_movie, r=30, audio_bitrate=64000, ar=16000).run()
+		for f in files:
+			os.remove(f)
+		os.rmdir(movie_path)
 
 	os.rmdir(working_dir)
 	return win
@@ -436,7 +474,7 @@ def main():
 	enemy_class, enemy_instance = get_random_trainer()
 	# enemy_class, enemy_instance = get_trainer_by_id(230, 22)
 
-	battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number="test3")
+	battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=str(uuid.uuid4()))
 
 
 if __name__ == '__main__':
