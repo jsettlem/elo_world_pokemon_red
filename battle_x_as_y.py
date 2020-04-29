@@ -112,7 +112,7 @@ DISPLAY_BATTLE_MENU_OFFSET = 0x4eb6
 PARTY_MENU_INIT_OFFSET = 0x1420
 
 TRAINER_WIN_OFFSET = 0x4696
-ENEMY_WIN_OFFSET = 0x4837
+ENEMY_WIN_OFFSET = 0x4874
 
 MOVE_LIST_INDEX = 0xcc2e
 
@@ -398,6 +398,8 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	if INSTANT_TEXT:
 		set_value(base, LETTER_PRINTING_DELAY, [LETTER_PRINTING_DELAY_FLAG], 1)
 
+	randomize_rdiv(base)
+
 	base_ai_action_count = your_class["actionCount"] if "actionCount" in your_class else 3
 	ai_action_count = base_ai_action_count
 
@@ -427,7 +429,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	enemy_party_size = 0
 
 	while True:
-		if turn_number > 500:
+		if turn_number > 1000:
 			battle_log["winner"] = "draw"
 			print("Too long! It's a draw!")
 			break
@@ -437,7 +439,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 		                 "-br", f"4eb6/{breakpoint_condition},"
 		                        f"1420/{breakpoint_condition},"
 		                        f"4696/{breakpoint_condition},"
-		                        f"4837/{breakpoint_condition}",
+		                        f"4874/{breakpoint_condition}",
 		                 "-stateonexit", battle_save_path,
 		                 "-demoplay", out_demo_path])
 
@@ -585,7 +587,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 def main():
 	your_class, your_instance = get_random_trainer()
-	# your_class, your_instance = get_trainer_by_id(229, 1)
+	# your_class, your_instance = get_trainer_by_id(221, 2)
 	enemy_class, enemy_instance = get_random_trainer()
 	# enemy_class, enemy_instance = get_trainer_by_id(230, 22)
 
