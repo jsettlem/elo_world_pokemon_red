@@ -6,6 +6,7 @@ import subprocess
 import time
 import struct
 import uuid
+from pprint import pprint
 from typing import Iterable, Tuple
 import shutil
 import ffmpeg
@@ -75,18 +76,25 @@ ENEMY_PARTY_MONS = 0xd8a4
 
 LONE_ATTACK_NO = 0xd05c
 
-PARTY_STRUCT_SIZE = 0x2B
+PARTY_STRUCT_SIZE = 0x2C
 
 PLAYER_SELECTED_MOVE = 0xccdc
 ENEMY_SELECTED_MOVE = 0xccdd
 
+BATTLE_MON_NAME = 0xd009
 BATTLE_MON = 0xd014
-BATTLE_MON_HP = 0xD015
+BATTLE_MON_HP = 0xd015
+BATTLE_MON_MAX_HP = 0xd023
 BATTLE_MON_PARTY_POS = 0xcc2f
 BATTLE_MON_MOVES = 0xd01c
 BATTLE_MON_SPEED = 0xd029
 BATTLE_MON_PP = 0xd02d
+
+ENEMY_BATTLE_MON_NAME = 0xcfda
 ENEMY_BATTLE_MON = 0xcfe5
+ENEMY_BATTLE_MON_PARTY_POS = 0xcfe8
+ENEMY_BATTLE_MON_HP = 0xcfe6
+ENEMY_BATTLE_MON_MAX_HP = 0xcff4
 BATTLE_MON_SIZE = 0x1c
 
 DISABLED_MOVE = 0xd06d
@@ -314,7 +322,21 @@ def copy_dependencies(working_dir):
 		shutil.copyfile(file, f"{working_dir}/{file}")
 
 
-def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number="", save_movie=True):
+def get_hp(source, offset):
+	hp_word = get_value(source, offset, 2)
+	return hp_word[0] << 8 | hp_word[1]
+
+
+def get_party_mon(source: bytearray, offset: int, i: int):
+	party_mon = get_value(source, offset + PARTY_STRUCT_SIZE * i, PARTY_STRUCT_SIZE)
+	return {
+		"species": pokemon_names[str(int(party_mon[0]) - 1)].strip("@"),
+		"hp": party_mon[0x1] << 8 | party_mon[0x2],
+		"max_hp": party_mon[34] << 8 | party_mon[35]
+	}
+
+
+def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number="", save_movie=True, save_json=True) -> dict:
 	working_dir = f"{WORKING_DIR_BASE}/{run_number}"
 	os.makedirs(working_dir, exist_ok=True)
 
@@ -359,7 +381,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	party_size = get_value(new, ENEMY_PARTY_COUNT, 1)[0]
 	enemy_mons = get_value(new, ENEMY_PARTY_MONS, PARTY_STRUCT_SIZE * party_size)
 	for i in range(party_size):
-		pokemon_index = enemy_mons[(PARTY_STRUCT_SIZE + 1) * i] - 1
+		pokemon_index = enemy_mons[PARTY_STRUCT_SIZE * i] - 1
 		pokemon_name = name_to_bytes(pokemon_names[str(pokemon_index)])
 		set_value(base, PARTY_NICKNAMES + POKEMON_NAME_LENGTH * i, pokemon_name, POKEMON_NAME_LENGTH)
 		copy_values(new, ENEMY_TRAINER_NAME, base, PARTY_MON_OT + POKEMON_NAME_LENGTH * i, POKEMON_NAME_LENGTH)
@@ -390,7 +412,26 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	using_item = False
 	last_pokemon = 0
 
+	battle_log = {
+		"run_id": run_number,
+		"player_class": your_class['id'],
+		"player_id": your_instance['index'],
+		"enemy_class": enemy_class['id'],
+		"enemy_id": enemy_instance['index'],
+		"winner": None,
+		"turn_count": 0,
+		"turns": []
+	}
+
+	turn_number = 0
+	enemy_party_size = 0
+
 	while True:
+		if turn_number > 500:
+			battle_log["winner"] = "draw"
+			print("Too long! It's a draw!")
+			break
+
 		breakpoint_condition = f"TOTALCLKS>${total_clocks:x}"
 		subprocess.call([BGB_PATH, battle_save_path, *bgb_options,
 		                 "-br", f"4eb6/{breakpoint_condition},"
@@ -402,6 +443,9 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 		battle_state = load_save(battle_save_path)
 		ai_base = load_save(AI_SAVE)
+
+		if enemy_party_size == 0:
+			enemy_party_size = get_value(battle_state, ENEMY_PARTY_COUNT, 1)[0]
 
 		total_clocks = get_total_clocks(battle_state)
 		pc = get_program_counter(battle_state)
@@ -416,13 +460,14 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 				button_sequence = choose_pokemon(current_party_menu_choice, get_pokemon_to_switch_to(battle_state))
 		elif pc == TRAINER_WIN_OFFSET:
 			print(f"{your_class['class']} wins!")
-			win = True
+			battle_log["winner"] = "trainer"
 			break
 		elif pc == ENEMY_WIN_OFFSET:
 			print(f"{enemy_class['class']} wins!")
-			win = False
+			battle_log["winner"] = "enemy"
 			break
 		else:
+			turn_number += 1
 			if current_pokemon != last_pokemon:
 				last_pokemon = current_pokemon
 				ai_action_count = base_ai_action_count
@@ -451,7 +496,33 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			write_file(out_save_path, ai_base)
 			move_id, item_id, switch = get_ai_action(out_save_path)
 
-			print("Move:", moves[move_id], "Item:", items[item_id], "Switch?:", "YES" if switch else "NO")
+			turn_summary = {
+				"turn_number": turn_number,
+				"move": moves[move_id],
+				"item": items[item_id],
+				"switched": switch,
+				"trainer_battle_mon": {
+					"species": get_string(battle_state, BATTLE_MON_NAME, POKEMON_NAME_LENGTH).strip("@"),
+					"hp": get_hp(battle_state, BATTLE_MON_HP),
+					"max_hp": get_hp(battle_state, BATTLE_MON_MAX_HP),
+					"party_index": current_pokemon
+				},
+				"enemy_battle_mon": {
+					"species": get_string(battle_state, ENEMY_BATTLE_MON_NAME, POKEMON_NAME_LENGTH).strip("@"),
+					"hp": get_hp(battle_state, ENEMY_BATTLE_MON_HP),
+					"max_hp": get_hp(battle_state, ENEMY_BATTLE_MON_MAX_HP),
+					"party_index": get_value(battle_state, ENEMY_BATTLE_MON_PARTY_POS, 1)[0]
+				},
+				"trainer_party_mons": [
+					get_party_mon(battle_state, PARTY_MONS, i) for i in range(party_size)
+				],
+				"enemy_party_mons": [
+					get_party_mon(battle_state, ENEMY_PARTY_MONS, i) for i in range(enemy_party_size)
+				]
+			}
+
+			battle_log["turns"].append(turn_summary)
+			pprint(turn_summary)
 
 			if switch:
 				button_sequence = select_switch()
@@ -477,14 +548,20 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			movie_index += 1
 			bgb_options[-1] = f"RecordPrefix={movie_path}/movie{movie_index:05}"
 
+	battle_log["turn_count"] = turn_number
+
 	for file in [battle_save_path, out_save_path, out_demo_path, rom_image_path]:
 		os.remove(file)
 
 	output_dir = OUTPUT_BASE
-	output_movie = f"{output_dir}/{run_number}.mp4"
-	os.makedirs(output_dir, exist_ok=True)
+	movie_dir = f"{output_dir}/movies/"
+	json_dir = f"{output_dir}/json/"
+
+	output_movie = f"{output_dir}/movies/{run_number}.mp4"
+	output_json = f"{output_dir}/json/{run_number}.json"
 
 	if save_movie:
+		os.makedirs(movie_dir, exist_ok=True)
 		files = [f"{movie_path}/{f}" for f in os.listdir(movie_path)]
 		files.sort()
 		videos = [ffmpeg.input(f).setpts("5/3*PTS") for f in files if f.endswith(".avi")]
@@ -496,8 +573,14 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			os.remove(f)
 		os.rmdir(movie_path)
 
+	if save_json:
+		os.makedirs(json_dir, exist_ok=True)
+		with open(output_json, 'w') as f:
+			json.dump(battle_log, f, indent=2)
+
 	os.rmdir(working_dir)
-	return win
+
+	return battle_log
 
 
 def main():
@@ -506,7 +589,10 @@ def main():
 	enemy_class, enemy_instance = get_random_trainer()
 	# enemy_class, enemy_instance = get_trainer_by_id(230, 22)
 
-	battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=str(uuid.uuid4()))
+	run_number = str(uuid.uuid4())
+	battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=run_number)
+
+	pprint(battle_log)
 
 
 if __name__ == '__main__':
