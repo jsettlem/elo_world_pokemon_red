@@ -157,7 +157,8 @@ def load_trainer_info(trainer_id: int, trainer_index: int, lone_move_number: int
 	                 '-ab', 'da44//w',
 	                 '-hf',
 	                 '-nobatt',
-	                 '-stateonexit', out_save])
+	                 '-stateonexit', out_save],
+	                timeout=10)
 
 
 def get_trainer_string(trainer_class: dict, trainer_instance: dict) -> str:
@@ -173,7 +174,8 @@ def get_ai_action(out_save: str = OUT_SAVE) -> Tuple[int, int, bool]:
 	                 '-ab', 'cf05//r',
 	                 '-hf',
 	                 '-nobatt',
-	                 '-stateonexit', out_save])
+	                 '-stateonexit', out_save],
+	                timeout=10)
 	save = load_save(out_save)
 	move_id = get_value(save, ENEMY_SELECTED_MOVE, 1)[0]
 	item_id = get_value(save, ENEMY_ITEM_USED, 1)[0]
@@ -358,7 +360,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 		               "-set", "RecordAVI=1",
 		               "-set", "WavFileOut=1",
 		               "-set", f"RecordAVIfourCC={'cscd' if LOSSLESS else 'X264'}",
-		               "-set", "RecordHalfSpeed=1",
+		               "-set", "RecordHalfSpeed=0",
 		               "-set", "Speed=1",
 		               "-set", "//set in battle loop",
 		               ]
@@ -433,7 +435,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 	turn_number = 0
 	enemy_party_size = 0
-	previous_total_hp = 0
+	record_low_total_hp = 99999
 	turns_without_damage = 0
 
 	while True:
@@ -451,13 +453,19 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			bgb_options[-1] = f"RecordPrefix={movie_path}/movie{movie_index:05}"
 
 		breakpoint_condition = f"TOTALCLKS>${total_clocks:x}"
-		subprocess.call([BGB_PATH, battle_save_path, *bgb_options,
-		                 "-br", f"4eb6/{breakpoint_condition},"
-		                        f"1420/{breakpoint_condition},"
-		                        f"4696/{breakpoint_condition},"
-		                        f"4874/{breakpoint_condition}",
-		                 "-stateonexit", battle_save_path,
-		                 "-demoplay", out_demo_path])
+
+		try:
+			subprocess.call([BGB_PATH, battle_save_path, *bgb_options,
+			                 "-br", f"4eb6/{breakpoint_condition},"
+			                        f"1420/{breakpoint_condition},"
+			                        f"4696/{breakpoint_condition},"
+			                        f"4874/{breakpoint_condition}",
+			                 "-stateonexit", battle_save_path,
+			                 "-demoplay", out_demo_path],
+			                timeout=60)
+		except subprocess.TimeoutExpired:
+			battle_log["winner"] = "Draw by bgb timeout in move"
+			break
 
 		battle_state = load_save(battle_save_path)
 		ai_base = load_save(AI_SAVE)
@@ -512,19 +520,24 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			randomize_rdiv(ai_base)
 
 			write_file(out_save_path, ai_base)
-			move_id, item_id, switch = get_ai_action(out_save_path)
+
+			try:
+				move_id, item_id, switch = get_ai_action(out_save_path)
+			except subprocess.TimeoutExpired:
+				battle_log["winner"] = "Draw by bgb timeout in AI move selection"
+				break
 
 			trainer_party_mon = [get_party_mon(battle_state, PARTY_MONS, i) for i in range(party_size)]
 			enemy_party_mon = [get_party_mon(battle_state, ENEMY_PARTY_MONS, i) for i in range(enemy_party_size)]
 
 			total_hp = sum(mon["hp"] for mon in [*trainer_party_mon, *enemy_party_mon])
-			if total_hp != previous_total_hp:
-				previous_total_hp = total_hp
+			if total_hp < record_low_total_hp:
+				record_low_total_hp = total_hp
 				turns_without_damage = 0
 			else:
 				turns_without_damage += 1
 
-			print(total_hp, turns_without_damage)
+			print(total_hp, record_low_total_hp, turns_without_damage)
 
 			turn_summary = {
 				"turn_number": turn_number,
@@ -595,7 +608,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 def build_movie(movie_path, output_dir, run_number):
 	movie_output_dir = f"{output_dir}/movies/"
-	output_movie = f"{output_dir}/movies/{run_number}.mp4"
+	output_movie = f"{output_dir}/movies/{run_number}.mkv"
 	os.makedirs(movie_output_dir, exist_ok=True)
 
 	files = [f for f in os.listdir(movie_path)]
@@ -610,9 +623,13 @@ def build_movie(movie_path, output_dir, run_number):
 	subprocess.call(["ffmpeg",
 	                 "-i", video_list_txt,
 	                 "-i", audio_list_txt,
-	                 "-b:a", "50000",
-	                 "-ar", "16000",
-	                 "-r", "30",
+	                 "-c:v", "libx265",
+	                 "-preset", "slow",
+	                 "-crf", "17",
+	                 "-c:a", "libopus",
+	                 "-b:a", "32k",
+	                 # "-ar", "16000",
+	                 # "-r", "30",
 	                 output_movie])
 
 	for f in [*files, "videos.txt", "audio.txt"]:
