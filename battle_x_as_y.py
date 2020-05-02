@@ -2,14 +2,13 @@ import itertools
 import json
 import os
 import random
+import shutil
+import struct
 import subprocess
 import time
-import struct
 import uuid
 from pprint import pprint
 from typing import Iterable, Tuple
-import shutil
-import ffmpeg
 
 WORKING_DIR_BASE = "D:/elo_world_pokemon_red_scratch"
 OUTPUT_BASE = "../elo_world_pokemon_red_output"
@@ -336,7 +335,8 @@ def get_party_mon(source: bytearray, offset: int, i: int):
 	}
 
 
-def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number="", save_movie=True, save_json=True) -> dict:
+def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number="", save_movie=True,
+                  save_json=True) -> dict:
 	working_dir = f"{WORKING_DIR_BASE}/{run_number}"
 	os.makedirs(working_dir, exist_ok=True)
 
@@ -429,7 +429,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	enemy_party_size = 0
 
 	while True:
-		if turn_number > 1000:
+		if turn_number > 500:
 			battle_log["winner"] = "draw"
 			print("Too long! It's a draw!")
 			break
@@ -556,26 +556,13 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 		os.remove(file)
 
 	output_dir = OUTPUT_BASE
-	movie_dir = f"{output_dir}/movies/"
-	json_dir = f"{output_dir}/json/"
-
-	output_movie = f"{output_dir}/movies/{run_number}.mp4"
-	output_json = f"{output_dir}/json/{run_number}.json"
 
 	if save_movie:
-		os.makedirs(movie_dir, exist_ok=True)
-		files = [f"{movie_path}/{f}" for f in os.listdir(movie_path)]
-		files.sort()
-		videos = [ffmpeg.input(f).setpts("5/3*PTS") for f in files if f.endswith(".avi")]
-		audios = [ffmpeg.input(f) for f in files if f.endswith(".wav")]
-		clip_count = len(videos)
-		video_track = ffmpeg.concat(*[track for clip in zip(videos, audios) for track in clip], v=1, a=1, n=clip_count)
-		ffmpeg.output(video_track, output_movie, r=30, audio_bitrate=50000, ar=16000).run(quiet=True)
-		for f in files:
-			os.remove(f)
-		os.rmdir(movie_path)
+		build_movie(movie_path, output_dir, run_number)
 
 	if save_json:
+		json_dir = f"{output_dir}/json/"
+		output_json = f"{output_dir}/json/{run_number}.json"
 		os.makedirs(json_dir, exist_ok=True)
 		with open(output_json, 'w') as f:
 			json.dump(battle_log, f, indent=2)
@@ -583,6 +570,42 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	os.rmdir(working_dir)
 
 	return battle_log
+
+
+def build_movie(movie_path, output_dir, run_number):
+	movie_output_dir = f"{output_dir}/movies/"
+	output_movie = f"{output_dir}/movies/{run_number}.mp4"
+	os.makedirs(movie_output_dir, exist_ok=True)
+	files = [f"{f}" for f in os.listdir(movie_path)]
+	files.sort()
+	videos = [f for f in files if f.endswith(".avi")]
+	audios = [f for f in files if f.endswith(".wav")]
+	video_list_txt = f"{movie_path}/videos.txt"
+	audio_list_txt = f"{movie_path}/audio.txt"
+
+	create_concat_file(video_list_txt, videos)
+	create_concat_file(audio_list_txt, audios)
+
+	subprocess.call(["ffmpeg",
+	                 "-i", video_list_txt,
+	                 "-i", audio_list_txt,
+	                 "-filter_complex", "[0]setpts=5/3*PTS[video_out]",
+	                 "-map", "[video_out]",
+	                 "-map", "1",
+	                 "-b:a", "50000",
+	                 "-ar", "16000",
+	                 "-r", "30",
+	                 output_movie])
+
+	for f in [*files, video_list_txt, audio_list_txt]:
+		os.remove(f)
+	os.rmdir(movie_path)
+
+
+def create_concat_file(list_txt, files):
+	with open(list_txt, 'w') as f:
+		f.write("ffconcat version 1.0\n")
+		f.write("\n".join(f"file '{f}'" for f in files))
 
 
 def main():
