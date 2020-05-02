@@ -576,15 +576,15 @@ def build_movie(movie_path, output_dir, run_number):
 	movie_output_dir = f"{output_dir}/movies/"
 	output_movie = f"{output_dir}/movies/{run_number}.mp4"
 	os.makedirs(movie_output_dir, exist_ok=True)
-	files = [f"{f}" for f in os.listdir(movie_path)]
+
+	files = [f for f in os.listdir(movie_path)]
 	files.sort()
-	videos = [f for f in files if f.endswith(".avi")]
-	audios = [f for f in files if f.endswith(".wav")]
+
 	video_list_txt = f"{movie_path}/videos.txt"
 	audio_list_txt = f"{movie_path}/audio.txt"
 
-	create_concat_file(video_list_txt, videos)
-	create_concat_file(audio_list_txt, audios)
+	create_concat_file(video_list_txt, [f for f in files if f.endswith(".avi")])
+	create_concat_file(audio_list_txt, [f for f in files if f.endswith(".wav")])
 
 	subprocess.call(["ffmpeg",
 	                 "-i", video_list_txt,
@@ -597,8 +597,8 @@ def build_movie(movie_path, output_dir, run_number):
 	                 "-r", "30",
 	                 output_movie])
 
-	for f in [*files, video_list_txt, audio_list_txt]:
-		os.remove(f)
+	for f in [*files, "videos.txt", "audio.txt"]:
+		os.remove(f"{movie_path}/{f}")
 	os.rmdir(movie_path)
 
 
