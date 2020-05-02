@@ -227,7 +227,7 @@ def randomize_rdiv(source: bytearray):
 
 
 def get_total_clocks(source: bytearray) -> int:
-	return struct.unpack_from("<Q", source[TOTAL_CLOCKS_OFFSET:])[0]
+	return struct.unpack_from("<Q", source[TOTAL_CLOCKS_OFFSET:])[0] & 0x7f_ff_ff_ff
 
 
 def get_program_counter(source: bytearray) -> int:
@@ -276,6 +276,11 @@ def select_switch() -> bytearray:
 		RIGHT_BUTTON,
 		A_BUTTON
 	])
+
+
+def get_move_count(battle_state: bytearray) -> int:
+	battle_moves = get_value(battle_state, BATTLE_MON_MOVES, 4)
+	return len([b for b in battle_moves if b != 0x0])
 
 
 def get_move_index(battle_state: bytearray, move_id: int) -> int:
@@ -354,7 +359,8 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 		               "-set", "WavFileOut=1",
 		               "-set", f"RecordAVIfourCC={'cscd' if LOSSLESS else 'X264'}",
 		               "-set", "RecordHalfSpeed=1",
-		               "-set", f"RecordPrefix={movie_path}/movie{movie_index:05}",
+		               "-set", "Speed=1",
+		               "-set", "//set in battle loop",
 		               ]
 
 	battle_save_path = f"{working_dir}/{BATTLE_SAVE}"
@@ -427,12 +433,22 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 	turn_number = 0
 	enemy_party_size = 0
+	previous_total_hp = 0
+	turns_without_damage = 0
 
 	while True:
-		if turn_number > 500:
-			battle_log["winner"] = "draw"
+		if turn_number > 1000:
+			battle_log["winner"] = "Draw by 1000 turn rule"
 			print("Too long! It's a draw!")
 			break
+		elif turns_without_damage > 75:
+			battle_log["winner"] = "Draw by 75 turn damage rule"
+			print("Too long without damage! It's a draw!")
+			break
+
+		if save_movie:
+			movie_index += 1
+			bgb_options[-1] = f"RecordPrefix={movie_path}/movie{movie_index:05}"
 
 		breakpoint_condition = f"TOTALCLKS>${total_clocks:x}"
 		subprocess.call([BGB_PATH, battle_save_path, *bgb_options,
@@ -498,6 +514,18 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			write_file(out_save_path, ai_base)
 			move_id, item_id, switch = get_ai_action(out_save_path)
 
+			trainer_party_mon = [get_party_mon(battle_state, PARTY_MONS, i) for i in range(party_size)]
+			enemy_party_mon = [get_party_mon(battle_state, ENEMY_PARTY_MONS, i) for i in range(enemy_party_size)]
+
+			total_hp = sum(mon["hp"] for mon in [*trainer_party_mon, *enemy_party_mon])
+			if total_hp != previous_total_hp:
+				previous_total_hp = total_hp
+				turns_without_damage = 0
+			else:
+				turns_without_damage += 1
+
+			print(total_hp, turns_without_damage)
+
 			turn_summary = {
 				"turn_number": turn_number,
 				"move": moves[move_id],
@@ -515,12 +543,8 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 					"max_hp": get_hp(battle_state, ENEMY_BATTLE_MON_MAX_HP),
 					"party_index": get_value(battle_state, ENEMY_BATTLE_MON_PARTY_POS, 1)[0]
 				},
-				"trainer_party_mons": [
-					get_party_mon(battle_state, PARTY_MONS, i) for i in range(party_size)
-				],
-				"enemy_party_mons": [
-					get_party_mon(battle_state, ENEMY_PARTY_MONS, i) for i in range(enemy_party_size)
-				]
+				"trainer_party_mons": trainer_party_mon,
+				"enemy_party_mons": enemy_party_mon
 			}
 
 			battle_log["turns"].append(turn_summary)
@@ -540,15 +564,12 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 				current_move_index = get_value(battle_state, MOVE_LIST_INDEX, 1)[0]
 				button_sequence = select_move(current_move_index, target_move_index)
 
-		set_value(battle_state, BATTLE_MON_PP, [0xff, 0xff, 0xff, 0xff], 4)
+		battle_mon_move_count = get_move_count(battle_state)
+		set_value(battle_state, BATTLE_MON_PP, [0xff] * battle_mon_move_count, battle_mon_move_count)
 		set_value(battle_state, GAIN_EXP_FLAG, [0], 1)
 
 		write_file(battle_save_path, battle_state)
 		write_file(out_demo_path, button_sequence)
-
-		if save_movie:
-			movie_index += 1
-			bgb_options[-1] = f"RecordPrefix={movie_path}/movie{movie_index:05}"
 
 	battle_log["turn_count"] = turn_number
 
@@ -589,9 +610,6 @@ def build_movie(movie_path, output_dir, run_number):
 	subprocess.call(["ffmpeg",
 	                 "-i", video_list_txt,
 	                 "-i", audio_list_txt,
-	                 "-filter_complex", "[0]setpts=5/3*PTS[video_out]",
-	                 "-map", "[video_out]",
-	                 "-map", "1",
 	                 "-b:a", "50000",
 	                 "-ar", "16000",
 	                 "-r", "30",
@@ -610,9 +628,9 @@ def create_concat_file(list_txt, files):
 
 def main():
 	your_class, your_instance = get_random_trainer()
-	# your_class, your_instance = get_trainer_by_id(221, 2)
+	# your_class, your_instance = get_trainer_by_id(208, 7)
 	enemy_class, enemy_instance = get_random_trainer()
-	# enemy_class, enemy_instance = get_trainer_by_id(230, 22)
+	# enemy_class, enemy_instance = get_trainer_by_id(219, 1)
 
 	run_number = str(uuid.uuid4())
 	battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=run_number)
