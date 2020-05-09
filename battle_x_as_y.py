@@ -10,6 +10,11 @@ import uuid
 from pprint import pprint
 from typing import Iterable, Tuple
 
+
+class StupidHack(Exception):
+	pass
+
+
 WORKING_DIR_BASE = "D:/elo_world_pokemon_red_scratch"
 OUTPUT_BASE = "../elo_world_pokemon_red_output"
 
@@ -335,11 +340,15 @@ def get_hp(source, offset):
 
 def get_party_mon(source: bytearray, offset: int, i: int):
 	party_mon = get_value(source, offset + PARTY_STRUCT_SIZE * i, PARTY_STRUCT_SIZE)
-	return {
-		"species": pokemon_names[str(int(party_mon[0]) - 1)].strip("@"),
-		"hp": party_mon[0x1] << 8 | party_mon[0x2],
-		"max_hp": party_mon[34] << 8 | party_mon[35]
-	}
+	try:
+		return {
+			"species": pokemon_names[str(int(party_mon[0]) - 1)].strip("@"),
+			"hp": party_mon[0x1] << 8 | party_mon[0x2],
+			"max_hp": party_mon[34] << 8 | party_mon[35]
+		}
+	except KeyError:
+		# gross edge case hack -- if the rival wins, the battle end breakpoint isn't hit. We can detect that here because the species of their first Pokemon becomes -1
+		raise StupidHack()
 
 
 def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number="", save_movie=True,
@@ -526,10 +535,13 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			except subprocess.TimeoutExpired:
 				battle_log["winner"] = "Draw by bgb timeout in AI move selection"
 				break
-
-			trainer_party_mon = [get_party_mon(battle_state, PARTY_MONS, i) for i in range(party_size)]
-			enemy_party_mon = [get_party_mon(battle_state, ENEMY_PARTY_MONS, i) for i in range(enemy_party_size)]
-
+			try:
+				trainer_party_mon = [get_party_mon(battle_state, PARTY_MONS, i) for i in range(party_size)]
+				enemy_party_mon = [get_party_mon(battle_state, ENEMY_PARTY_MONS, i) for i in range(enemy_party_size)]
+			except StupidHack:
+				# I apologize
+				battle_log["winner"] = "enemy"
+				break
 			total_hp = sum(mon["hp"] for mon in [*trainer_party_mon, *enemy_party_mon])
 			if total_hp < record_low_total_hp:
 				record_low_total_hp = total_hp
@@ -628,8 +640,7 @@ def build_movie(movie_path, output_dir, run_number):
 	                 "-crf", "17",
 	                 "-c:a", "libopus",
 	                 "-b:a", "32k",
-	                 # "-ar", "16000",
-	                 # "-r", "30",
+	                 "-threads", "1",
 	                 output_movie])
 
 	for f in [*files, "videos.txt", "audio.txt"]:
@@ -650,7 +661,8 @@ def main():
 	# enemy_class, enemy_instance = get_trainer_by_id(219, 1)
 
 	run_number = str(uuid.uuid4())
-	battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=run_number)
+	battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=run_number,
+	                           save_movie=True)
 
 	pprint(battle_log)
 
