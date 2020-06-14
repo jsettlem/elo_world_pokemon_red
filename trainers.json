@@ -2,6 +2,7 @@
     {
         "class": "Youngster",
         "id": 201,
+        "sprite": "Spr_RG_Youngster.png",
         "instances": [
             {
                 "index": 1,
@@ -194,6 +195,7 @@
     {
         "class": "BugCatcher",
         "id": 202,
+        "sprite": "Spr_RG_Bug_Catcher.png",
         "instances": [
             {
                 "index": 1,
@@ -420,6 +422,7 @@
     {
         "class": "Lass",
         "id": 203,
+        "sprite": "Spr_RG_Lass.png",
         "instances": [
             {
                 "index": 1,
@@ -694,6 +697,7 @@
     {
         "class": "Sailor",
         "id": 204,
+        "sprite": "Spr_RG_Sailor.png",
         "instances": [
             {
                 "index": 1,
@@ -812,6 +816,7 @@
     {
         "class": "JrTrainerM",
         "id": 205,
+        "sprite": "Spr_RG_Jr_Trainer_M.png",
         "instances": [
             {
                 "index": 1,
@@ -948,6 +953,7 @@
     {
         "class": "JrTrainerF",
         "id": 206,
+        "sprite": "Spr_RG_Jr_Trainer_F.png",
         "instances": [
             {
                 "index": 1,
@@ -1338,6 +1344,7 @@
     {
         "class": "Pokemaniac",
         "id": 207,
+        "sprite": "Spr_RG_PokéManiac.png",
         "instances": [
             {
                 "index": 1,
@@ -1446,6 +1453,7 @@
     {
         "class": "SuperNerd",
         "id": 208,
+        "sprite": "Spr_RG_Super_Nerd.png",
         "instances": [
             {
                 "index": 1,
@@ -1652,6 +1660,7 @@
     {
         "class": "Hiker",
         "id": 209,
+        "sprite": "Spr_RG_Hiker.png",
         "instances": [
             {
                 "index": 1,
@@ -1878,6 +1887,7 @@
     {
         "class": "Biker",
         "id": 210,
+        "sprite": "Spr_RG_Biker.png",
         "instances": [
             {
                 "index": 1,
@@ -2142,6 +2152,7 @@
     {
         "class": "Burglar",
         "id": 211,
+        "sprite": "Spr_RG_Burglar.png",
         "instances": [
             {
                 "index": 1,
@@ -2270,6 +2281,7 @@
     {
         "class": "Engineer",
         "id": 212,
+        "sprite": "Spr_RG_Engineer.png",
         "instances": [
             {
                 "index": 1,
@@ -2318,6 +2330,7 @@
     {
         "class": "Fisher",
         "id": 214,
+        "sprite": "Spr_RG_Fisherman.png",
         "instances": [
             {
                 "index": 1,
@@ -2518,6 +2531,7 @@
     {
         "class": "Swimmer",
         "id": 215,
+        "sprite": "Spr_RG_Swimmer.png",
         "instances": [
             {
                 "index": 1,
@@ -2766,6 +2780,7 @@
     {
         "class": "CueBall",
         "id": 216,
+        "sprite": "Spr_RG_Cue_Ball.png",
         "instances": [
             {
                 "index": 1,
@@ -2906,6 +2921,7 @@
     {
         "class": "Gambler",
         "id": 217,
+        "sprite": "Spr_RG_Gambler.png",
         "instances": [
             {
                 "index": 1,
@@ -3018,6 +3034,7 @@
     {
         "class": "Beauty",
         "id": 218,
+        "sprite": "Spr_RG_Beauty.png",
         "instances": [
             {
                 "index": 1,
@@ -3266,6 +3283,7 @@
     {
         "class": "Psychic",
         "id": 219,
+        "sprite": "Spr_RG_Psychic.png",
         "instances": [
             {
                 "index": 1,
@@ -3336,6 +3354,7 @@
     {
         "class": "Rocker",
         "id": 220,
+        "sprite": "Spr_RG_Rocker.png",
         "instances": [
             {
                 "index": 1,
@@ -3374,6 +3393,7 @@
     {
         "class": "Juggler",
         "id": 221,
+        "sprite": "Spr_RG_Juggler.png",
         "actionCount": 3,
         "instances": [
             {
@@ -3497,6 +3517,7 @@
     {
         "class": "Tamer",
         "id": 222,
+        "sprite": "Spr_RG_Tamer.png",
         "instances": [
             {
                 "index": 1,
@@ -3595,6 +3616,7 @@
     {
         "class": "BirdKeeper",
         "id": 223,
+        "sprite": "Spr_RG_Bird_Keeper.png",
         "instances": [
             {
                 "index": 1,
@@ -3900,6 +3922,7 @@
         "class": "Blackbelt",
         "id": 224,
         "actionCount": 2,
+        "sprite": "Spr_RG_Blackbelt.png",
         "instances": [
             {
                 "index": 1,
@@ -4040,6 +4063,7 @@
     {
         "class": "Green1",
         "id": 225,
+        "sprite": "Spr_RG_Blue_1.png",
         "instances": [
             {
                 "index": 1,
@@ -4184,6 +4208,7 @@
     {
         "class": "ProfOak",
         "id": 226,
+        "sprite": "Spr_RG_Oak.png",
         "instances": [
             {
                 "index": 1,
@@ -4268,6 +4293,7 @@
     {
         "class": "Scientist",
         "id": 228,
+        "sprite": "Spr_RG_Scientist.png",
         "instances": [
             {
                 "index": 1,
@@ -4493,6 +4519,7 @@
         "class": "Giovanni",
         "id": 229,
         "actionCount": 1,
+        "sprite": "Spr_RG_Giovanni.png",
         "instances": [
             {
                 "index": 1,
@@ -4566,6 +4593,7 @@
     {
         "class": "Rocket",
         "id": 230,
+        "sprite": "Spr_RG_Rocket.png",
         "instances": [
             {
                 "index": 1,
@@ -5251,6 +5279,7 @@
         "class": "CooltrainerM",
         "id": 231,
         "actionCount": 2,
+        "sprite": "Spr_RG_Cooltrainer_M.png",
         "instances": [
             {
                 "index": 1,
@@ -5410,6 +5439,7 @@
         "class": "CooltrainerF",
         "id": 232,
         "actionCount": 1,
+        "sprite": "Spr_RG_Cooltrainer_F.png",
         "instances": [
             {
                 "index": 1,
@@ -5545,6 +5575,7 @@
         "class": "Bruno",
         "id": 233,
         "actionCount": 2,
+        "sprite": "Spr_RG_Bruno.png",
         "instances": [
             {
                 "index": 1,
@@ -5578,6 +5609,7 @@
         "class": "Brock",
         "id": 234,
         "actionCount": 5,
+        "sprite": "Spr_RG_Brock.png",
         "instances": [
             {
                 "index": 1,
@@ -5600,6 +5632,7 @@
         "class": "Misty",
         "id": 235,
         "actionCount": 1,
+        "sprite": "Spr_RG_Misty.png",
         "instances": [
             {
                 "index": 1,
@@ -5622,6 +5655,7 @@
         "class": "LtSurge",
         "id": 236,
         "actionCount": 1,
+        "sprite": "Spr_RG_Lt_Surge.png",
         "instances": [
             {
                 "index": 1,
@@ -5648,6 +5682,7 @@
         "class": "Erika",
         "id": 237,
         "actionCount": 1,
+        "sprite": "Spr_RG_Erika.png",
         "instances": [
             {
                 "index": 1,
@@ -5674,6 +5709,7 @@
         "class": "Koga",
         "id": 238,
         "actionCount": 2,
+        "sprite": "Spr_RG_Koga.png",
         "instances": [
             {
                 "index": 1,
@@ -5704,6 +5740,7 @@
         "class": "Blaine",
         "id": 239,
         "actionCount": 2,
+        "sprite": "Spr_RG_Blaine.png",
         "instances": [
             {
                 "index": 1,
@@ -5734,6 +5771,7 @@
         "class": "Sabrina",
         "id": 240,
         "actionCount": 1,
+        "sprite": "Spr_RG_Sabrina.png",
         "instances": [
             {
                 "index": 1,
@@ -5763,6 +5801,7 @@
     {
         "class": "Gentleman",
         "id": 241,
+        "sprite": "Spr_RG_Gentleman.png",
         "instances": [
             {
                 "index": 1,
@@ -5832,6 +5871,7 @@
         "class": "Green2",
         "id": 242,
         "actionCount": 1,
+        "sprite": "Spr_RG_Blue_2.png",
         "instances": [
             {
                 "index": 1,
@@ -6151,6 +6191,7 @@
         "class": "Green3",
         "id": 243,
         "actionCount": 1,
+        "sprite": "Spr_RG_Blue_3.png",
         "instances": [
             {
                 "index": 1,
@@ -6248,6 +6289,7 @@
         "class": "Lorelei",
         "id": 244,
         "actionCount": 2,
+        "sprite": "Spr_RG_Lorelei.png",
         "instances": [
             {
                 "index": 1,
@@ -6280,6 +6322,7 @@
     {
         "class": "Channeler",
         "id": 245,
+        "sprite": "Spr_RG_Channeler.png",
         "instances": [
             {
                 "index": 1,
@@ -6555,6 +6598,7 @@
         "class": "Agatha",
         "id": 246,
         "actionCount": 2,
+        "sprite": "Spr_RG_Agatha.png",
         "instances": [
             {
                 "index": 1,
@@ -6588,6 +6632,7 @@
         "class": "Lance",
         "id": 247,
         "actionCount": 1,
+        "sprite": "Spr_RG_Lance.png",
         "instances": [
             {
                 "index": 1,

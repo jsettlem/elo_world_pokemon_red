@@ -61,6 +61,8 @@ class Trainer:
 		self.win_count: Optional[int] = None
 		self.lose_count: Optional[int] = None
 		self.draw_count: Optional[int] = None
+		self.greatest_defeat: Optional[Trainer] = None
+		self.greatest_victory: Optional[Trainer] = None
 		self.tier: int = 0
 
 	def add_battle(self, battle: Battle):

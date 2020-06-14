@@ -654,18 +654,54 @@ def create_concat_file(list_txt, files):
 		f.write("\n".join(f"file '{f}'" for f in files))
 
 
+def battle_until_win():
+	while True:
+		you = get_trainer_by_id(215, 13)
+		enemy = get_trainer_by_id(220, 2)
+		battle_log_winner = run_one_battle(enemy, you)
+		print(battle_log_winner)
+		if battle_log_winner == "enemy":
+			break
+
+
+def run_one_battle(enemy, you):
+	your_class, your_instance = you
+	enemy_class, enemy_instance = enemy
+	run_number = str(uuid.uuid4())
+	battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance,
+	                           run_number=f"upset_attempts/{run_number}",
+	                           save_movie=True)
+	battle_log_winner = battle_log["winner"]
+	return battle_log_winner
+
+def get_rival_videos():
+	for rival in range(1, 7):
+		for i in range(5):
+			your_class, your_instance = get_random_trainer()
+			# your_class, your_instance = get_trainer_by_id(225, 2)
+			# enemy_class, enemy_instance = get_random_trainer()
+			enemy_class, enemy_instance = get_trainer_by_id(225, rival)
+
+			run_number = str(uuid.uuid4())
+			battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance,
+			                           run_number=f"vidvals/{run_number}",
+			                           save_movie=True)
+
+
 def main():
 	your_class, your_instance = get_random_trainer()
-	# your_class, your_instance = get_trainer_by_id(208, 7)
+	# your_class, your_instance = get_trainer_by_id(226, 3)
 	enemy_class, enemy_instance = get_random_trainer()
-	# enemy_class, enemy_instance = get_trainer_by_id(219, 1)
+	# enemy_class, enemy_instance = get_trainer_by_id(226, 3)
 
 	run_number = str(uuid.uuid4())
-	battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=run_number,
+	battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=f"extra/{run_number}",
 	                           save_movie=True)
 
 	pprint(battle_log)
 
 
 if __name__ == '__main__':
+	# battle_until_win()
+	# get_rival_videos()
 	main()

@@ -1,0 +1,397 @@
+trainer:	Green1 #1	location	somewhere	party:	Lv. 5 SQUIRTLE	class:	225	instance:	1	win count:	2	lose count:	575	draw count:	0	elo:	293.4000372	kde tier:	0	diff tier:	0
+trainer:	Green1 #2	location	somewhere	party:	Lv. 5 BULBASAUR	class:	225	instance:	2	win count:	11	lose count:	534	draw count:	5	elo:	444.6391104	kde tier:	1	diff tier:	2
+trainer:	Green1 #3	location	somewhere	party:	Lv. 5 CHARMANDER	class:	225	instance:	3	win count:	2	lose count:	510	draw count:	1	elo:	331.8910293	kde tier:	0	diff tier:	1
+trainer:	Green1 #4	location	Route 22	party:	Lv. 9 PIDGEY, Lv. 8 SQUIRTLE	class:	225	instance:	4	win count:	39	lose count:	650	draw count:	0	elo:	633.3291017	kde tier:	2	diff tier:	4
+trainer:	Green1 #5	location	Route 22	party:	Lv. 9 PIDGEY, Lv. 8 BULBASAUR	class:	225	instance:	5	win count:	40	lose count:	597	draw count:	12	elo:	627.3398724	kde tier:	2	diff tier:	4
+trainer:	Green1 #6	location	Route 22	party:	Lv. 9 PIDGEY, Lv. 8 CHARMANDER	class:	225	instance:	6	win count:	27	lose count:	626	draw count:	1	elo:	512.8075103	kde tier:	1	diff tier:	3
+trainer:	BugCatcher #1	location	Viridian Forest	party:	Lv. 6 WEEDLE, Lv. 6 CATERPIE	class:	202	instance:	1	win count:	9	lose count:	429	draw count:	1	elo:	487.0598954	kde tier:	1	diff tier:	3
+trainer:	BugCatcher #2	location	Viridian Forest	party:	Lv. 7 WEEDLE, Lv. 7 KAKUNA, Lv. 7 WEEDLE	class:	202	instance:	2	win count:	14	lose count:	437	draw count:	2	elo:	507.5304573	kde tier:	1	diff tier:	3
+trainer:	BugCatcher #3	location	Viridian Forest	party:	Lv. 9 WEEDLE	class:	202	instance:	3	win count:	15	lose count:	430	draw count:	2	elo:	490.953748	kde tier:	1	diff tier:	3
+trainer:	JrTrainerM #1	location	Pewter Gym	party:	Lv. 11 DIGLETT, Lv. 11 SANDSHREW	class:	205	instance:	1	win count:	38	lose count:	407	draw count:	1	elo:	712.8474077	kde tier:	2	diff tier:	4
+trainer:	Brock #1	location	somewhere	party:	Lv. 12 GEODUDE, Lv. 14 ONIX	class:	234	instance:	1	win count:	64	lose count:	397	draw count:	2	elo:	886.386461	kde tier:	4	diff tier:	4
+trainer:	Lass #1	location	Route 3	party:	Lv. 9 PIDGEY, Lv. 9 PIDGEY	class:	203	instance:	1	win count:	32	lose count:	412	draw count:	1	elo:	605.0749212	kde tier:	2	diff tier:	4
+trainer:	BugCatcher #4	location	Route 3	party:	Lv. 10 CATERPIE, Lv. 10 WEEDLE, Lv. 10 CATERPIE	class:	202	instance:	4	win count:	19	lose count:	431	draw count:	2	elo:	573.7458939	kde tier:	2	diff tier:	4
+trainer:	Youngster #1	location	Route 3	party:	Lv. 11 RATTATA, Lv. 11 EKANS	class:	201	instance:	1	win count:	36	lose count:	406	draw count:	1	elo:	735.2043636	kde tier:	3	diff tier:	4
+trainer:	BugCatcher #5	location	Route 3	party:	Lv. 9 WEEDLE, Lv. 9 KAKUNA, Lv. 9 CATERPIE, Lv. 9 METAPOD	class:	202	instance:	5	win count:	16	lose count:	433	draw count:	1	elo:	569.4137962	kde tier:	2	diff tier:	4
+trainer:	Youngster #2	location	Route 3	party:	Lv. 14 SPEAROW	class:	201	instance:	2	win count:	33	lose count:	417	draw count:	0	elo:	677.8645234	kde tier:	2	diff tier:	4
+trainer:	Lass #2	location	Route 3	party:	Lv. 10 RATTATA, Lv. 10 NIDORAN♂	class:	203	instance:	2	win count:	38	lose count:	400	draw count:	1	elo:	752.0712313	kde tier:	3	diff tier:	4
+trainer:	BugCatcher #6	location	Route 3	party:	Lv. 11 CATERPIE, Lv. 11 METAPOD	class:	202	instance:	6	win count:	9	lose count:	429	draw count:	1	elo:	504.3311646	kde tier:	1	diff tier:	3
+trainer:	Lass #3	location	Route 3	party:	Lv. 14 JIGGLYPUFF	class:	203	instance:	3	win count:	26	lose count:	430	draw count:	0	elo:	642.1282375	kde tier:	2	diff tier:	4
+trainer:	Lass #6	location	Mt. Moon 1F	party:	Lv. 14 CLEFAIRY	class:	203	instance:	6	win count:	24	lose count:	419	draw count:	0	elo:	695.2296218	kde tier:	2	diff tier:	4
+trainer:	BugCatcher #7	location	Mt. Moon 1F	party:	Lv. 11 WEEDLE, Lv. 11 KAKUNA	class:	202	instance:	7	win count:	19	lose count:	425	draw count:	1	elo:	585.6086558	kde tier:	2	diff tier:	4
+trainer:	SuperNerd #1	location	Mt. Moon 1F	party:	Lv. 11 MAGNEMITE, Lv. 11 VOLTORB	class:	208	instance:	1	win count:	24	lose count:	414	draw count:	0	elo:	644.5036943	kde tier:	2	diff tier:	4
+trainer:	BugCatcher #8	location	Mt. Moon 1F	party:	Lv. 10 CATERPIE, Lv. 10 METAPOD, Lv. 10 CATERPIE	class:	202	instance:	8	win count:	18	lose count:	431	draw count:	0	elo:	561.3502066	kde tier:	2	diff tier:	4
+trainer:	Lass #5	location	Mt. Moon 1F	party:	Lv. 11 ODDISH, Lv. 11 BELLSPROUT	class:	203	instance:	5	win count:	41	lose count:	383	draw count:	12	elo:	741.3416442	kde tier:	3	diff tier:	4
+trainer:	Youngster #3	location	Mt. Moon 1F	party:	Lv. 10 RATTATA, Lv. 10 RATTATA, Lv. 10 ZUBAT	class:	201	instance:	3	win count:	47	lose count:	404	draw count:	0	elo:	816.8295386	kde tier:	3	diff tier:	4
+trainer:	Hiker #1	location	Mt. Moon 1F	party:	Lv. 10 GEODUDE, Lv. 10 GEODUDE, Lv. 10 ONIX	class:	209	instance:	1	win count:	68	lose count:	369	draw count:	0	elo:	888.3637931	kde tier:	4	diff tier:	4
+trainer:	Rocket #2	location	Mt. Moon B2F	party:	Lv. 11 SANDSHREW, Lv. 11 RATTATA, Lv. 11 ZUBAT	class:	230	instance:	2	win count:	63	lose count:	372	draw count:	0	elo:	913.9386226	kde tier:	5	diff tier:	4
+trainer:	Rocket #3	location	Mt. Moon B2F	party:	Lv. 12 ZUBAT, Lv. 12 EKANS	class:	230	instance:	3	win count:	39	lose count:	408	draw count:	1	elo:	805.8791867	kde tier:	3	diff tier:	4
+trainer:	Rocket #4	location	Mt. Moon B2F	party:	Lv. 16 RATICATE	class:	230	instance:	4	win count:	67	lose count:	375	draw count:	0	elo:	886.3402542	kde tier:	4	diff tier:	4
+trainer:	Rocket #1	location	Mt. Moon B2F	party:	Lv. 13 RATTATA, Lv. 13 ZUBAT	class:	230	instance:	1	win count:	38	lose count:	388	draw count:	0	elo:	795.6166974	kde tier:	3	diff tier:	4
+trainer:	SuperNerd #2	location	Mt. Moon B2F	party:	Lv. 12 GRIMER, Lv. 12 VOLTORB, Lv. 12 KOFFING	class:	208	instance:	2	win count:	45	lose count:	392	draw count:	2	elo:	789.5609195	kde tier:	3	diff tier:	4
+trainer:	Swimmer #1	location	Cerulean Gym	party:	Lv. 16 HORSEA, Lv. 16 SHELLDER	class:	215	instance:	1	win count:	64	lose count:	375	draw count:	0	elo:	869.9607541	kde tier:	4	diff tier:	4
+trainer:	JrTrainerF #1	location	Cerulean Gym	party:	Lv. 19 GOLDEEN	class:	206	instance:	1	win count:	42	lose count:	395	draw count:	0	elo:	772.1505897	kde tier:	3	diff tier:	4
+trainer:	Misty #1	location	somewhere	party:	Lv. 18 STARYU, Lv. 21 STARMIE	class:	235	instance:	1	win count:	209	lose count:	242	draw count:	0	elo:	1500.864776	kde tier:	10	diff tier:	7
+trainer:	Green1 #7	location	Cerulean City	party:	Lv. 18 PIDGEOTTO, Lv. 15 ABRA, Lv. 15 RATTATA, Lv. 17 SQUIRTLE	class:	225	instance:	7	win count:	175	lose count:	421	draw count:	0	elo:	1201.093179	kde tier:	7	diff tier:	6
+trainer:	Green1 #8	location	Cerulean City	party:	Lv. 18 PIDGEOTTO, Lv. 15 ABRA, Lv. 15 RATTATA, Lv. 17 BULBASAUR	class:	225	instance:	8	win count:	192	lose count:	421	draw count:	7	elo:	1258.422798	kde tier:	8	diff tier:	7
+trainer:	Green1 #9	location	Cerulean City	party:	Lv. 18 PIDGEOTTO, Lv. 15 ABRA, Lv. 15 RATTATA, Lv. 17 CHARMANDER	class:	225	instance:	9	win count:	158	lose count:	421	draw count:	0	elo:	1167.294397	kde tier:	7	diff tier:	6
+trainer:	BugCatcher #9	location	Route 24	party:	Lv. 14 CATERPIE, Lv. 14 WEEDLE	class:	202	instance:	9	win count:	27	lose count:	415	draw count:	1	elo:	675.5794417	kde tier:	2	diff tier:	4
+trainer:	Lass #8	location	Route 24	party:	Lv. 14 PIDGEY, Lv. 14 NIDORAN♀	class:	203	instance:	8	win count:	50	lose count:	382	draw count:	2	elo:	801.5704798	kde tier:	3	diff tier:	4
+trainer:	Youngster #4	location	Route 24	party:	Lv. 14 RATTATA, Lv. 14 EKANS, Lv. 14 ZUBAT	class:	201	instance:	4	win count:	72	lose count:	364	draw count:	1	elo:	926.012401	kde tier:	5	diff tier:	4
+trainer:	Lass #7	location	Route 24	party:	Lv. 16 PIDGEY, Lv. 16 NIDORAN♀	class:	203	instance:	7	win count:	68	lose count:	378	draw count:	1	elo:	885.290112	kde tier:	4	diff tier:	4
+trainer:	JrTrainerM #3	location	Route 24	party:	Lv. 18 MANKEY	class:	205	instance:	3	win count:	53	lose count:	400	draw count:	1	elo:	820.9646338	kde tier:	3	diff tier:	4
+trainer:	Rocket #6	location	Route 24	party:	Lv. 15 EKANS, Lv. 15 ZUBAT	class:	230	instance:	6	win count:	71	lose count:	371	draw count:	1	elo:	894.2720702	kde tier:	4	diff tier:	4
+trainer:	JrTrainerM #2	location	Route 24/Route 25	party:	Lv. 14 RATTATA, Lv. 14 EKANS	class:	205	instance:	2	win count:	54	lose count:	397	draw count:	1	elo:	791.9197093	kde tier:	3	diff tier:	4
+trainer:	Hiker #2	location	Route 25	party:	Lv. 15 MACHOP, Lv. 15 GEODUDE	class:	209	instance:	2	win count:	91	lose count:	352	draw count:	2	elo:	1010.049666	kde tier:	5	diff tier:	4
+trainer:	Hiker #4	location	Route 25	party:	Lv. 17 ONIX	class:	209	instance:	4	win count:	79	lose count:	362	draw count:	0	elo:	878.337595	kde tier:	4	diff tier:	4
+trainer:	Youngster #5	location	Route 25	party:	Lv. 15 RATTATA, Lv. 15 SPEAROW	class:	201	instance:	5	win count:	66	lose count:	381	draw count:	0	elo:	848.6736403	kde tier:	4	diff tier:	4
+trainer:	Youngster #6	location	Route 25	party:	Lv. 17 SLOWPOKE	class:	201	instance:	6	win count:	103	lose count:	339	draw count:	0	elo:	1132.185273	kde tier:	7	diff tier:	6
+trainer:	Lass #9	location	Route 25	party:	Lv. 15 NIDORAN♂, Lv. 15 NIDORAN♀	class:	203	instance:	9	win count:	52	lose count:	400	draw count:	2	elo:	810.9694948	kde tier:	3	diff tier:	4
+trainer:	Hiker #3	location	Route 25	party:	Lv. 13 GEODUDE, Lv. 13 GEODUDE, Lv. 13 MACHOP, Lv. 13 GEODUDE	class:	209	instance:	3	win count:	105	lose count:	328	draw count:	3	elo:	1118.508822	kde tier:	7	diff tier:	6
+trainer:	JrTrainerM #2	location	Route 24/Route 25	party:	Lv. 14 RATTATA, Lv. 14 EKANS	class:	205	instance:	2	win count:	54	lose count:	397	draw count:	1	elo:	791.9197093	kde tier:	3	diff tier:	4
+trainer:	Youngster #7	location	Route 25	party:	Lv. 14 EKANS, Lv. 14 SANDSHREW	class:	201	instance:	7	win count:	50	lose count:	392	draw count:	1	elo:	832.6236159	kde tier:	3	diff tier:	4
+trainer:	Lass #10	location	Route 25	party:	Lv. 13 ODDISH, Lv. 13 PIDGEY, Lv. 13 ODDISH	class:	203	instance:	10	win count:	83	lose count:	360	draw count:	12	elo:	981.5966017	kde tier:	5	diff tier:	4
+trainer:	Rocket #5	location	Cerulean City	party:	Lv. 17 MACHOP, Lv. 17 DROWZEE	class:	230	instance:	5	win count:	109	lose count:	327	draw count:	1	elo:	1039.920362	kde tier:	6	diff tier:	5
+trainer:	BugCatcher #10	location	Route 6	party:	Lv. 16 WEEDLE, Lv. 16 CATERPIE, Lv. 16 WEEDLE	class:	202	instance:	10	win count:	37	lose count:	417	draw count:	1	elo:	705.1258048	kde tier:	2	diff tier:	4
+trainer:	JrTrainerM #4	location	Route 6	party:	Lv. 20 SQUIRTLE	class:	205	instance:	4	win count:	71	lose count:	363	draw count:	0	elo:	966.1258254	kde tier:	5	diff tier:	4
+trainer:	JrTrainerF #2	location	Route 6	party:	Lv. 16 RATTATA, Lv. 16 PIKACHU	class:	206	instance:	2	win count:	68	lose count:	375	draw count:	0	elo:	964.9095558	kde tier:	5	diff tier:	4
+trainer:	BugCatcher #11	location	Route 6	party:	Lv. 20 BUTTERFREE	class:	202	instance:	11	win count:	122	lose count:	321	draw count:	0	elo:	1156.676767	kde tier:	7	diff tier:	6
+trainer:	JrTrainerF #3	location	Route 6	party:	Lv. 16 PIDGEY, Lv. 16 PIDGEY, Lv. 16 PIDGEY	class:	206	instance:	3	win count:	101	lose count:	325	draw count:	2	elo:	1059.672208	kde tier:	6	diff tier:	5
+trainer:	JrTrainerM #5	location	Route 6	party:	Lv. 16 SPEAROW, Lv. 16 RATICATE	class:	205	instance:	5	win count:	99	lose count:	349	draw count:	0	elo:	1075.273054	kde tier:	6	diff tier:	5
+trainer:	Gentleman #1	location	SS Anne 1F Rooms	party:	Lv. 18 GROWLITHE, Lv. 18 GROWLITHE	class:	241	instance:	1	win count:	89	lose count:	343	draw count:	0	elo:	975.039765	kde tier:	5	diff tier:	4
+trainer:	Gentleman #2	location	SS Anne 1F Rooms	party:	Lv. 19 NIDORAN♂, Lv. 19 NIDORAN♀	class:	241	instance:	2	win count:	80	lose count:	375	draw count:	1	elo:	852.2557111	kde tier:	4	diff tier:	4
+trainer:	Lass #11	location	SS Anne 1F Rooms	party:	Lv. 18 PIDGEY, Lv. 18 NIDORAN♀	class:	203	instance:	11	win count:	82	lose count:	367	draw count:	1	elo:	985.5157919	kde tier:	5	diff tier:	4
+trainer:	Youngster #8	location	SS Anne 1F Rooms	party:	Lv. 21 NIDORAN♂	class:	201	instance:	8	win count:	57	lose count:	386	draw count:	1	elo:	790.4707013	kde tier:	3	diff tier:	4
+trainer:	Sailor #3	location	SS Anne B1F Rooms	party:	Lv. 21 SHELLDER	class:	204	instance:	3	win count:	46	lose count:	389	draw count:	2	elo:	783.2536945	kde tier:	3	diff tier:	4
+trainer:	Sailor #4	location	SS Anne B1F Rooms	party:	Lv. 17 HORSEA, Lv. 17 SHELLDER, Lv. 17 TENTACOOL	class:	204	instance:	4	win count:	122	lose count:	322	draw count:	1	elo:	1082.703495	kde tier:	6	diff tier:	5
+trainer:	Sailor #6	location	SS Anne B1F Rooms	party:	Lv. 17 HORSEA, Lv. 17 HORSEA, Lv. 17 HORSEA	class:	204	instance:	6	win count:	107	lose count:	322	draw count:	0	elo:	1043.81838	kde tier:	6	diff tier:	5
+trainer:	Sailor #5	location	SS Anne B1F Rooms	party:	Lv. 18 TENTACOOL, Lv. 18 STARYU	class:	204	instance:	5	win count:	117	lose count:	348	draw count:	0	elo:	1038.734882	kde tier:	6	diff tier:	5
+trainer:	Fisher #2	location	SS Anne B1F Rooms	party:	Lv. 17 TENTACOOL, Lv. 17 STARYU, Lv. 17 SHELLDER	class:	214	instance:	2	win count:	124	lose count:	319	draw count:	1	elo:	1177.810684	kde tier:	7	diff tier:	6
+trainer:	Sailor #7	location	SS Anne B1F Rooms	party:	Lv. 20 MACHOP	class:	204	instance:	7	win count:	109	lose count:	328	draw count:	1	elo:	1179.388561	kde tier:	7	diff tier:	6
+trainer:	Sailor #2	location	SS Anne Stern	party:	Lv. 17 MACHOP, Lv. 17 TENTACOOL	class:	204	instance:	2	win count:	108	lose count:	342	draw count:	1	elo:	1086.748889	kde tier:	6	diff tier:	5
+trainer:	Sailor #1	location	SS Anne Stern	party:	Lv. 18 MACHOP, Lv. 18 SHELLDER	class:	204	instance:	1	win count:	100	lose count:	342	draw count:	1	elo:	1002.400262	kde tier:	5	diff tier:	4
+trainer:	Fisher #1	location	SS Anne 2F Rooms	party:	Lv. 17 GOLDEEN, Lv. 17 TENTACOOL, Lv. 17 GOLDEEN	class:	214	instance:	1	win count:	124	lose count:	331	draw count:	3	elo:	1086.050214	kde tier:	6	diff tier:	5
+trainer:	Gentleman #3	location	SS Anne 2F Rooms/Vermilion Gym	party:	Lv. 23 PIKACHU	class:	241	instance:	3	win count:	66	lose count:	390	draw count:	0	elo:	872.3150419	kde tier:	4	diff tier:	4
+trainer:	Gentleman #5	location	SS Anne 2F Rooms	party:	Lv. 17 GROWLITHE, Lv. 17 PONYTA	class:	241	instance:	5	win count:	112	lose count:	343	draw count:	0	elo:	1073.889274	kde tier:	6	diff tier:	5
+trainer:	Lass #12	location	SS Anne 2F Rooms	party:	Lv. 18 RATTATA, Lv. 18 PIKACHU	class:	203	instance:	12	win count:	88	lose count:	353	draw count:	0	elo:	1045.638185	kde tier:	6	diff tier:	5
+trainer:	Green2 #1	location	SS Anne 2F	party:	Lv. 19 PIDGEOTTO, Lv. 16 RATICATE, Lv. 18 KADABRA, Lv. 20 WARTORTLE	class:	242	instance:	1	win count:	229	lose count:	212	draw count:	0	elo:	1500.340274	kde tier:	10	diff tier:	7
+trainer:	Green2 #2	location	SS Anne 2F	party:	Lv. 19 PIDGEOTTO, Lv. 16 RATICATE, Lv. 18 KADABRA, Lv. 20 IVYSAUR	class:	242	instance:	2	win count:	213	lose count:	215	draw count:	0	elo:	1486.267798	kde tier:	10	diff tier:	7
+trainer:	Green2 #3	location	SS Anne 2F	party:	Lv. 19 PIDGEOTTO, Lv. 16 RATICATE, Lv. 18 KADABRA, Lv. 20 CHARMELEON	class:	242	instance:	3	win count:	218	lose count:	219	draw count:	0	elo:	1511.915359	kde tier:	10	diff tier:	7
+trainer:	Sailor #8	location	Vermilion Gym	party:	Lv. 21 PIKACHU, Lv. 21 PIKACHU	class:	204	instance:	8	win count:	122	lose count:	314	draw count:	0	elo:	1150.439509	kde tier:	7	diff tier:	6
+trainer:	Rocker #1	location	Vermilion Gym	party:	Lv. 20 VOLTORB, Lv. 20 MAGNEMITE, Lv. 20 VOLTORB	class:	220	instance:	1	win count:	150	lose count:	299	draw count:	0	elo:	1266.684239	kde tier:	8	diff tier:	7
+trainer:	Gentleman #3	location	SS Anne 2F Rooms/Vermilion Gym	party:	Lv. 23 PIKACHU	class:	241	instance:	3	win count:	66	lose count:	390	draw count:	0	elo:	872.3150419	kde tier:	4	diff tier:	4
+trainer:	LtSurge #1	location	somewhere	party:	Lv. 21 VOLTORB, Lv. 18 PIKACHU, Lv. 24 RAICHU	class:	236	instance:	1	win count:	244	lose count:	211	draw count:	0	elo:	1575.806808	kde tier:	10	diff tier:	7
+trainer:	Gambler #1	location	Route 11	party:	Lv. 18 POLIWAG, Lv. 18 HORSEA	class:	217	instance:	1	win count:	94	lose count:	342	draw count:	0	elo:	986.5694301	kde tier:	5	diff tier:	4
+trainer:	Youngster #9	location	Route 11	party:	Lv. 21 EKANS	class:	201	instance:	9	win count:	72	lose count:	362	draw count:	1	elo:	940.4817139	kde tier:	5	diff tier:	4
+trainer:	Youngster #10	location	Route 11	party:	Lv. 19 SANDSHREW, Lv. 19 ZUBAT	class:	201	instance:	10	win count:	134	lose count:	309	draw count:	0	elo:	1142.576871	kde tier:	7	diff tier:	6
+trainer:	Youngster #12	location	Route 11	party:	Lv. 18 NIDORAN♂, Lv. 18 NIDORINO	class:	201	instance:	12	win count:	85	lose count:	352	draw count:	1	elo:	955.4359887	kde tier:	5	diff tier:	4
+trainer:	Gambler #2	location	Route 11	party:	Lv. 18 BELLSPROUT, Lv. 18 ODDISH	class:	217	instance:	2	win count:	97	lose count:	348	draw count:	1	elo:	1052.829386	kde tier:	6	diff tier:	5
+trainer:	Gambler #4	location	Route 11	party:	Lv. 18 GROWLITHE, Lv. 18 VULPIX	class:	217	instance:	4	win count:	86	lose count:	357	draw count:	0	elo:	972.0928451	kde tier:	5	diff tier:	4
+trainer:	Engineer #2	location	Route 11	party:	Lv. 21 MAGNEMITE	class:	212	instance:	2	win count:	74	lose count:	367	draw count:	0	elo:	948.0552083	kde tier:	5	diff tier:	4
+trainer:	Youngster #11	location	Route 11	party:	Lv. 17 RATTATA, Lv. 17 RATTATA, Lv. 17 RATICATE	class:	201	instance:	11	win count:	139	lose count:	305	draw count:	0	elo:	1250.942881	kde tier:	8	diff tier:	7
+trainer:	Gambler #3	location	Route 11	party:	Lv. 18 VOLTORB, Lv. 18 MAGNEMITE	class:	217	instance:	3	win count:	87	lose count:	376	draw count:	0	elo:	923.1934917	kde tier:	5	diff tier:	4
+trainer:	Engineer #3	location	Route 11	party:	Lv. 18 MAGNEMITE, Lv. 18 MAGNEMITE, Lv. 18 MAGNETON	class:	212	instance:	3	win count:	157	lose count:	296	draw count:	0	elo:	1227.840111	kde tier:	8	diff tier:	7
+trainer:	JrTrainerF #5	location	Route 9	party:	Lv. 18 ODDISH, Lv. 18 BELLSPROUT, Lv. 18 ODDISH, Lv. 18 BELLSPROUT	class:	206	instance:	5	win count:	155	lose count:	277	draw count:	9	elo:	1181.518255	kde tier:	7	diff tier:	6
+trainer:	Hiker #11	location	Route 9/Rock Tunnel B1F	party:	Lv. 20 MACHOP, Lv. 20 ONIX	class:	209	instance:	11	win count:	162	lose count:	283	draw count:	1	elo:	1261.133246	kde tier:	8	diff tier:	7
+trainer:	BugCatcher #13	location	Route 9	party:	Lv. 19 BEEDRILL, Lv. 19 BEEDRILL	class:	202	instance:	13	win count:	68	lose count:	385	draw count:	1	elo:	928.4493136	kde tier:	5	diff tier:	4
+trainer:	JrTrainerM #7	location	Route 9	party:	Lv. 21 GROWLITHE, Lv. 21 CHARMANDER	class:	205	instance:	7	win count:	102	lose count:	343	draw count:	0	elo:	1153.963149	kde tier:	7	diff tier:	6
+trainer:	Hiker #5	location	Route 9	party:	Lv. 21 GEODUDE, Lv. 21 ONIX	class:	209	instance:	5	win count:	153	lose count:	287	draw count:	0	elo:	1336.394143	kde tier:	9	diff tier:	7
+trainer:	BugCatcher #14	location	Route 9	party:	Lv. 20 CATERPIE, Lv. 20 WEEDLE, Lv. 20 VENONAT	class:	202	instance:	14	win count:	66	lose count:	383	draw count:	1	elo:	938.5403257	kde tier:	5	diff tier:	4
+trainer:	JrTrainerM #8	location	Route 9	party:	Lv. 19 RATTATA, Lv. 19 DIGLETT, Lv. 19 EKANS, Lv. 19 SANDSHREW	class:	205	instance:	8	win count:	185	lose count:	256	draw count:	1	elo:	1374.76743	kde tier:	9	diff tier:	7
+trainer:	Hiker #6	location	Route 9	party:	Lv. 20 GEODUDE, Lv. 20 MACHOP, Lv. 20 GEODUDE	class:	209	instance:	6	win count:	206	lose count:	234	draw count:	2	elo:	1461.311351	kde tier:	10	diff tier:	7
+trainer:	JrTrainerF #6	location	Route 9	party:	Lv. 23 MEOWTH	class:	206	instance:	6	win count:	93	lose count:	364	draw count:	0	elo:	1043.832385	kde tier:	6	diff tier:	5
+trainer:	JrTrainerF #7	location	Route 10	party:	Lv. 20 PIKACHU, Lv. 20 CLEFAIRY	class:	206	instance:	7	win count:	120	lose count:	330	draw count:	0	elo:	1173.885225	kde tier:	7	diff tier:	6
+trainer:	Pokemaniac #7	location	Rock Tunnel 1F	party:	Lv. 23 CUBONE, Lv. 23 SLOWPOKE	class:	207	instance:	7	win count:	225	lose count:	217	draw count:	0	elo:	1360.301631	kde tier:	9	diff tier:	7
+trainer:	Pokemaniac #5	location	Rock Tunnel B1F	party:	Lv. 25 SLOWPOKE	class:	207	instance:	5	win count:	169	lose count:	265	draw count:	0	elo:	1303.310713	kde tier:	8	diff tier:	7
+trainer:	JrTrainerF #10	location	Rock Tunnel B1F	party:	Lv. 22 ODDISH, Lv. 22 BULBASAUR	class:	206	instance:	10	win count:	137	lose count:	293	draw count:	13	elo:	1161.601533	kde tier:	7	diff tier:	6
+trainer:	Pokemaniac #4	location	Rock Tunnel B1F	party:	Lv. 22 CHARMANDER, Lv. 22 CUBONE	class:	207	instance:	4	win count:	154	lose count:	274	draw count:	1	elo:	1225.803219	kde tier:	8	diff tier:	7
+trainer:	Hiker #10	location	Rock Tunnel B1F	party:	Lv. 25 GEODUDE	class:	209	instance:	10	win count:	44	lose count:	411	draw count:	0	elo:	748.5418545	kde tier:	3	diff tier:	4
+trainer:	Hiker #11	location	Route 9/Rock Tunnel B1F	party:	Lv. 20 MACHOP, Lv. 20 ONIX	class:	209	instance:	11	win count:	162	lose count:	283	draw count:	1	elo:	1261.133246	kde tier:	8	diff tier:	7
+trainer:	Hiker #12	location	Rock Tunnel 1F	party:	Lv. 19 GEODUDE, Lv. 19 MACHOP, Lv. 19 GEODUDE, Lv. 19 GEODUDE	class:	209	instance:	12	win count:	200	lose count:	242	draw count:	1	elo:	1415.494134	kde tier:	9	diff tier:	7
+trainer:	Hiker #13	location	Rock Tunnel 1F	party:	Lv. 20 ONIX, Lv. 20 ONIX, Lv. 20 GEODUDE	class:	209	instance:	13	win count:	227	lose count:	216	draw count:	1	elo:	1527.831531	kde tier:	10	diff tier:	7
+trainer:	Hiker #14	location	Rock Tunnel 1F	party:	Lv. 21 GEODUDE, Lv. 21 GRAVELER	class:	209	instance:	14	win count:	99	lose count:	345	draw count:	0	elo:	996.164583	kde tier:	5	diff tier:	4
+trainer:	JrTrainerF #9	location	Rock Tunnel B1F	party:	Lv. 21 JIGGLYPUFF, Lv. 21 PIDGEY, Lv. 21 MEOWTH	class:	206	instance:	9	win count:	141	lose count:	307	draw count:	0	elo:	1269.751373	kde tier:	8	diff tier:	7
+trainer:	Hiker #9	location	Rock Tunnel B1F	party:	Lv. 21 GEODUDE, Lv. 21 GEODUDE, Lv. 21 GRAVELER	class:	209	instance:	9	win count:	166	lose count:	283	draw count:	0	elo:	1284.873102	kde tier:	8	diff tier:	7
+trainer:	Pokemaniac #3	location	Rock Tunnel B1F	party:	Lv. 20 SLOWPOKE, Lv. 20 SLOWPOKE, Lv. 20 SLOWPOKE	class:	207	instance:	3	win count:	245	lose count:	214	draw count:	0	elo:	1610.380624	kde tier:	10	diff tier:	7
+trainer:	JrTrainerF #17	location	Rock Tunnel 1F	party:	Lv. 22 BELLSPROUT, Lv. 22 CLEFAIRY	class:	206	instance:	17	win count:	153	lose count:	287	draw count:	2	elo:	1226.429833	kde tier:	8	diff tier:	7
+trainer:	JrTrainerF #19	location	Rock Tunnel 1F	party:	Lv. 19 PIDGEY, Lv. 19 RATTATA, Lv. 19 RATTATA, Lv. 19 BELLSPROUT	class:	206	instance:	19	win count:	150	lose count:	293	draw count:	3	elo:	1290.658638	kde tier:	8	diff tier:	7
+trainer:	JrTrainerF #18	location	Rock Tunnel 1F	party:	Lv. 20 MEOWTH, Lv. 20 ODDISH, Lv. 20 PIDGEY	class:	206	instance:	18	win count:	170	lose count:	257	draw count:	8	elo:	1380.59228	kde tier:	9	diff tier:	7
+trainer:	JrTrainerF #8	location	Route 10	party:	Lv. 21 PIDGEY, Lv. 21 PIDGEOTTO	class:	206	instance:	8	win count:	125	lose count:	326	draw count:	0	elo:	1200.765229	kde tier:	7	diff tier:	6
+trainer:	Hiker #7	location	Route 10	party:	Lv. 21 GEODUDE, Lv. 21 ONIX	class:	209	instance:	7	win count:	142	lose count:	290	draw count:	0	elo:	1275.35004	kde tier:	8	diff tier:	7
+trainer:	Hiker #8	location	Route 10	party:	Lv. 19 ONIX, Lv. 19 GRAVELER	class:	209	instance:	8	win count:	169	lose count:	278	draw count:	0	elo:	1367.66655	kde tier:	9	diff tier:	7
+trainer:	Pokemaniac #2	location	Route 10	party:	Lv. 20 CUBONE, Lv. 20 SLOWPOKE	class:	207	instance:	2	win count:	188	lose count:	266	draw count:	0	elo:	1289.90939	kde tier:	8	diff tier:	7
+trainer:	Lass #16	location	Route 8	party:	Lv. 22 CLEFAIRY, Lv. 22 CLEFAIRY	class:	203	instance:	16	win count:	131	lose count:	306	draw count:	0	elo:	1197.212834	kde tier:	7	diff tier:	6
+trainer:	Gambler #7	location	Route 8	party:	Lv. 24 GROWLITHE, Lv. 24 VULPIX	class:	217	instance:	7	win count:	126	lose count:	322	draw count:	0	elo:	1260.871974	kde tier:	8	diff tier:	7
+trainer:	SuperNerd #4	location	Route 8	party:	Lv. 22 GRIMER, Lv. 22 MUK, Lv. 22 GRIMER	class:	208	instance:	4	win count:	146	lose count:	291	draw count:	1	elo:	1194.591534	kde tier:	7	diff tier:	6
+trainer:	Lass #13	location	Route 8	party:	Lv. 23 NIDORAN♀, Lv. 23 NIDORINA	class:	203	instance:	13	win count:	119	lose count:	320	draw count:	1	elo:	1139.841098	kde tier:	7	diff tier:	6
+trainer:	SuperNerd #5	location	Route 8	party:	Lv. 26 KOFFING	class:	208	instance:	5	win count:	97	lose count:	348	draw count:	1	elo:	1047.952078	kde tier:	6	diff tier:	5
+trainer:	Lass #14	location	Route 8	party:	Lv. 24 MEOWTH, Lv. 24 MEOWTH, Lv. 24 MEOWTH	class:	203	instance:	14	win count:	184	lose count:	250	draw count:	0	elo:	1427.025379	kde tier:	10	diff tier:	7
+trainer:	Lass #15	location	Route 8	party:	Lv. 19 PIDGEY, Lv. 19 RATTATA, Lv. 19 NIDORAN♂, Lv. 19 MEOWTH, Lv. 19 PIKACHU	class:	203	instance:	15	win count:	179	lose count:	260	draw count:	1	elo:	1380.687095	kde tier:	9	diff tier:	7
+trainer:	Gambler #5	location	Route 8	party:	Lv. 22 POLIWAG, Lv. 22 POLIWAG, Lv. 22 POLIWHIRL	class:	217	instance:	5	win count:	220	lose count:	217	draw count:	0	elo:	1572.258771	kde tier:	10	diff tier:	7
+trainer:	SuperNerd #3	location	Route 8	party:	Lv. 20 VOLTORB, Lv. 20 KOFFING, Lv. 20 VOLTORB, Lv. 20 MAGNEMITE	class:	208	instance:	3	win count:	171	lose count:	273	draw count:	1	elo:	1459.038851	kde tier:	10	diff tier:	7
+trainer:	Lass #17	location	Celadon Gym	party:	Lv. 23 BELLSPROUT, Lv. 23 WEEPINBELL	class:	203	instance:	17	win count:	217	lose count:	212	draw count:	8	elo:	1547.300794	kde tier:	10	diff tier:	7
+trainer:	Beauty #1	location	Celadon Gym	party:	Lv. 21 ODDISH, Lv. 21 BELLSPROUT, Lv. 21 ODDISH, Lv. 21 BELLSPROUT	class:	218	instance:	1	win count:	214	lose count:	196	draw count:	26	elo:	1521.228819	kde tier:	10	diff tier:	7
+trainer:	Beauty #2	location	Celadon Gym	party:	Lv. 24 BELLSPROUT, Lv. 24 BELLSPROUT	class:	218	instance:	2	win count:	170	lose count:	251	draw count:	16	elo:	1368.968725	kde tier:	9	diff tier:	7
+trainer:	JrTrainerF #11	location	Celadon Gym	party:	Lv. 24 BULBASAUR, Lv. 24 IVYSAUR	class:	206	instance:	11	win count:	177	lose count:	256	draw count:	6	elo:	1320.122284	kde tier:	8	diff tier:	7
+trainer:	Beauty #3	location	Celadon Gym	party:	Lv. 26 EXEGGCUTE	class:	218	instance:	3	win count:	51	lose count:	381	draw count:	5	elo:	786.9797576	kde tier:	3	diff tier:	4
+trainer:	CooltrainerF #1	location	Celadon Gym	party:	Lv. 24 WEEPINBELL, Lv. 24 GLOOM, Lv. 24 IVYSAUR	class:	232	instance:	1	win count:	258	lose count:	160	draw count:	16	elo:	1673.256245	kde tier:	10	diff tier:	7
+trainer:	Lass #18	location	Celadon Gym	party:	Lv. 23 ODDISH, Lv. 23 GLOOM	class:	203	instance:	18	win count:	191	lose count:	249	draw count:	6	elo:	1374.423965	kde tier:	9	diff tier:	7
+trainer:	Erika #1	location	somewhere	party:	Lv. 29 VICTREEBEL, Lv. 24 TANGELA, Lv. 29 VILEPLUME	class:	237	instance:	1	win count:	337	lose count:	81	draw count:	23	elo:	1968.018468	kde tier:	12	diff tier:	7
+trainer:	Rocket #7	location	Game Corner	party:	Lv. 20 RATICATE, Lv. 20 ZUBAT	class:	230	instance:	7	win count:	149	lose count:	291	draw count:	0	elo:	1251.958067	kde tier:	8	diff tier:	7
+trainer:	Rocket #8	location	Rocket Hideout B1F	party:	Lv. 21 DROWZEE, Lv. 21 MACHOP	class:	230	instance:	8	win count:	158	lose count:	268	draw count:	2	elo:	1310.97975	kde tier:	8	diff tier:	7
+trainer:	Rocket #9	location	Rocket Hideout B1F	party:	Lv. 21 RATICATE, Lv. 21 RATICATE	class:	230	instance:	9	win count:	185	lose count:	255	draw count:	0	elo:	1404.236696	kde tier:	9	diff tier:	7
+trainer:	Rocket #13	location	Rocket Hideout B2F	party:	Lv. 17 ZUBAT, Lv. 17 KOFFING, Lv. 17 GRIMER, Lv. 17 ZUBAT, Lv. 17 RATICATE	class:	230	instance:	13	win count:	154	lose count:	289	draw count:	1	elo:	1324.934635	kde tier:	8	diff tier:	7
+trainer:	Rocket #11	location	Rocket Hideout B1F	party:	Lv. 19 RATTATA, Lv. 19 RATICATE, Lv. 19 RATICATE, Lv. 19 RATTATA	class:	230	instance:	11	win count:	214	lose count:	234	draw count:	0	elo:	1464.638965	kde tier:	10	diff tier:	7
+trainer:	Rocket #10	location	Rocket Hideout B1F	party:	Lv. 20 GRIMER, Lv. 20 KOFFING, Lv. 20 KOFFING	class:	230	instance:	10	win count:	122	lose count:	312	draw count:	2	elo:	1249.424527	kde tier:	8	diff tier:	7
+trainer:	Rocket #15	location	Rocket Hideout B3F	party:	Lv. 21 MACHOP, Lv. 21 MACHOP	class:	230	instance:	15	win count:	161	lose count:	273	draw count:	1	elo:	1312.756886	kde tier:	8	diff tier:	7
+trainer:	Rocket #14	location	Rocket Hideout B3F	party:	Lv. 20 RATTATA, Lv. 20 RATICATE, Lv. 20 DROWZEE	class:	230	instance:	14	win count:	202	lose count:	225	draw count:	0	elo:	1529.458124	kde tier:	10	diff tier:	7
+trainer:	Rocket #18	location	Rocket Hideout B4F	party:	Lv. 21 KOFFING, Lv. 21 ZUBAT	class:	230	instance:	18	win count:	114	lose count:	330	draw count:	2	elo:	1069.16392	kde tier:	6	diff tier:	5
+trainer:	Rocket #12	location	Rocket Hideout B1F	party:	Lv. 22 GRIMER, Lv. 22 KOFFING	class:	230	instance:	12	win count:	102	lose count:	335	draw count:	0	elo:	1153.064671	kde tier:	7	diff tier:	6
+trainer:	Rocket #16	location	Rocket Hideout B4F	party:	Lv. 23 SANDSHREW, Lv. 23 EKANS, Lv. 23 SANDSLASH	class:	230	instance:	16	win count:	262	lose count:	172	draw count:	2	elo:	1557.811492	kde tier:	10	diff tier:	7
+trainer:	Rocket #17	location	Rocket Hideout B4F	party:	Lv. 23 EKANS, Lv. 23 SANDSHREW, Lv. 23 ARBOK	class:	230	instance:	17	win count:	219	lose count:	207	draw count:	3	elo:	1523.484543	kde tier:	10	diff tier:	7
+trainer:	Giovanni #1	location	Rocket Hideout B4F	party:	Lv. 25 ONIX, Lv. 24 RHYHORN, Lv. 29 KANGASKHAN	class:	229	instance:	1	win count:	322	lose count:	123	draw count:	4	elo:	1871.426555	kde tier:	11	diff tier:	7
+trainer:	Green2 #4	location	Pokémon Tower 2F	party:	Lv. 25 PIDGEOTTO, Lv. 23 GROWLITHE, Lv. 22 EXEGGCUTE, Lv. 20 KADABRA, Lv. 25 WARTORTLE	class:	242	instance:	4	win count:	302	lose count:	140	draw count:	0	elo:	1805.702878	kde tier:	10	diff tier:	7
+trainer:	Green2 #5	location	Pokémon Tower 2F	party:	Lv. 25 PIDGEOTTO, Lv. 23 GYARADOS, Lv. 22 GROWLITHE, Lv. 20 KADABRA, Lv. 25 IVYSAUR	class:	242	instance:	5	win count:	352	lose count:	81	draw count:	4	elo:	2026.037851	kde tier:	12	diff tier:	7
+trainer:	Green2 #6	location	Pokémon Tower 2F	party:	Lv. 25 PIDGEOTTO, Lv. 23 EXEGGCUTE, Lv. 22 GYARADOS, Lv. 20 KADABRA, Lv. 25 CHARMELEON	class:	242	instance:	6	win count:	337	lose count:	90	draw count:	6	elo:	1904.466655	kde tier:	12	diff tier:	7
+trainer:	Channeler #5	location	Pokémon Tower 3F	party:	Lv. 23 GASTLY	class:	245	instance:	5	win count:	234	lose count:	197	draw count:	3	elo:	1541.109819	kde tier:	10	diff tier:	7
+trainer:	Channeler #8	location	Pokémon Tower 3F	party:	Lv. 22 GASTLY	class:	245	instance:	8	win count:	226	lose count:	208	draw count:	2	elo:	1573.235742	kde tier:	10	diff tier:	7
+trainer:	Channeler #6	location	Pokémon Tower 3F	party:	Lv. 24 GASTLY	class:	245	instance:	6	win count:	261	lose count:	182	draw count:	1	elo:	1618.090464	kde tier:	10	diff tier:	7
+trainer:	Channeler #10	location	Pokémon Tower 4F	party:	Lv. 23 GASTLY, Lv. 23 GASTLY	class:	245	instance:	10	win count:	300	lose count:	125	draw count:	2	elo:	1710.596226	kde tier:	10	diff tier:	7
+trainer:	Channeler #12	location	Pokémon Tower 4F	party:	Lv. 22 GASTLY	class:	245	instance:	12	win count:	216	lose count:	217	draw count:	6	elo:	1527.308383	kde tier:	10	diff tier:	7
+trainer:	Channeler #9	location	Pokémon Tower 4F	party:	Lv. 24 GASTLY	class:	245	instance:	9	win count:	250	lose count:	188	draw count:	1	elo:	1546.087278	kde tier:	10	diff tier:	7
+trainer:	Channeler #16	location	Pokémon Tower 5F	party:	Lv. 22 GASTLY	class:	245	instance:	16	win count:	237	lose count:	200	draw count:	2	elo:	1682.969677	kde tier:	10	diff tier:	7
+trainer:	Channeler #14	location	Pokémon Tower 5F	party:	Lv. 23 HAUNTER	class:	245	instance:	14	win count:	271	lose count:	168	draw count:	2	elo:	1730.597084	kde tier:	10	diff tier:	7
+trainer:	Channeler #17	location	Pokémon Tower 5F	party:	Lv. 24 GASTLY	class:	245	instance:	17	win count:	251	lose count:	185	draw count:	2	elo:	1673.899012	kde tier:	10	diff tier:	7
+trainer:	Channeler #18	location	Pokémon Tower 5F	party:	Lv. 22 HAUNTER	class:	245	instance:	18	win count:	261	lose count:	177	draw count:	2	elo:	1724.237142	kde tier:	10	diff tier:	7
+trainer:	Channeler #19	location	Pokémon Tower 6F	party:	Lv. 22 GASTLY, Lv. 22 GASTLY, Lv. 22 GASTLY	class:	245	instance:	19	win count:	327	lose count:	108	draw count:	2	elo:	1898.219941	kde tier:	12	diff tier:	7
+trainer:	Channeler #21	location	Pokémon Tower 6F	party:	Lv. 24 GASTLY	class:	245	instance:	21	win count:	253	lose count:	179	draw count:	6	elo:	1574.266136	kde tier:	10	diff tier:	7
+trainer:	Channeler #20	location	Pokémon Tower 6F	party:	Lv. 24 GASTLY	class:	245	instance:	20	win count:	255	lose count:	187	draw count:	5	elo:	1632.691354	kde tier:	10	diff tier:	7
+trainer:	Rocket #19	location	Pokémon Tower 7F	party:	Lv. 25 ZUBAT, Lv. 25 ZUBAT, Lv. 25 GOLBAT	class:	230	instance:	19	win count:	247	lose count:	202	draw count:	0	elo:	1563.906289	kde tier:	10	diff tier:	7
+trainer:	Rocket #20	location	Pokémon Tower 7F	party:	Lv. 26 KOFFING, Lv. 26 DROWZEE	class:	230	instance:	20	win count:	219	lose count:	220	draw count:	2	elo:	1476.905555	kde tier:	10	diff tier:	7
+trainer:	Rocket #21	location	Pokémon Tower 7F	party:	Lv. 23 ZUBAT, Lv. 23 RATTATA, Lv. 23 RATICATE, Lv. 23 ZUBAT	class:	230	instance:	21	win count:	241	lose count:	196	draw count:	0	elo:	1587.313641	kde tier:	10	diff tier:	7
+trainer:	Blackbelt #5	location	Fighting Dojo	party:	Lv. 31 MACHOP, Lv. 31 MANKEY, Lv. 31 PRIMEAPE	class:	224	instance:	5	win count:	281	lose count:	166	draw count:	0	elo:	1715.713615	kde tier:	10	diff tier:	7
+trainer:	Blackbelt #3	location	Fighting Dojo	party:	Lv. 32 MACHOP, Lv. 32 MACHOKE	class:	224	instance:	3	win count:	271	lose count:	165	draw count:	0	elo:	1685.772544	kde tier:	10	diff tier:	7
+trainer:	Blackbelt #4	location	Fighting Dojo	party:	Lv. 36 PRIMEAPE	class:	224	instance:	4	win count:	222	lose count:	223	draw count:	0	elo:	1546.016294	kde tier:	10	diff tier:	7
+trainer:	Blackbelt #2	location	Fighting Dojo	party:	Lv. 31 MANKEY, Lv. 31 MANKEY, Lv. 31 PRIMEAPE	class:	224	instance:	2	win count:	264	lose count:	173	draw count:	0	elo:	1643.597223	kde tier:	10	diff tier:	7
+trainer:	Blackbelt #1	location	Fighting Dojo	party:	Lv. 37 HITMONLEE, Lv. 37 HITMONCHAN	class:	224	instance:	1	win count:	323	lose count:	116	draw count:	0	elo:	1833.189316	kde tier:	11	diff tier:	7
+trainer:	Scientist #9	location	Silph Co. 8F	party:	Lv. 29 GRIMER, Lv. 29 ELECTRODE	class:	228	instance:	9	win count:	135	lose count:	309	draw count:	0	elo:	1244.719519	kde tier:	8	diff tier:	7
+trainer:	Rocket #35	location	Silph Co. 8F	party:	Lv. 26 RATICATE, Lv. 26 ZUBAT, Lv. 26 GOLBAT, Lv. 26 RATTATA	class:	230	instance:	35	win count:	313	lose count:	127	draw count:	0	elo:	1796.491418	kde tier:	10	diff tier:	7
+trainer:	Rocket #36	location	Silph Co. 8F	party:	Lv. 28 WEEZING, Lv. 28 GOLBAT, Lv. 28 KOFFING	class:	230	instance:	36	win count:	336	lose count:	102	draw count:	1	elo:	1940.681073	kde tier:	12	diff tier:	7
+trainer:	Rocket #25	location	Silph Co. 3F	party:	Lv. 28 RATICATE, Lv. 28 HYPNO, Lv. 28 RATICATE	class:	230	instance:	25	win count:	348	lose count:	81	draw count:	0	elo:	1962.528941	kde tier:	12	diff tier:	7
+trainer:	Rocket #27	location	Silph Co. 4F	party:	Lv. 28 EKANS, Lv. 28 ZUBAT, Lv. 28 CUBONE	class:	230	instance:	27	win count:	263	lose count:	173	draw count:	1	elo:	1643.532892	kde tier:	10	diff tier:	7
+trainer:	Rocket #26	location	Silph Co. 4F	party:	Lv. 29 MACHOP, Lv. 29 DROWZEE	class:	230	instance:	26	win count:	249	lose count:	200	draw count:	0	elo:	1547.39416	kde tier:	10	diff tier:	7
+trainer:	Rocket #29	location	Silph Co. 5F	party:	Lv. 33 HYPNO	class:	230	instance:	29	win count:	306	lose count:	132	draw count:	0	elo:	1871.484781	kde tier:	11	diff tier:	7
+trainer:	Juggler #1	location	Silph Co. 5F	party:	Lv. 29 KADABRA, Lv. 29 MR.MIME	class:	221	instance:	1	win count:	294	lose count:	142	draw count:	0	elo:	1771.074316	kde tier:	10	diff tier:	7
+trainer:	Scientist #6	location	Silph Co. 5F	party:	Lv. 26 MAGNETON, Lv. 26 KOFFING, Lv. 26 WEEZING, Lv. 26 MAGNEMITE	class:	228	instance:	6	win count:	356	lose count:	91	draw count:	1	elo:	1968.163461	kde tier:	12	diff tier:	7
+trainer:	Rocket #28	location	Silph Co. 5F	party:	Lv. 33 ARBOK	class:	230	instance:	28	win count:	189	lose count:	250	draw count:	1	elo:	1373.93163	kde tier:	9	diff tier:	7
+trainer:	Rocket #30	location	Silph Co. 6F	party:	Lv. 29 MACHOP, Lv. 29 MACHOKE	class:	230	instance:	30	win count:	247	lose count:	181	draw count:	0	elo:	1647.222028	kde tier:	10	diff tier:	7
+trainer:	Scientist #7	location	Silph Co. 6F	party:	Lv. 25 VOLTORB, Lv. 25 KOFFING, Lv. 25 MAGNETON, Lv. 25 MAGNEMITE, Lv. 25 KOFFING	class:	228	instance:	7	win count:	347	lose count:	109	draw count:	1	elo:	1952.334082	kde tier:	12	diff tier:	7
+trainer:	Rocket #31	location	Silph Co. 6F	party:	Lv. 28 ZUBAT, Lv. 28 ZUBAT, Lv. 28 GOLBAT	class:	230	instance:	31	win count:	261	lose count:	168	draw count:	0	elo:	1575.875766	kde tier:	10	diff tier:	7
+trainer:	Rocket #33	location	Silph Co. 7F	party:	Lv. 29 CUBONE, Lv. 29 CUBONE	class:	230	instance:	33	win count:	194	lose count:	242	draw count:	0	elo:	1245.049404	kde tier:	8	diff tier:	7
+trainer:	Rocket #32	location	Silph Co. 7F	party:	Lv. 26 RATICATE, Lv. 26 ARBOK, Lv. 26 KOFFING, Lv. 26 GOLBAT	class:	230	instance:	32	win count:	326	lose count:	104	draw count:	1	elo:	1934.427302	kde tier:	12	diff tier:	7
+trainer:	Rocket #34	location	Silph Co. 7F	party:	Lv. 29 SANDSHREW, Lv. 29 SANDSLASH	class:	230	instance:	34	win count:	281	lose count:	143	draw count:	0	elo:	1751.060591	kde tier:	10	diff tier:	7
+trainer:	Scientist #8	location	Silph Co. 7F	party:	Lv. 29 ELECTRODE, Lv. 29 MUK	class:	228	instance:	8	win count:	205	lose count:	236	draw count:	1	elo:	1446.026973	kde tier:	10	diff tier:	7
+trainer:	Scientist #10	location	Silph Co. 9F	party:	Lv. 28 VOLTORB, Lv. 28 KOFFING, Lv. 28 MAGNETON	class:	228	instance:	10	win count:	309	lose count:	139	draw count:	1	elo:	1782.081813	kde tier:	10	diff tier:	7
+trainer:	Rocket #38	location	Silph Co. 9F	party:	Lv. 28 GOLBAT, Lv. 28 DROWZEE, Lv. 28 HYPNO	class:	230	instance:	38	win count:	374	lose count:	72	draw count:	0	elo:	2087.652281	kde tier:	12	diff tier:	7
+trainer:	Rocket #37	location	Silph Co. 9F	party:	Lv. 28 DROWZEE, Lv. 28 GRIMER, Lv. 28 MACHOP	class:	230	instance:	37	win count:	276	lose count:	167	draw count:	0	elo:	1663.439866	kde tier:	10	diff tier:	7
+trainer:	Scientist #11	location	Silph Co. 10F	party:	Lv. 29 MAGNEMITE, Lv. 29 KOFFING	class:	228	instance:	11	win count:	223	lose count:	212	draw count:	1	elo:	1549.717903	kde tier:	10	diff tier:	7
+trainer:	Rocket #39	location	Silph Co. 10F	party:	Lv. 33 MACHOKE	class:	230	instance:	39	win count:	251	lose count:	201	draw count:	0	elo:	1543.585818	kde tier:	10	diff tier:	7
+trainer:	Rocket #40	location	Silph Co. 11F	party:	Lv. 25 RATTATA, Lv. 25 RATTATA, Lv. 25 ZUBAT, Lv. 25 RATTATA, Lv. 25 EKANS	class:	230	instance:	40	win count:	241	lose count:	203	draw count:	2	elo:	1605.00642	kde tier:	10	diff tier:	7
+trainer:	Scientist #4	location	Silph Co. 3F/Mansion 1F	party:	Lv. 29 ELECTRODE, Lv. 29 WEEZING	class:	228	instance:	4	win count:	277	lose count:	169	draw count:	1	elo:	1749.915494	kde tier:	10	diff tier:	7
+trainer:	Rocket #23	location	Silph Co. 2F	party:	Lv. 29 CUBONE, Lv. 29 ZUBAT	class:	230	instance:	23	win count:	233	lose count:	217	draw count:	0	elo:	1400.886999	kde tier:	9	diff tier:	7
+trainer:	Scientist #2	location	Silph Co. 2F	party:	Lv. 26 GRIMER, Lv. 26 WEEZING, Lv. 26 KOFFING, Lv. 26 WEEZING	class:	228	instance:	2	win count:	311	lose count:	121	draw count:	3	elo:	1829.988584	kde tier:	11	diff tier:	7
+trainer:	Scientist #3	location	Silph Co. 2F	party:	Lv. 28 MAGNEMITE, Lv. 28 VOLTORB, Lv. 28 MAGNETON	class:	228	instance:	3	win count:	328	lose count:	121	draw count:	0	elo:	1843.574666	kde tier:	11	diff tier:	7
+trainer:	Rocket #24	location	Silph Co. 2F	party:	Lv. 25 GOLBAT, Lv. 25 ZUBAT, Lv. 25 ZUBAT, Lv. 25 RATICATE, Lv. 25 ZUBAT	class:	230	instance:	24	win count:	319	lose count:	114	draw count:	1	elo:	1846.546519	kde tier:	11	diff tier:	7
+trainer:	Scientist #5	location	Silph Co. 4F	party:	Lv. 33 ELECTRODE	class:	228	instance:	5	win count:	34	lose count:	410	draw count:	0	elo:	647.9297182	kde tier:	2	diff tier:	4
+trainer:	Green2 #7	location	Silph Co. 7F	party:	Lv. 37 PIDGEOT, Lv. 38 GROWLITHE, Lv. 35 EXEGGCUTE, Lv. 35 ALAKAZAM, Lv. 40 BLASTOISE	class:	242	instance:	7	win count:	416	lose count:	24	draw count:	5	elo:	2328.304483	kde tier:	13	diff tier:	9
+trainer:	Green2 #8	location	Silph Co. 7F	party:	Lv. 37 PIDGEOT, Lv. 38 GYARADOS, Lv. 35 GROWLITHE, Lv. 35 ALAKAZAM, Lv. 40 VENUSAUR	class:	242	instance:	8	win count:	424	lose count:	13	draw count:	2	elo:	2413.371176	kde tier:	14	diff tier:	11
+trainer:	Green2 #9	location	Silph Co. 7F	party:	Lv. 37 PIDGEOT, Lv. 38 EXEGGCUTE, Lv. 35 GYARADOS, Lv. 35 ALAKAZAM, Lv. 40 CHARIZARD	class:	242	instance:	9	win count:	425	lose count:	22	draw count:	0	elo:	2332.5548	kde tier:	13	diff tier:	9
+trainer:	Rocket #41	location	Silph Co. 11F	party:	Lv. 32 CUBONE, Lv. 32 DROWZEE, Lv. 32 MAROWAK	class:	230	instance:	41	win count:	332	lose count:	98	draw count:	0	elo:	1949.519841	kde tier:	12	diff tier:	7
+trainer:	Giovanni #2	location	Silph Co. 11F	party:	Lv. 37 NIDORINO, Lv. 35 KANGASKHAN, Lv. 37 RHYHORN, Lv. 41 NIDOQUEEN	class:	229	instance:	2	win count:	390	lose count:	60	draw count:	3	elo:	2078.952186	kde tier:	12	diff tier:	7
+trainer:	Psychic #3	location	Saffron Gym	party:	Lv. 33 SLOWPOKE, Lv. 33 SLOWPOKE, Lv. 33 SLOWBRO	class:	219	instance:	3	win count:	332	lose count:	107	draw count:	0	elo:	1945.038885	kde tier:	12	diff tier:	7
+trainer:	Psychic #2	location	Saffron Gym	party:	Lv. 34 MR.MIME, Lv. 34 KADABRA	class:	219	instance:	2	win count:	364	lose count:	84	draw count:	0	elo:	1995.743095	kde tier:	12	diff tier:	7
+trainer:	Channeler #23	location	Saffron Gym	party:	Lv. 38 HAUNTER	class:	245	instance:	23	win count:	355	lose count:	78	draw count:	2	elo:	1943.73264	kde tier:	12	diff tier:	7
+trainer:	Psychic #4	location	Saffron Gym	party:	Lv. 38 SLOWBRO	class:	219	instance:	4	win count:	302	lose count:	137	draw count:	0	elo:	1796.759301	kde tier:	10	diff tier:	7
+trainer:	Channeler #22	location	Saffron Gym	party:	Lv. 34 GASTLY, Lv. 34 HAUNTER	class:	245	instance:	22	win count:	379	lose count:	48	draw count:	1	elo:	2164.604206	kde tier:	12	diff tier:	8
+trainer:	Channeler #24	location	Saffron Gym	party:	Lv. 33 GASTLY, Lv. 33 GASTLY, Lv. 33 HAUNTER	class:	245	instance:	24	win count:	390	lose count:	47	draw count:	3	elo:	2238.706253	kde tier:	13	diff tier:	9
+trainer:	Psychic #1	location	Saffron Gym	party:	Lv. 31 KADABRA, Lv. 31 SLOWPOKE, Lv. 31 MR.MIME, Lv. 31 KADABRA	class:	219	instance:	1	win count:	378	lose count:	64	draw count:	0	elo:	2080.092227	kde tier:	12	diff tier:	7
+trainer:	Sabrina #1	location	somewhere	party:	Lv. 38 KADABRA, Lv. 37 MR.MIME, Lv. 38 VENOMOTH, Lv. 43 ALAKAZAM	class:	240	instance:	1	win count:	417	lose count:	21	draw count:	7	elo:	2370.214278	kde tier:	13	diff tier:	10
+trainer:	Biker #5	location	Route 16	party:	Lv. 29 GRIMER, Lv. 29 KOFFING	class:	210	instance:	5	win count:	167	lose count:	270	draw count:	1	elo:	1376.137334	kde tier:	9	diff tier:	7
+trainer:	CueBall #1	location	Route 16	party:	Lv. 28 MACHOP, Lv. 28 MANKEY, Lv. 28 MACHOP	class:	216	instance:	1	win count:	248	lose count:	191	draw count:	1	elo:	1684.390584	kde tier:	10	diff tier:	7
+trainer:	CueBall #2	location	Route 16	party:	Lv. 29 MANKEY, Lv. 29 MACHOP	class:	216	instance:	2	win count:	210	lose count:	229	draw count:	1	elo:	1440.93622	kde tier:	10	diff tier:	7
+trainer:	Biker #6	location	Route 16	party:	Lv. 33 WEEZING	class:	210	instance:	6	win count:	295	lose count:	150	draw count:	2	elo:	1704.208494	kde tier:	10	diff tier:	7
+trainer:	CueBall #3	location	Route 16	party:	Lv. 33 MACHOP	class:	216	instance:	3	win count:	156	lose count:	285	draw count:	0	elo:	1305.927349	kde tier:	8	diff tier:	7
+trainer:	Biker #7	location	Route 16	party:	Lv. 26 GRIMER, Lv. 26 GRIMER, Lv. 26 GRIMER, Lv. 26 GRIMER	class:	210	instance:	7	win count:	191	lose count:	251	draw count:	0	elo:	1424.666186	kde tier:	10	diff tier:	7
+trainer:	CueBall #5	location	Route 17	party:	Lv. 29 MACHOP, Lv. 29 MACHOKE	class:	216	instance:	5	win count:	259	lose count:	179	draw count:	0	elo:	1541.845474	kde tier:	10	diff tier:	7
+trainer:	CueBall #4	location	Route 17	party:	Lv. 29 MANKEY, Lv. 29 PRIMEAPE	class:	216	instance:	4	win count:	198	lose count:	236	draw count:	1	elo:	1513.88434	kde tier:	10	diff tier:	7
+trainer:	Biker #8	location	Route 17	party:	Lv. 28 WEEZING, Lv. 28 KOFFING, Lv. 28 WEEZING	class:	210	instance:	8	win count:	330	lose count:	106	draw count:	1	elo:	1887.02738	kde tier:	12	diff tier:	7
+trainer:	Biker #9	location	Route 17	party:	Lv. 33 MUK	class:	210	instance:	9	win count:	227	lose count:	220	draw count:	2	elo:	1477.121339	kde tier:	10	diff tier:	7
+trainer:	Biker #10	location	Route 17	party:	Lv. 29 VOLTORB, Lv. 29 VOLTORB	class:	210	instance:	10	win count:	89	lose count:	356	draw count:	0	elo:	976.9328782	kde tier:	5	diff tier:	4
+trainer:	CueBall #6	location	Route 17	party:	Lv. 33 MACHOKE	class:	216	instance:	6	win count:	246	lose count:	206	draw count:	0	elo:	1608.31179	kde tier:	10	diff tier:	7
+trainer:	CueBall #8	location	Route 17	party:	Lv. 29 PRIMEAPE, Lv. 29 MACHOKE	class:	216	instance:	8	win count:	251	lose count:	182	draw count:	2	elo:	1621.765149	kde tier:	10	diff tier:	7
+trainer:	CueBall #7	location	Route 17	party:	Lv. 26 MANKEY, Lv. 26 MANKEY, Lv. 26 MACHOKE, Lv. 26 MACHOP	class:	216	instance:	7	win count:	270	lose count:	179	draw count:	1	elo:	1667.196976	kde tier:	10	diff tier:	7
+trainer:	Biker #11	location	Route 17	party:	Lv. 29 WEEZING, Lv. 29 MUK	class:	210	instance:	11	win count:	280	lose count:	165	draw count:	1	elo:	1715.119788	kde tier:	10	diff tier:	7
+trainer:	Biker #12	location	Route 17	party:	Lv. 25 KOFFING, Lv. 25 WEEZING, Lv. 25 KOFFING, Lv. 25 KOFFING, Lv. 25 WEEZING	class:	210	instance:	12	win count:	330	lose count:	115	draw count:	2	elo:	1913.600302	kde tier:	12	diff tier:	7
+trainer:	BirdKeeper #8	location	Route 18	party:	Lv. 29 SPEAROW, Lv. 29 FEAROW	class:	223	instance:	8	win count:	243	lose count:	192	draw count:	0	elo:	1541.09683	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #10	location	Route 18	party:	Lv. 26 SPEAROW, Lv. 26 SPEAROW, Lv. 26 FEAROW, Lv. 26 SPEAROW	class:	223	instance:	10	win count:	231	lose count:	217	draw count:	1	elo:	1460.10985	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #9	location	Route 18	party:	Lv. 34 DODRIO	class:	223	instance:	9	win count:	335	lose count:	118	draw count:	0	elo:	1914.643234	kde tier:	12	diff tier:	7
+trainer:	Juggler #8	location	Fuchsia Gym	party:	Lv. 34 DROWZEE, Lv. 34 KADABRA	class:	221	instance:	8	win count:	374	lose count:	81	draw count:	1	elo:	2038.850065	kde tier:	12	diff tier:	7
+trainer:	Juggler #7	location	Fuchsia Gym	party:	Lv. 38 HYPNO	class:	221	instance:	7	win count:	393	lose count:	57	draw count:	0	elo:	2104.600801	kde tier:	12	diff tier:	7
+trainer:	Juggler #3	location	Fuchsia Gym	party:	Lv. 31 DROWZEE, Lv. 31 DROWZEE, Lv. 31 KADABRA, Lv. 31 DROWZEE	class:	221	instance:	3	win count:	373	lose count:	75	draw count:	0	elo:	2046.140447	kde tier:	12	diff tier:	7
+trainer:	Tamer #2	location	Fuchsia Gym	party:	Lv. 33 ARBOK, Lv. 33 SANDSLASH, Lv. 33 ARBOK	class:	222	instance:	2	win count:	367	lose count:	80	draw count:	1	elo:	2010.963448	kde tier:	12	diff tier:	7
+trainer:	Tamer #1	location	Fuchsia Gym	party:	Lv. 34 SANDSLASH, Lv. 34 ARBOK	class:	222	instance:	1	win count:	342	lose count:	100	draw count:	1	elo:	1859.986455	kde tier:	11	diff tier:	7
+trainer:	Juggler #4	location	Fuchsia Gym	party:	Lv. 34 DROWZEE, Lv. 34 HYPNO	class:	221	instance:	4	win count:	378	lose count:	78	draw count:	0	elo:	2005.732486	kde tier:	12	diff tier:	7
+trainer:	Koga #1	location	somewhere	party:	Lv. 37 KOFFING, Lv. 39 MUK, Lv. 37 KOFFING, Lv. 43 WEEZING	class:	238	instance:	1	win count:	407	lose count:	45	draw count:	1	elo:	2242.953461	kde tier:	13	diff tier:	9
+trainer:	Fisher #3	location	Route 12	party:	Lv. 22 GOLDEEN, Lv. 22 POLIWAG, Lv. 22 GOLDEEN	class:	214	instance:	3	win count:	199	lose count:	239	draw count:	0	elo:	1434.391122	kde tier:	10	diff tier:	7
+trainer:	Fisher #4	location	Route 12	party:	Lv. 24 TENTACOOL, Lv. 24 GOLDEEN	class:	214	instance:	4	win count:	208	lose count:	226	draw count:	2	elo:	1522.669412	kde tier:	10	diff tier:	7
+trainer:	Fisher #5	location	Route 12	party:	Lv. 27 GOLDEEN	class:	214	instance:	5	win count:	148	lose count:	298	draw count:	0	elo:	1286.449866	kde tier:	8	diff tier:	7
+trainer:	Fisher #6	location	Route 12	party:	Lv. 21 POLIWAG, Lv. 21 SHELLDER, Lv. 21 GOLDEEN, Lv. 21 HORSEA	class:	214	instance:	6	win count:	227	lose count:	222	draw count:	0	elo:	1585.392173	kde tier:	10	diff tier:	7
+trainer:	Rocker #2	location	Route 12	party:	Lv. 29 VOLTORB, Lv. 29 ELECTRODE	class:	220	instance:	2	win count:	44	lose count:	398	draw count:	0	elo:	707.220408	kde tier:	2	diff tier:	4
+trainer:	JrTrainerM #9	location	Route 12	party:	Lv. 29 NIDORAN♂, Lv. 29 NIDORINO	class:	205	instance:	9	win count:	178	lose count:	267	draw count:	2	elo:	1366.062211	kde tier:	9	diff tier:	7
+trainer:	Fisher #11	location	Route 12	party:	Lv. 24 MAGIKARP, Lv. 24 MAGIKARP	class:	214	instance:	11	win count:	34	lose count:	400	draw count:	0	elo:	670.8546788	kde tier:	2	diff tier:	4
+trainer:	JrTrainerF #15	location	Route 13	party:	Lv. 28 GOLDEEN, Lv. 28 POLIWAG, Lv. 28 HORSEA	class:	206	instance:	15	win count:	250	lose count:	197	draw count:	2	elo:	1597.304215	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #3	location	Route 13	party:	Lv. 26 PIDGEY, Lv. 26 PIDGEOTTO, Lv. 26 SPEAROW, Lv. 26 FEAROW	class:	223	instance:	3	win count:	273	lose count:	170	draw count:	0	elo:	1687.8278	kde tier:	10	diff tier:	7
+trainer:	JrTrainerF #12	location	Route 13	party:	Lv. 24 PIDGEY, Lv. 24 MEOWTH, Lv. 24 RATTATA, Lv. 24 PIKACHU, Lv. 24 MEOWTH	class:	206	instance:	12	win count:	251	lose count:	190	draw count:	1	elo:	1579.309482	kde tier:	10	diff tier:	7
+trainer:	Beauty #4	location	Route 13	party:	Lv. 27 RATTATA, Lv. 27 PIKACHU, Lv. 27 RATTATA	class:	218	instance:	4	win count:	201	lose count:	235	draw count:	0	elo:	1474.589603	kde tier:	10	diff tier:	7
+trainer:	Beauty #5	location	Route 13	party:	Lv. 29 CLEFAIRY, Lv. 29 MEOWTH	class:	218	instance:	5	win count:	217	lose count:	236	draw count:	2	elo:	1467.099617	kde tier:	10	diff tier:	7
+trainer:	JrTrainerF #13	location	Route 13	party:	Lv. 30 POLIWAG, Lv. 30 POLIWAG	class:	206	instance:	13	win count:	252	lose count:	195	draw count:	0	elo:	1628.263104	kde tier:	10	diff tier:	7
+trainer:	JrTrainerF #14	location	Route 13	party:	Lv. 27 PIDGEY, Lv. 27 MEOWTH, Lv. 27 PIDGEY, Lv. 27 PIDGEOTTO	class:	206	instance:	14	win count:	256	lose count:	190	draw count:	0	elo:	1615.369634	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #2	location	Route 13	party:	Lv. 25 SPEAROW, Lv. 25 PIDGEY, Lv. 25 PIDGEY, Lv. 25 SPEAROW, Lv. 25 SPEAROW	class:	223	instance:	2	win count:	241	lose count:	216	draw count:	1	elo:	1551.918964	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #1	location	Route 13	party:	Lv. 29 PIDGEY, Lv. 29 PIDGEOTTO	class:	223	instance:	1	win count:	193	lose count:	259	draw count:	1	elo:	1437.780065	kde tier:	10	diff tier:	7
+trainer:	Biker #1	location	Route 13	party:	Lv. 28 KOFFING, Lv. 28 KOFFING, Lv. 28 KOFFING	class:	210	instance:	1	win count:	232	lose count:	210	draw count:	2	elo:	1526.34912	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #15	location	Route 14	party:	Lv. 26 PIDGEY, Lv. 26 SPEAROW, Lv. 26 PIDGEY, Lv. 26 FEAROW	class:	223	instance:	15	win count:	255	lose count:	189	draw count:	0	elo:	1674.023088	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #14	location	Route 14	party:	Lv. 28 PIDGEY, Lv. 28 DODUO, Lv. 28 PIDGEOTTO	class:	223	instance:	14	win count:	267	lose count:	166	draw count:	1	elo:	1596.683465	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #17	location	Route 14	party:	Lv. 28 SPEAROW, Lv. 28 DODUO, Lv. 28 FEAROW	class:	223	instance:	17	win count:	268	lose count:	172	draw count:	0	elo:	1587.12558	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #16	location	Route 14	party:	Lv. 29 PIDGEOTTO, Lv. 29 FEAROW	class:	223	instance:	16	win count:	233	lose count:	214	draw count:	1	elo:	1583.791067	kde tier:	10	diff tier:	7
+trainer:	Biker #15	location	Route 14	party:	Lv. 29 KOFFING, Lv. 29 MUK	class:	210	instance:	15	win count:	199	lose count:	242	draw count:	2	elo:	1460.508762	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #4	location	Route 14	party:	Lv. 33 FARFETCH'D	class:	223	instance:	4	win count:	131	lose count:	311	draw count:	0	elo:	1161.539488	kde tier:	7	diff tier:	6
+trainer:	Biker #2	location	Route 14	party:	Lv. 29 KOFFING, Lv. 29 GRIMER	class:	210	instance:	2	win count:	175	lose count:	266	draw count:	2	elo:	1390.314815	kde tier:	9	diff tier:	7
+trainer:	Biker #14	location	Route 14	party:	Lv. 28 GRIMER, Lv. 28 GRIMER, Lv. 28 KOFFING	class:	210	instance:	14	win count:	198	lose count:	239	draw count:	0	elo:	1407.846391	kde tier:	9	diff tier:	7
+trainer:	Biker #13	location	Route 14	party:	Lv. 26 KOFFING, Lv. 26 KOFFING, Lv. 26 GRIMER, Lv. 26 KOFFING	class:	210	instance:	13	win count:	219	lose count:	209	draw count:	1	elo:	1547.832697	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #5	location	Route 14	party:	Lv. 29 SPEAROW, Lv. 29 FEAROW	class:	223	instance:	5	win count:	234	lose count:	192	draw count:	0	elo:	1609.403992	kde tier:	10	diff tier:	7
+trainer:	JrTrainerF #22	location	Route 15	party:	Lv. 33 CLEFAIRY	class:	206	instance:	22	win count:	227	lose count:	213	draw count:	0	elo:	1396.481378	kde tier:	9	diff tier:	7
+trainer:	Beauty #9	location	Route 15	party:	Lv. 29 PIDGEOTTO, Lv. 29 WIGGLYTUFF	class:	218	instance:	9	win count:	221	lose count:	219	draw count:	1	elo:	1552.190485	kde tier:	10	diff tier:	7
+trainer:	JrTrainerF #21	location	Route 15	party:	Lv. 29 PIKACHU, Lv. 29 RAICHU	class:	206	instance:	21	win count:	234	lose count:	208	draw count:	1	elo:	1538.806982	kde tier:	10	diff tier:	7
+trainer:	Biker #3	location	Route 15	party:	Lv. 25 KOFFING, Lv. 25 KOFFING, Lv. 25 WEEZING, Lv. 25 KOFFING, Lv. 25 GRIMER	class:	210	instance:	3	win count:	307	lose count:	139	draw count:	2	elo:	1704.955376	kde tier:	10	diff tier:	7
+trainer:	Biker #4	location	Route 15	party:	Lv. 28 KOFFING, Lv. 28 GRIMER, Lv. 28 WEEZING	class:	210	instance:	4	win count:	285	lose count:	149	draw count:	1	elo:	1717.737712	kde tier:	10	diff tier:	7
+trainer:	Beauty #10	location	Route 15	party:	Lv. 29 BULBASAUR, Lv. 29 IVYSAUR	class:	218	instance:	10	win count:	239	lose count:	182	draw count:	24	elo:	1541.685311	kde tier:	10	diff tier:	7
+trainer:	JrTrainerF #20	location	Route 15	party:	Lv. 28 GLOOM, Lv. 28 ODDISH, Lv. 28 ODDISH	class:	206	instance:	20	win count:	317	lose count:	133	draw count:	0	elo:	1798.614124	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #7	location	Route 15	party:	Lv. 28 DODRIO, Lv. 28 DODUO, Lv. 28 DODUO	class:	223	instance:	7	win count:	311	lose count:	133	draw count:	0	elo:	1742.785685	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #6	location	Route 15	party:	Lv. 26 PIDGEOTTO, Lv. 26 FARFETCH'D, Lv. 26 DODUO, Lv. 26 PIDGEY	class:	223	instance:	6	win count:	270	lose count:	161	draw count:	1	elo:	1621.861316	kde tier:	10	diff tier:	7
+trainer:	JrTrainerF #23	location	Route 15	party:	Lv. 29 BELLSPROUT, Lv. 29 ODDISH, Lv. 29 TANGELA	class:	206	instance:	23	win count:	312	lose count:	133	draw count:	0	elo:	1875.293789	kde tier:	11	diff tier:	7
+trainer:	Swimmer #3	location	Route 19	party:	Lv. 29 GOLDEEN, Lv. 29 HORSEA, Lv. 29 STARYU	class:	215	instance:	3	win count:	288	lose count:	155	draw count:	5	elo:	1671.834999	kde tier:	10	diff tier:	7
+trainer:	Swimmer #2	location	Route 19	party:	Lv. 30 TENTACOOL, Lv. 30 SHELLDER	class:	215	instance:	2	win count:	292	lose count:	151	draw count:	1	elo:	1646.470159	kde tier:	10	diff tier:	7
+trainer:	Swimmer #7	location	Route 19	party:	Lv. 30 HORSEA, Lv. 30 HORSEA	class:	215	instance:	7	win count:	237	lose count:	199	draw count:	0	elo:	1608.375566	kde tier:	10	diff tier:	7
+trainer:	Swimmer #4	location	Route 19	party:	Lv. 30 POLIWAG, Lv. 30 POLIWHIRL	class:	215	instance:	4	win count:	319	lose count:	121	draw count:	0	elo:	1858.265162	kde tier:	11	diff tier:	7
+trainer:	Swimmer #5	location	Route 19	party:	Lv. 27 HORSEA, Lv. 27 TENTACOOL, Lv. 27 TENTACOOL, Lv. 27 GOLDEEN	class:	215	instance:	5	win count:	319	lose count:	128	draw count:	1	elo:	1727.505369	kde tier:	10	diff tier:	7
+trainer:	Swimmer #6	location	Route 19	party:	Lv. 29 GOLDEEN, Lv. 29 SHELLDER, Lv. 29 SEAKING	class:	215	instance:	6	win count:	307	lose count:	126	draw count:	0	elo:	1791.996986	kde tier:	10	diff tier:	7
+trainer:	Swimmer #8	location	Route 19	party:	Lv. 27 TENTACOOL, Lv. 27 TENTACOOL, Lv. 27 STARYU, Lv. 27 HORSEA, Lv. 27 TENTACRUEL	class:	215	instance:	8	win count:	328	lose count:	106	draw count:	10	elo:	1939.021374	kde tier:	12	diff tier:	7
+trainer:	Beauty #13	location	Route 19	party:	Lv. 30 GOLDEEN, Lv. 30 SEAKING	class:	218	instance:	13	win count:	269	lose count:	175	draw count:	0	elo:	1669.208075	kde tier:	10	diff tier:	7
+trainer:	Beauty #12	location	Route 19	party:	Lv. 27 POLIWAG, Lv. 27 GOLDEEN, Lv. 27 SEAKING, Lv. 27 GOLDEEN, Lv. 27 POLIWAG	class:	218	instance:	12	win count:	365	lose count:	83	draw count:	1	elo:	2049.578869	kde tier:	12	diff tier:	7
+trainer:	Beauty #14	location	Route 19	party:	Lv. 29 STARYU, Lv. 29 STARYU, Lv. 29 STARYU	class:	218	instance:	14	win count:	277	lose count:	152	draw count:	6	elo:	1719.273138	kde tier:	10	diff tier:	7
+trainer:	Swimmer #9	location	Route 20	party:	Lv. 31 SHELLDER, Lv. 31 CLOYSTER	class:	215	instance:	9	win count:	324	lose count:	115	draw count:	0	elo:	1800.761347	kde tier:	10	diff tier:	7
+trainer:	Swimmer #11	location	Route 20	party:	Lv. 28 HORSEA, Lv. 28 HORSEA, Lv. 28 SEADRA, Lv. 28 HORSEA	class:	215	instance:	11	win count:	271	lose count:	162	draw count:	1	elo:	1588.047994	kde tier:	10	diff tier:	7
+trainer:	Beauty #15	location	Route 20	party:	Lv. 30 SEADRA, Lv. 30 HORSEA, Lv. 30 SEADRA	class:	218	instance:	15	win count:	339	lose count:	115	draw count:	0	elo:	1861.805288	kde tier:	11	diff tier:	7
+trainer:	Beauty #6	location	Route 20	party:	Lv. 35 SEAKING	class:	218	instance:	6	win count:	246	lose count:	195	draw count:	0	elo:	1614.51173	kde tier:	10	diff tier:	7
+trainer:	JrTrainerF #24	location	Route 20	party:	Lv. 30 TENTACOOL, Lv. 30 HORSEA, Lv. 30 SEEL	class:	206	instance:	24	win count:	304	lose count:	133	draw count:	2	elo:	1698.046704	kde tier:	10	diff tier:	7
+trainer:	Swimmer #10	location	Route 20	party:	Lv. 35 STARYU	class:	215	instance:	10	win count:	270	lose count:	175	draw count:	2	elo:	1635.393932	kde tier:	10	diff tier:	7
+trainer:	BirdKeeper #11	location	Route 20	party:	Lv. 30 FEAROW, Lv. 30 FEAROW, Lv. 30 PIDGEOTTO	class:	223	instance:	11	win count:	313	lose count:	136	draw count:	0	elo:	1819.629115	kde tier:	11	diff tier:	7
+trainer:	Beauty #7	location	Route 20	party:	Lv. 30 SHELLDER, Lv. 30 SHELLDER, Lv. 30 CLOYSTER	class:	218	instance:	7	win count:	341	lose count:	100	draw count:	0	elo:	1845.015445	kde tier:	11	diff tier:	7
+trainer:	JrTrainerF #16	location	Route 20	party:	Lv. 31 GOLDEEN, Lv. 31 SEAKING	class:	206	instance:	16	win count:	277	lose count:	162	draw count:	0	elo:	1666.815428	kde tier:	10	diff tier:	7
+trainer:	Beauty #8	location	Route 20	party:	Lv. 31 POLIWAG, Lv. 31 SEAKING	class:	218	instance:	8	win count:	325	lose count:	121	draw count:	0	elo:	1892.700927	kde tier:	12	diff tier:	7
+trainer:	Scientist #4	location	Silph Co. 3F/Mansion 1F	party:	Lv. 29 ELECTRODE, Lv. 29 WEEZING	class:	228	instance:	4	win count:	277	lose count:	169	draw count:	1	elo:	1749.915494	kde tier:	10	diff tier:	7
+trainer:	Burglar #7	location	Mansion 2F	party:	Lv. 34 CHARMANDER, Lv. 34 CHARMELEON	class:	211	instance:	7	win count:	282	lose count:	157	draw count:	3	elo:	1696.003575	kde tier:	10	diff tier:	7
+trainer:	Burglar #8	location	Mansion 3F	party:	Lv. 38 NINETALES	class:	211	instance:	8	win count:	261	lose count:	180	draw count:	0	elo:	1585.97799	kde tier:	10	diff tier:	7
+trainer:	Scientist #12	location	Mansion 3F	party:	Lv. 33 MAGNEMITE, Lv. 33 MAGNETON, Lv. 33 VOLTORB	class:	228	instance:	12	win count:	353	lose count:	93	draw count:	0	elo:	1946.374923	kde tier:	12	diff tier:	7
+trainer:	Burglar #9	location	Mansion B1F	party:	Lv. 34 GROWLITHE, Lv. 34 PONYTA	class:	211	instance:	9	win count:	320	lose count:	136	draw count:	0	elo:	1766.602319	kde tier:	10	diff tier:	7
+trainer:	Scientist #13	location	Mansion B1F	party:	Lv. 34 MAGNEMITE, Lv. 34 ELECTRODE	class:	228	instance:	13	win count:	245	lose count:	196	draw count:	0	elo:	1615.74935	kde tier:	10	diff tier:	7
+trainer:	Burglar #4	location	Cinnabar Gym	party:	Lv. 36 GROWLITHE, Lv. 36 VULPIX, Lv. 36 NINETALES	class:	211	instance:	4	win count:	339	lose count:	90	draw count:	1	elo:	1952.466259	kde tier:	12	diff tier:	7
+trainer:	SuperNerd #9	location	Cinnabar Gym	party:	Lv. 36 VULPIX, Lv. 36 VULPIX, Lv. 36 NINETALES	class:	208	instance:	9	win count:	343	lose count:	91	draw count:	0	elo:	1932.113972	kde tier:	12	diff tier:	7
+trainer:	SuperNerd #10	location	Cinnabar Gym	party:	Lv. 34 PONYTA, Lv. 34 CHARMANDER, Lv. 34 VULPIX, Lv. 34 GROWLITHE	class:	208	instance:	10	win count:	327	lose count:	107	draw count:	0	elo:	1898.135621	kde tier:	12	diff tier:	7
+trainer:	Burglar #5	location	Cinnabar Gym	party:	Lv. 41 PONYTA	class:	211	instance:	5	win count:	298	lose count:	149	draw count:	0	elo:	1726.605218	kde tier:	10	diff tier:	7
+trainer:	SuperNerd #11	location	Cinnabar Gym	party:	Lv. 41 RAPIDASH	class:	208	instance:	11	win count:	289	lose count:	145	draw count:	0	elo:	1667.656533	kde tier:	10	diff tier:	7
+trainer:	Burglar #6	location	Cinnabar Gym	party:	Lv. 37 VULPIX, Lv. 37 GROWLITHE	class:	211	instance:	6	win count:	290	lose count:	148	draw count:	0	elo:	1769.578454	kde tier:	10	diff tier:	7
+trainer:	SuperNerd #12	location	Cinnabar Gym	party:	Lv. 37 GROWLITHE, Lv. 37 VULPIX	class:	208	instance:	12	win count:	295	lose count:	145	draw count:	0	elo:	1684.361218	kde tier:	10	diff tier:	7
+trainer:	Blaine #1	location	somewhere	party:	Lv. 42 GROWLITHE, Lv. 40 PONYTA, Lv. 42 RAPIDASH, Lv. 47 ARCANINE	class:	239	instance:	1	win count:	428	lose count:	29	draw count:	0	elo:	2278.183586	kde tier:	13	diff tier:	9
+trainer:	Fisher #9	location	Route 21	party:	Lv. 27 MAGIKARP, Lv. 27 MAGIKARP, Lv. 27 MAGIKARP, Lv. 27 MAGIKARP, Lv. 27 MAGIKARP, Lv. 27 MAGIKARP	class:	214	instance:	9	win count:	99	lose count:	339	draw count:	1	elo:	976.1321212	kde tier:	5	diff tier:	4
+trainer:	Fisher #7	location	Route 21	party:	Lv. 28 SEAKING, Lv. 28 GOLDEEN, Lv. 28 SEAKING, Lv. 28 SEAKING	class:	214	instance:	7	win count:	367	lose count:	84	draw count:	1	elo:	1945.353099	kde tier:	12	diff tier:	7
+trainer:	Swimmer #12	location	Route 21	party:	Lv. 33 SEADRA, Lv. 33 TENTACRUEL	class:	215	instance:	12	win count:	361	lose count:	83	draw count:	1	elo:	2008.767572	kde tier:	12	diff tier:	7
+trainer:	CueBall #9	location	Route 21	party:	Lv. 31 TENTACOOL, Lv. 31 TENTACOOL, Lv. 31 TENTACRUEL	class:	216	instance:	9	win count:	324	lose count:	95	draw count:	2	elo:	1943.412225	kde tier:	12	diff tier:	7
+trainer:	Fisher #8	location	Route 21	party:	Lv. 31 SHELLDER, Lv. 31 CLOYSTER	class:	214	instance:	8	win count:	325	lose count:	111	draw count:	0	elo:	1844.682699	kde tier:	11	diff tier:	7
+trainer:	Fisher #10	location	Route 21	party:	Lv. 33 SEAKING, Lv. 33 GOLDEEN	class:	214	instance:	10	win count:	312	lose count:	140	draw count:	0	elo:	1753.326569	kde tier:	10	diff tier:	7
+trainer:	Swimmer #13	location	Route 21	party:	Lv. 37 STARMIE	class:	215	instance:	13	win count:	322	lose count:	120	draw count:	0	elo:	1866.980246	kde tier:	11	diff tier:	7
+trainer:	Swimmer #14	location	Route 21	party:	Lv. 33 STARYU, Lv. 33 WARTORTLE	class:	215	instance:	14	win count:	334	lose count:	110	draw count:	6	elo:	1967.07752	kde tier:	12	diff tier:	7
+trainer:	Swimmer #15	location	Route 21	party:	Lv. 32 POLIWHIRL, Lv. 32 TENTACOOL, Lv. 32 SEADRA	class:	215	instance:	15	win count:	365	lose count:	79	draw count:	1	elo:	2060.272119	kde tier:	12	diff tier:	7
+trainer:	Pokemaniac #1	location	Route 10	party:	Lv. 30 RHYHORN, Lv. 30 LICKITUNG	class:	207	instance:	1	win count:	289	lose count:	147	draw count:	0	elo:	1718.548267	kde tier:	10	diff tier:	7
+trainer:	Tamer #4	location	Viridian Gym	party:	Lv. 39 ARBOK, Lv. 39 TAUROS	class:	222	instance:	4	win count:	367	lose count:	77	draw count:	1	elo:	1970.569547	kde tier:	12	diff tier:	7
+trainer:	Blackbelt #7	location	Viridian Gym	party:	Lv. 43 MACHOKE	class:	224	instance:	7	win count:	290	lose count:	155	draw count:	0	elo:	1728.373556	kde tier:	10	diff tier:	7
+trainer:	CooltrainerM #1	location	Viridian Gym	party:	Lv. 39 NIDORINO, Lv. 39 NIDOKING	class:	231	instance:	1	win count:	353	lose count:	97	draw count:	1	elo:	1957.624429	kde tier:	12	diff tier:	7
+trainer:	Tamer #3	location	Viridian Gym	party:	Lv. 43 RHYHORN	class:	222	instance:	3	win count:	314	lose count:	130	draw count:	0	elo:	1688.648881	kde tier:	10	diff tier:	7
+trainer:	Blackbelt #6	location	Viridian Gym	party:	Lv. 40 MACHOP, Lv. 40 MACHOKE	class:	224	instance:	6	win count:	332	lose count:	121	draw count:	0	elo:	1894.120071	kde tier:	12	diff tier:	7
+trainer:	CooltrainerM #9	location	Viridian Gym	party:	Lv. 39 SANDSLASH, Lv. 39 DUGTRIO	class:	231	instance:	9	win count:	394	lose count:	47	draw count:	0	elo:	2170.106933	kde tier:	12	diff tier:	8
+trainer:	CooltrainerM #10	location	Viridian Gym	party:	Lv. 43 RHYHORN	class:	231	instance:	10	win count:	316	lose count:	126	draw count:	1	elo:	1846.32238	kde tier:	11	diff tier:	7
+trainer:	Blackbelt #8	location	Viridian Gym	party:	Lv. 38 MACHOKE, Lv. 38 MACHOP, Lv. 38 MACHOKE	class:	224	instance:	8	win count:	326	lose count:	107	draw count:	0	elo:	1920.156779	kde tier:	12	diff tier:	7
+trainer:	Giovanni #3	location	Viridian Gym	party:	Lv. 45 RHYHORN, Lv. 42 DUGTRIO, Lv. 44 NIDOQUEEN, Lv. 45 NIDOKING, Lv. 50 RHYDON	class:	229	instance:	3	win count:	420	lose count:	25	draw count:	1	elo:	2290.122141	kde tier:	13	diff tier:	9
+trainer:	Green2 #10	location	Route 22	party:	Lv. 47 PIDGEOT, Lv. 45 RHYHORN, Lv. 45 GROWLITHE, Lv. 47 EXEGGCUTE, Lv. 50 ALAKAZAM, Lv. 53 BLASTOISE	class:	242	instance:	10	win count:	427	lose count:	13	draw count:	2	elo:	2400.382891	kde tier:	14	diff tier:	11
+trainer:	Green2 #11	location	Route 22	party:	Lv. 47 PIDGEOT, Lv. 45 RHYHORN, Lv. 45 GYARADOS, Lv. 47 GROWLITHE, Lv. 50 ALAKAZAM, Lv. 53 VENUSAUR	class:	242	instance:	11	win count:	430	lose count:	8	draw count:	3	elo:	2498.541707	kde tier:	14	diff tier:	13
+trainer:	Green2 #12	location	Route 22	party:	Lv. 47 PIDGEOT, Lv. 45 RHYHORN, Lv. 45 EXEGGCUTE, Lv. 47 GYARADOS, Lv. 50 ALAKAZAM, Lv. 53 CHARIZARD	class:	242	instance:	12	win count:	425	lose count:	11	draw count:	2	elo:	2450.524601	kde tier:	14	diff tier:	12
+trainer:	CooltrainerF #5	location	Victory Road 1F	party:	Lv. 44 PERSIAN, Lv. 44 NINETALES	class:	232	instance:	5	win count:	391	lose count:	40	draw count:	0	elo:	2236.513697	kde tier:	13	diff tier:	9
+trainer:	CooltrainerM #5	location	Victory Road 1F	party:	Lv. 42 IVYSAUR, Lv. 42 WARTORTLE, Lv. 42 CHARMELEON, Lv. 42 CHARIZARD	class:	231	instance:	5	win count:	390	lose count:	24	draw count:	18	elo:	2230.178492	kde tier:	13	diff tier:	9
+trainer:	Blackbelt #9	location	Victory Road 2F	party:	Lv. 43 MACHOKE, Lv. 43 MACHOP, Lv. 43 MACHOKE	class:	224	instance:	9	win count:	364	lose count:	73	draw count:	0	elo:	1945.283378	kde tier:	12	diff tier:	7
+trainer:	Juggler #2	location	Victory Road 2F	party:	Lv. 41 DROWZEE, Lv. 41 HYPNO, Lv. 41 KADABRA, Lv. 41 KADABRA	class:	221	instance:	2	win count:	418	lose count:	26	draw count:	0	elo:	2338.237375	kde tier:	13	diff tier:	9
+trainer:	Tamer #5	location	Victory Road 2F	party:	Lv. 44 PERSIAN, Lv. 44 GOLDUCK	class:	222	instance:	5	win count:	398	lose count:	51	draw count:	1	elo:	2152.797445	kde tier:	12	diff tier:	8
+trainer:	Juggler #5	location	Victory Road 2F	party:	Lv. 48 MR.MIME	class:	221	instance:	5	win count:	201	lose count:	245	draw count:	0	elo:	1478.738163	kde tier:	10	diff tier:	7
+trainer:	Pokemaniac #6	location	Victory Road 2F	party:	Lv. 40 CHARMELEON, Lv. 40 LAPRAS, Lv. 40 LICKITUNG	class:	207	instance:	6	win count:	415	lose count:	35	draw count:	5	elo:	2214.727158	kde tier:	13	diff tier:	9
+trainer:	CooltrainerM #2	location	Victory Road 3F	party:	Lv. 43 EXEGGUTOR, Lv. 43 CLOYSTER, Lv. 43 ARCANINE	class:	231	instance:	2	win count:	416	lose count:	27	draw count:	1	elo:	2345.164838	kde tier:	13	diff tier:	9
+trainer:	CooltrainerF #3	location	Victory Road 3F	party:	Lv. 43 PARASECT, Lv. 43 DEWGONG, Lv. 43 CHANSEY	class:	232	instance:	3	win count:	416	lose count:	27	draw count:	3	elo:	2264.12126	kde tier:	13	diff tier:	9
+trainer:	CooltrainerM #3	location	Victory Road 3F	party:	Lv. 43 KINGLER, Lv. 43 TENTACRUEL, Lv. 43 BLASTOISE	class:	231	instance:	3	win count:	412	lose count:	30	draw count:	2	elo:	2312.370607	kde tier:	13	diff tier:	9
+trainer:	CooltrainerF #2	location	Victory Road 3F	party:	Lv. 43 BELLSPROUT, Lv. 43 WEEPINBELL, Lv. 43 VICTREEBEL	class:	232	instance:	2	win count:	416	lose count:	25	draw count:	0	elo:	2239.426497	kde tier:	13	diff tier:	9
+trainer:	Lorelei #1	location	somewhere	party:	Lv. 54 DEWGONG, Lv. 53 CLOYSTER, Lv. 54 SLOWBRO, Lv. 56 JYNX, Lv. 56 LAPRAS	class:	244	instance:	1	win count:	299	lose count:	7	draw count:	144	elo:	2028.726664	kde tier:	12	diff tier:	7
+trainer:	Bruno #1	location	somewhere	party:	Lv. 53 ONIX, Lv. 55 HITMONCHAN, Lv. 55 HITMONLEE, Lv. 56 ONIX, Lv. 58 MACHAMP	class:	233	instance:	1	win count:	418	lose count:	17	draw count:	16	elo:	2321.916998	kde tier:	13	diff tier:	9
+trainer:	Agatha #1	location	somewhere	party:	Lv. 56 GENGAR, Lv. 56 GOLBAT, Lv. 55 HAUNTER, Lv. 58 ARBOK, Lv. 60 GENGAR	class:	246	instance:	1	win count:	439	lose count:	10	draw count:	0	elo:	2448.990542	kde tier:	14	diff tier:	12
+trainer:	Lance #1	location	somewhere	party:	Lv. 58 GYARADOS, Lv. 56 DRAGONAIR, Lv. 56 DRAGONAIR, Lv. 60 AERODACTYL, Lv. 62 DRAGONITE	class:	247	instance:	1	win count:	462	lose count:	8	draw count:	0	elo:	2450.610991	kde tier:	14	diff tier:	12
+trainer:	Green3 #1	location	somewhere	party:	Lv. 61 PIDGEOT, Lv. 59 ALAKAZAM, Lv. 61 RHYDON, Lv. 61 ARCANINE, Lv. 63 EXEGGUTOR, Lv. 65 BLASTOISE	class:	243	instance:	1	win count:	453	lose count:	5	draw count:	0	elo:	2526.957312	kde tier:	14	diff tier:	13
+trainer:	Green3 #2	location	somewhere	party:	Lv. 61 PIDGEOT, Lv. 59 ALAKAZAM, Lv. 61 RHYDON, Lv. 61 GYARADOS, Lv. 63 ARCANINE, Lv. 65 VENUSAUR	class:	243	instance:	2	win count:	436	lose count:	2	draw count:	0	elo:	2515.886419	kde tier:	14	diff tier:	13
+trainer:	Green3 #3	location	somewhere	party:	Lv. 61 PIDGEOT, Lv. 59 ALAKAZAM, Lv. 61 RHYDON, Lv. 61 EXEGGUTOR, Lv. 63 GYARADOS, Lv. 65 CHARIZARD	class:	243	instance:	3	win count:	436	lose count:	4	draw count:	0	elo:	2534.460592	kde tier:	14	diff tier:	13
+trainer:	Lass #4	location	Route 4	party:	Lv. 31 PARAS, Lv. 31 PARAS, Lv. 31 PARASECT	class:	203	instance:	4	win count:	314	lose count:	120	draw count:	0	elo:	1816.275756	kde tier:	11	diff tier:	7
+
+
+trainer:	BugCatcher #12	location	Unused	party:	Lv. 18 METAPOD, Lv. 18 CATERPIE, Lv. 18 VENONAT	class:	202	instance:	12	win count:	46	lose count:	394	draw count:	5	elo:	787.4145414	kde tier:	3	diff tier:	4
+trainer:	JrTrainerF #4	location	Unused	party:	Lv. 22 BULBASAUR	class:	206	instance:	4	win count:	78	lose count:	366	draw count:	6	elo:	1069.486386	kde tier:	6	diff tier:	5
+trainer:	JrTrainerM #6	location	Unused	party:	Lv. 18 DIGLETT, Lv. 18 DIGLETT, Lv. 18 SANDSHREW	class:	205	instance:	6	win count:	116	lose count:	339	draw count:	0	elo:	1121.729214	kde tier:	7	diff tier:	6
+trainer:	SuperNerd #8	location	Unused	party:	Lv. 24 MAGNEMITE, Lv. 24 VOLTORB	class:	208	instance:	8	win count:	122	lose count:	333	draw count:	0	elo:	1145.097848	kde tier:	7	diff tier:	6
+trainer:	Engineer #1	location	Unused	party:	Lv. 21 VOLTORB, Lv. 21 MAGNEMITE	class:	212	instance:	1	win count:	125	lose count:	315	draw count:	0	elo:	1180.037193	kde tier:	7	diff tier:	6
+trainer:	Burglar #2	location	Unused	party:	Lv. 33 GROWLITHE	class:	211	instance:	2	win count:	152	lose count:	291	draw count:	0	elo:	1237.603808	kde tier:	8	diff tier:	7
+trainer:	Youngster #13	location	Unused	party:	Lv. 17 SPEAROW, Lv. 17 RATTATA, Lv. 17 RATTATA, Lv. 17 SPEAROW	class:	201	instance:	13	win count:	138	lose count:	310	draw count:	0	elo:	1238.127422	kde tier:	8	diff tier:	7
+trainer:	SuperNerd #7	location	Unused	party:	Lv. 20 MAGNEMITE, Lv. 20 MAGNEMITE, Lv. 20 KOFFING, Lv. 20 MAGNEMITE	class:	208	instance:	7	win count:	139	lose count:	318	draw count:	1	elo:	1262.85048	kde tier:	8	diff tier:	7
+trainer:	Gambler #6	location	Unused	party:	Lv. 22 ONIX, Lv. 22 GEODUDE, Lv. 22 GRAVELER	class:	217	instance:	6	win count:	197	lose count:	236	draw count:	0	elo:	1358.147698	kde tier:	9	diff tier:	7
+trainer:	Burglar #1	location	Unused	party:	Lv. 29 GROWLITHE, Lv. 29 VULPIX	class:	211	instance:	1	win count:	181	lose count:	255	draw count:	0	elo:	1389.813888	kde tier:	9	diff tier:	7
+trainer:	SuperNerd #6	location	Unused	party:	Lv. 22 KOFFING, Lv. 22 MAGNEMITE, Lv. 22 WEEZING	class:	208	instance:	6	win count:	212	lose count:	238	draw count:	1	elo:	1450.103919	kde tier:	10	diff tier:	7
+trainer:	Rocket #22	location	Unused	party:	Lv. 26 DROWZEE, Lv. 26 KOFFING	class:	230	instance:	22	win count:	220	lose count:	221	draw count:	1	elo:	1511.226577	kde tier:	10	diff tier:	7
+trainer:	Channeler #2	location	Unused	party:	Lv. 24 GASTLY	class:	245	instance:	2	win count:	262	lose count:	182	draw count:	3	elo:	1554.27331	kde tier:	10	diff tier:	7
+trainer:	Channeler #15	location	Unused	party:	Lv. 24 GASTLY	class:	245	instance:	15	win count:	245	lose count:	198	draw count:	3	elo:	1575.389595	kde tier:	10	diff tier:	7
+trainer:	Channeler #13	location	Unused	party:	Lv. 24 GASTLY	class:	245	instance:	13	win count:	244	lose count:	190	draw count:	3	elo:	1593.383478	kde tier:	10	diff tier:	7
+trainer:	Burglar #3	location	Unused	party:	Lv. 28 VULPIX, Lv. 28 CHARMANDER, Lv. 28 PONYTA	class:	211	instance:	3	win count:	263	lose count:	175	draw count:	3	elo:	1604.714498	kde tier:	10	diff tier:	7
+trainer:	Scientist #1	location	Unused	party:	Lv. 34 KOFFING, Lv. 34 VOLTORB	class:	228	instance:	1	win count:	247	lose count:	191	draw count:	1	elo:	1638.251623	kde tier:	10	diff tier:	7
+trainer:	Channeler #11	location	Unused	party:	Lv. 24 GASTLY	class:	245	instance:	11	win count:	252	lose count:	193	draw count:	2	elo:	1644.351836	kde tier:	10	diff tier:	7
+trainer:	Channeler #1	location	Unused	party:	Lv. 22 GASTLY	class:	245	instance:	1	win count:	224	lose count:	208	draw count:	4	elo:	1651.028031	kde tier:	10	diff tier:	7
+trainer:	Channeler #4	location	Unused	party:	Lv. 24 GASTLY	class:	245	instance:	4	win count:	247	lose count:	188	draw count:	5	elo:	1661.694494	kde tier:	10	diff tier:	7
+trainer:	Channeler #7	location	Unused	party:	Lv. 24 HAUNTER	class:	245	instance:	7	win count:	272	lose count:	160	draw count:	2	elo:	1738.296906	kde tier:	10	diff tier:	7
+trainer:	Channeler #3	location	Unused	party:	Lv. 23 GASTLY, Lv. 23 GASTLY	class:	245	instance:	3	win count:	304	lose count:	136	draw count:	3	elo:	1760.124196	kde tier:	10	diff tier:	7
+trainer:	Juggler #6	location	Unused	party:	Lv. 33 HYPNO	class:	221	instance:	6	win count:	281	lose count:	151	draw count:	0	elo:	1770.558072	kde tier:	10	diff tier:	7
+trainer:	CooltrainerM #7	location	Unused	party:	Lv. 49 NIDOKING	class:	231	instance:	7	win count:	350	lose count:	85	draw count:	0	elo:	1983.980556	kde tier:	12	diff tier:	7
+trainer:	Beauty #11	location	Unused	party:	Lv. 33 WEEPINBELL, Lv. 33 BELLSPROUT, Lv. 33 WEEPINBELL	class:	218	instance:	11	win count:	374	lose count:	79	draw count:	0	elo:	2011.566781	kde tier:	12	diff tier:	7
+trainer:	Gentleman #4	location	Unused	party:	Lv. 48 PRIMEAPE	class:	241	instance:	4	win count:	350	lose count:	86	draw count:	0	elo:	2033.259386	kde tier:	12	diff tier:	7
+trainer:	BirdKeeper #12	location	Unused	party:	Lv. 39 PIDGEOTTO, Lv. 39 PIDGEOTTO, Lv. 39 PIDGEY, Lv. 39 PIDGEOTTO	class:	223	instance:	12	win count:	380	lose count:	56	draw count:	1	elo:	2041.639066	kde tier:	12	diff tier:	7
+trainer:	CooltrainerF #6	location	Unused	party:	Lv. 45 IVYSAUR, Lv. 45 VENUSAUR	class:	232	instance:	6	win count:	368	lose count:	39	draw count:	27	elo:	2109.365368	kde tier:	12	diff tier:	7
+trainer:	CooltrainerF #7	location	Unused	party:	Lv. 45 NIDORINA, Lv. 45 NIDOQUEEN	class:	232	instance:	7	win count:	388	lose count:	60	draw count:	2	elo:	2111.7358	kde tier:	12	diff tier:	7
+trainer:	BirdKeeper #13	location	Unused	party:	Lv. 42 FARFETCH'D, Lv. 42 FEAROW	class:	223	instance:	13	win count:	381	lose count:	50	draw count:	0	elo:	2136.424755	kde tier:	12	diff tier:	8
+trainer:	CooltrainerF #4	location	Unused	party:	Lv. 46 VILEPLUME, Lv. 46 BUTTERFREE	class:	232	instance:	4	win count:	388	lose count:	36	draw count:	20	elo:	2183.007827	kde tier:	13	diff tier:	8
+trainer:	CooltrainerM #6	location	Unused	party:	Lv. 44 IVYSAUR, Lv. 44 WARTORTLE, Lv. 44 CHARMELEON	class:	231	instance:	6	win count:	399	lose count:	34	draw count:	18	elo:	2235.787889	kde tier:	13	diff tier:	9
+trainer:	Tamer #6	location	Unused	party:	Lv. 42 RHYHORN, Lv. 42 PRIMEAPE, Lv. 42 ARBOK, Lv. 42 TAUROS	class:	222	instance:	6	win count:	412	lose count:	41	draw count:	1	elo:	2289.976478	kde tier:	13	diff tier:	9
+trainer:	CooltrainerM #4	location	Unused	party:	Lv. 45 KINGLER, Lv. 45 STARMIE	class:	231	instance:	4	win count:	411	lose count:	29	draw count:	1	elo:	2291.156906	kde tier:	13	diff tier:	9
+trainer:	CooltrainerF #8	location	Unused	party:	Lv. 43 PERSIAN, Lv. 43 NINETALES, Lv. 43 RAICHU	class:	232	instance:	8	win count:	411	lose count:	29	draw count:	1	elo:	2305.021977	kde tier:	13	diff tier:	9
+trainer:	CooltrainerM #8	location	Unused	party:	Lv. 44 KINGLER, Lv. 44 CLOYSTER	class:	231	instance:	8	win count:	407	lose count:	35	draw count:	1	elo:	2312.707498	kde tier:	13	diff tier:	9
+trainer:	ProfOak #2	location	Unused	party:	Lv. 66 TAUROS, Lv. 67 EXEGGUTOR, Lv. 68 ARCANINE, Lv. 69 VENUSAUR, Lv. 70 GYARADOS	class:	226	instance:	2	win count:	437	lose count:	2	draw count:	14	elo:	2464.27618	kde tier:	14	diff tier:	12
+trainer:	ProfOak #3	location	Unused	party:	Lv. 66 TAUROS, Lv. 67 EXEGGUTOR, Lv. 68 ARCANINE, Lv. 69 CHARIZARD, Lv. 70 GYARADOS	class:	226	instance:	3	win count:	430	lose count:	6	draw count:	8	elo:	2468.763693	kde tier:	14	diff tier:	12
+trainer:	ProfOak #1	location	Unused	party:	Lv. 66 TAUROS, Lv. 67 EXEGGUTOR, Lv. 68 ARCANINE, Lv. 69 BLASTOISE, Lv. 70 GYARADOS	class:	226	instance:	1	win count:	434	lose count:	2	draw count:	9	elo:	2559.328868	kde tier:	14	diff tier:	14
