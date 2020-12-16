@@ -1,3 +1,5 @@
+Note: you'll need the "Pokemon GB" font for these to not look terrible.
+
 ![](Slide1.SVG)
 ![](Slide2.SVG)
 ![](Slide3.SVG)
