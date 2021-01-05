@@ -9,14 +9,15 @@ import time
 import uuid
 from pprint import pprint
 from typing import Iterable, Tuple
+from hashids import Hashids
 
 
 class StupidHack(Exception):
 	pass
 
 
-WORKING_DIR_BASE = "D:/elo_world_pokemon_red_scratch"
-OUTPUT_BASE = "../elo_world_pokemon_red_output"
+WORKING_DIR_BASE = "W:/elo_world_scratch/red_redux"
+OUTPUT_BASE = "W:/elo_world_output/red_redux"
 
 BGB_PATH = "bgb/bgb.exe"
 LOSSLESS = True
@@ -28,6 +29,11 @@ AI_SAVE = "ai_choose_state.sn1"
 BATTLE_SAVE = "battlestate.sn1"
 OUT_SAVE = "outstate.sn1"
 OUT_DEMO = "outdemo.dem"
+
+SAFE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz1234567890"
+SALT = "elo"
+hash_encoder = Hashids(salt=SALT, alphabet=SAFE_ALPHABET)
+
 
 
 def load_json(path: str) -> dict:
@@ -229,8 +235,8 @@ def load_save(file: str) -> bytearray:
 	return save
 
 
-def randomize_rdiv(source: bytearray):
-	source[DIVISOR_OFFSET:DIVISOR_OFFSET + 3] = (random.randint(0, 255) for _ in range(3))
+def randomize_rdiv(source: bytearray, rng):
+	source[DIVISOR_OFFSET:DIVISOR_OFFSET + 3] = (rng.randint(0, 255) for _ in range(3))
 
 
 def get_total_clocks(source: bytearray) -> int:
@@ -352,7 +358,12 @@ def get_party_mon(source: bytearray, offset: int, i: int):
 
 
 def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number="", save_movie=True,
-                  save_json=True) -> dict:
+                  save_json=True, seed=None) -> dict:
+	if seed is None:
+		rng = random.Random()
+	else:
+		rng = random.Random(seed)
+
 	working_dir = f"{WORKING_DIR_BASE}/{run_number}"
 	os.makedirs(working_dir, exist_ok=True)
 
@@ -415,7 +426,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	if INSTANT_TEXT:
 		set_value(base, LETTER_PRINTING_DELAY, [LETTER_PRINTING_DELAY_FLAG], 1)
 
-	randomize_rdiv(base)
+	randomize_rdiv(base, rng)
 
 	base_ai_action_count = your_class["actionCount"] if "actionCount" in your_class else 3
 	ai_action_count = base_ai_action_count
@@ -526,7 +537,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			set_value(ai_base, ENEMY_ITEM_USED, [0], 1)
 			set_value(ai_base, AI_ACTION_COUNT, [ai_action_count], 1)
 
-			randomize_rdiv(ai_base)
+			randomize_rdiv(ai_base, rng)
 
 			write_file(out_save_path, ai_base)
 
@@ -656,11 +667,11 @@ def create_concat_file(list_txt, files):
 
 def battle_until_win():
 	while True:
-		you = get_trainer_by_id(215, 13)
-		enemy = get_trainer_by_id(220, 2)
+		you = get_trainer_by_id(214, 9)
+		enemy = get_trainer_by_id(214, 8)
 		battle_log_winner = run_one_battle(enemy, you)
 		print(battle_log_winner)
-		if battle_log_winner == "enemy":
+		if battle_log_winner == "trainer":
 			break
 
 
@@ -687,6 +698,55 @@ def get_rival_videos():
 			                           run_number=f"vidvals/{run_number}",
 			                           save_movie=True)
 
+def seed_testing():
+	for _ in range(100):
+		your_class, your_instance = get_random_trainer()
+		enemy_class, enemy_instance = get_random_trainer()
+
+		run_number = str(uuid.uuid4())
+
+		battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=run_number,
+		                           save_movie=False, seed="test123")
+		first_turn_count = battle_log["turn_count"]
+
+		battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=run_number + "_2",
+		                           save_movie=False, seed="test123")
+		second_turn_count = battle_log["turn_count"]
+
+		if first_turn_count == second_turn_count:
+			print("all is well!")
+		else:
+			print("Mismatch!")
+			break
+
+def run_from_hashid(hashid):
+	your_class_id, your_instance_id, enemy_class_id, enemy_instance_id, hash_nonce = hash_encoder.decode(hashid)
+	your_class, your_instance = get_trainer_by_id(your_class_id, your_instance_id)
+	enemy_class, enemy_instance = get_trainer_by_id(enemy_class_id, enemy_instance_id)
+
+	battle_nonce = str(uuid.uuid4())
+	return battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=f"{hashid}_{battle_nonce}", save_movie=False, seed=hashid)
+
+def test_hash_id():
+	for _ in range(20):
+		your_class, your_instance = get_random_trainer()
+		enemy_class, enemy_instance = get_random_trainer()
+		hash_nonce = random.randint(1, 10)
+
+		your_class_id, your_instance_id = your_class["id"], your_instance["index"]
+		enemy_class_id, enemy_instance_id = enemy_class["id"], enemy_instance["index"]
+
+		hashid = hash_encoder.encode(your_class_id, your_instance_id, enemy_class_id, enemy_instance_id, hash_nonce)
+		print("The hashid is", hashid)
+
+		battle_nonce = str(uuid.uuid4())
+		battle_log_1 = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=f"{hashid}_{battle_nonce}", save_movie=False, seed=hashid)
+
+		battle_log_2 = run_from_hashid(hashid)
+
+		if battle_log_1["turn_count"] != battle_log_2["turn_count"]:
+			print("They don't match!")
+
 
 def main():
 	your_class, your_instance = get_random_trainer()
@@ -705,3 +765,5 @@ if __name__ == '__main__':
 	# battle_until_win()
 	# get_rival_videos()
 	main()
+	# test_hash_id()
+	# seed_testing()
