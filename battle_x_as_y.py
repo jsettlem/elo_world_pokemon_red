@@ -30,7 +30,7 @@ BATTLE_SAVE = "battlestate.sn1"
 OUT_SAVE = "outstate.sn1"
 OUT_DEMO = "outdemo.dem"
 
-SAFE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz1234567890"
+SAFE_ALPHABET = "abcdefghijkmnopqrstuvwxyz1234567890-!?/"
 SALT = "elo"
 hash_encoder = Hashids(salt=SALT, alphabet=SAFE_ALPHABET)
 
@@ -457,8 +457,9 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	enemy_party_size = 0
 	record_low_total_hp = 99999
 	turns_without_damage = 0
-
+	last_time = time.time()
 	while True:
+		print("#############################")
 		if turn_number > 1000:
 			battle_log["winner"] = "Draw by 1000 turn rule"
 			print("Too long! It's a draw!")
@@ -472,7 +473,10 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			movie_index += 1
 			bgb_options[-1] = f"RecordPrefix={movie_path}/movie{movie_index:05}"
 
-		breakpoint_condition = f"TOTALCLKS>${total_clocks:x}"
+		print("total clocks:", total_clocks)
+		print("time since last", time.time() - last_time)
+		last_time = time.time()
+		breakpoint_condition = f"TOTALCLKS!=${total_clocks:x}"
 
 		try:
 			subprocess.call([BGB_PATH, battle_save_path, *bgb_options,
@@ -560,7 +564,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			else:
 				turns_without_damage += 1
 
-			print(total_hp, record_low_total_hp, turns_without_damage)
+			print("total hp", total_hp, "record low total hp", record_low_total_hp, "turns without damage", turns_without_damage)
 
 			turn_summary = {
 				"turn_number": turn_number,
@@ -728,17 +732,18 @@ def run_from_hashid(hashid):
 	return battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=f"{hashid}_{battle_nonce}", save_movie=False, seed=hashid)
 
 def test_hash_id():
-	for _ in range(20):
+	for _ in range(200):
 		your_class, your_instance = get_random_trainer()
 		enemy_class, enemy_instance = get_random_trainer()
-		hash_nonce = random.randint(1, 10)
+		hash_nonce = random.randint(0, 10)
 
 		your_class_id, your_instance_id = your_class["id"], your_instance["index"]
 		enemy_class_id, enemy_instance_id = enemy_class["id"], enemy_instance["index"]
 
 		hashid = hash_encoder.encode(your_class_id, your_instance_id, enemy_class_id, enemy_instance_id, hash_nonce)
-		print("The hashid is", hashid)
-
+		print("The hashid is    :", display_hashid(hashid))
+		print("The simple id is :", f"{your_class_id}-{your_instance_id}-{enemy_class_id}-{enemy_instance_id}-{hash_nonce}")
+		print()
 		battle_nonce = str(uuid.uuid4())
 		battle_log_1 = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=f"{hashid}_{battle_nonce}", save_movie=False, seed=hashid)
 
@@ -746,6 +751,9 @@ def test_hash_id():
 
 		if battle_log_1["turn_count"] != battle_log_2["turn_count"]:
 			print("They don't match!")
+
+def display_hashid(hashid):
+	return hashid[0:4] + " " + hashid[4:8] + " " + hashid[8:]
 
 
 def main():
