@@ -23,6 +23,7 @@ BGB_PATH = "bgb/bgb.exe"
 LOSSLESS = True
 
 ROM_IMAGE = "Pokemon - Red Version (UE) [S][!].gb"
+CHEAT_FILE = "Pokemon - Red Version (UE) [S][!].cht"
 BASE_SAVE = "basestate.sn1"
 AI_SAVE = "ai_choose_state.sn1"
 
@@ -30,7 +31,7 @@ BATTLE_SAVE = "battlestate.sn1"
 OUT_SAVE = "outstate.sn1"
 OUT_DEMO = "outdemo.dem"
 
-SAFE_ALPHABET = "abcdefghijkmnopqrstuvwxyz1234567890-!?/"
+SAFE_ALPHABET = "abcdefghijkmnopqrstuvwxyz1234567890-!"
 SALT = "elo"
 hash_encoder = Hashids(salt=SALT, alphabet=SAFE_ALPHABET)
 
@@ -88,6 +89,7 @@ LONE_ATTACK_NO = 0xd05c
 
 PARTY_STRUCT_SIZE = 0x2C
 
+AI_LAYER2_ENCOURAGEMENT = 0xccd5
 PLAYER_SELECTED_MOVE = 0xccdc
 ENEMY_SELECTED_MOVE = 0xccdd
 
@@ -97,14 +99,22 @@ BATTLE_MON_HP = 0xd015
 BATTLE_MON_MAX_HP = 0xd023
 BATTLE_MON_PARTY_POS = 0xcc2f
 BATTLE_MON_MOVES = 0xd01c
+BATTLE_MON_ATTACK = 0xd025
+BATTLE_MON_DEFENSE = 0xd027
+BATTLE_MON_SPECIAL = 0xd02b
 BATTLE_MON_SPEED = 0xd029
 BATTLE_MON_PP = 0xd02d
 
 ENEMY_BATTLE_MON_NAME = 0xcfda
 ENEMY_BATTLE_MON = 0xcfe5
 ENEMY_BATTLE_MON_PARTY_POS = 0xcfe8
+ENEMY_BATTLE_MON_MOVES = 0xcfed
 ENEMY_BATTLE_MON_HP = 0xcfe6
 ENEMY_BATTLE_MON_MAX_HP = 0xcff4
+ENEMY_BATTLE_MON_ATTACK = 0xcff6
+ENEMY_BATTLE_MON_DEFENSE = 0xcff8
+ENEMY_BATTLE_MON_SPECIAL = 0xcffc
+ENEMY_BATTLE_MON_SPEED = 0xcffa
 BATTLE_MON_SIZE = 0x1c
 
 DISABLED_MOVE = 0xd06d
@@ -157,18 +167,24 @@ def name_to_bytes(name: str, length: int = POKEMON_NAME_LENGTH) -> Iterable[int]
 
 
 def load_trainer_info(trainer_id: int, trainer_index: int, lone_move_number: int, battle_save: str = BATTLE_SAVE,
-                      out_save: str = OUT_SAVE) -> None:
+                      out_save: str = OUT_SAVE, auto_level=None) -> None:
 	save = load_save(BASE_SAVE)
 	save[TRAINER_CLASS - GLOBAL_OFFSET] = trainer_id
 	save[TRAINER_INSTANCE - GLOBAL_OFFSET] = trainer_index
 	save[LONE_ATTACK_NO - GLOBAL_OFFSET] = lone_move_number
 	write_file(battle_save, save)
+	if auto_level:
+		bgb_options = ["-set", "CheatAutoSave=1"]
+	else:
+		bgb_options = []
+
 
 	subprocess.call([BGB_PATH, '-rom', battle_save,
 	                 '-ab', 'da44//w',
 	                 '-hf',
 	                 '-nobatt',
-	                 '-stateonexit', out_save],
+	                 '-stateonexit', out_save,
+	                 *bgb_options],
 	                timeout=10)
 
 
@@ -290,6 +306,12 @@ def select_switch() -> bytearray:
 		A_BUTTON
 	])
 
+def get_moves(battle_state: bytearray, offset: int) -> list:
+	battle_moves = get_value(battle_state, offset, 4)
+	return [
+		moves[b] for b in battle_moves if b in moves.keys()
+	]
+
 
 def get_move_count(battle_state: bytearray) -> int:
 	battle_moves = get_value(battle_state, BATTLE_MON_MOVES, 4)
@@ -339,7 +361,7 @@ def copy_dependencies(working_dir):
 		shutil.copyfile(file, f"{working_dir}/{file}")
 
 
-def get_hp(source, offset):
+def get_stat(source, offset):
 	hp_word = get_value(source, offset, 2)
 	return hp_word[0] << 8 | hp_word[1]
 
@@ -358,7 +380,7 @@ def get_party_mon(source: bytearray, offset: int, i: int):
 
 
 def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number="", save_movie=True,
-                  save_json=True, seed=None) -> dict:
+                  save_json=True, seed=None, auto_level=False) -> dict:
 	if seed is None:
 		rng = random.Random()
 	else:
@@ -370,10 +392,18 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	rom_image_path = f"{working_dir}/{ROM_IMAGE}"
 	shutil.copyfile(ROM_IMAGE, rom_image_path)
 
+	cheat_file_path = f"{working_dir}/{CHEAT_FILE}"
+	if auto_level:
+		shutil.copyfile(CHEAT_FILE, cheat_file_path)
+
 	movie_path = f"{working_dir}/movies"
 	movie_index = 0
 
-	bgb_options = ["-hf", "-nowarn", "-nobatt"]
+	bgb_options = [
+		"-hf",
+	               "-nowarn", "-nobatt"]
+	if auto_level:
+		bgb_options += ["-set", "CheatAutoSave=1"]
 	if save_movie:
 		os.makedirs(movie_path)
 		bgb_options = [*bgb_options,
@@ -450,12 +480,13 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 		"enemy_id": enemy_instance['index'],
 		"winner": None,
 		"turn_count": 0,
+		"seed": seed,
 		"turns": []
 	}
 
 	turn_number = 0
 	enemy_party_size = 0
-	record_low_total_hp = 99999
+	record_low_total_hp = 99999999999
 	turns_without_damage = 0
 	last_time = time.time()
 	while True:
@@ -540,6 +571,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			set_value(ai_base, PLAYER_SELECTED_MOVE, [reverse_moves["COUNTER"]], 1)
 			set_value(ai_base, ENEMY_ITEM_USED, [0], 1)
 			set_value(ai_base, AI_ACTION_COUNT, [ai_action_count], 1)
+			set_value(ai_base, AI_LAYER2_ENCOURAGEMENT, [(turn_number - 1) % 255], 1)
 
 			randomize_rdiv(ai_base, rng)
 
@@ -573,14 +605,24 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 				"switched": switch,
 				"trainer_battle_mon": {
 					"species": get_string(battle_state, BATTLE_MON_NAME, POKEMON_NAME_LENGTH).strip("@"),
-					"hp": get_hp(battle_state, BATTLE_MON_HP),
-					"max_hp": get_hp(battle_state, BATTLE_MON_MAX_HP),
+					"hp": get_stat(battle_state, BATTLE_MON_HP),
+					"max_hp": get_stat(battle_state, BATTLE_MON_MAX_HP),
+					"attack": get_stat(battle_state, BATTLE_MON_ATTACK),
+					"defense": get_stat(battle_state, BATTLE_MON_DEFENSE),
+					"special": get_stat(battle_state, BATTLE_MON_SPECIAL),
+					"speed": get_stat(battle_state, BATTLE_MON_SPEED),
+					"moves": get_moves(battle_state, BATTLE_MON_MOVES),
 					"party_index": current_pokemon
 				},
 				"enemy_battle_mon": {
 					"species": get_string(battle_state, ENEMY_BATTLE_MON_NAME, POKEMON_NAME_LENGTH).strip("@"),
-					"hp": get_hp(battle_state, ENEMY_BATTLE_MON_HP),
-					"max_hp": get_hp(battle_state, ENEMY_BATTLE_MON_MAX_HP),
+					"hp": get_stat(battle_state, ENEMY_BATTLE_MON_HP),
+					"max_hp": get_stat(battle_state, ENEMY_BATTLE_MON_MAX_HP),
+					"attack": get_stat(battle_state, ENEMY_BATTLE_MON_ATTACK),
+					"defense": get_stat(battle_state, ENEMY_BATTLE_MON_DEFENSE),
+					"special": get_stat(battle_state, ENEMY_BATTLE_MON_SPECIAL),
+					"speed": get_stat(battle_state, ENEMY_BATTLE_MON_SPEED),
+					"moves": get_moves(battle_state, ENEMY_BATTLE_MON_MOVES),
 					"party_index": get_value(battle_state, ENEMY_BATTLE_MON_PARTY_POS, 1)[0]
 				},
 				"trainer_party_mons": trainer_party_mon,
@@ -607,6 +649,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 		battle_mon_move_count = get_move_count(battle_state)
 		set_value(battle_state, BATTLE_MON_PP, [0xff] * battle_mon_move_count, battle_mon_move_count)
 		set_value(battle_state, GAIN_EXP_FLAG, [0], 1)
+		set_value(battle_state, AI_LAYER2_ENCOURAGEMENT, [(turn_number - 1) % 255], 1)
 
 		write_file(battle_save_path, battle_state)
 		write_file(out_demo_path, button_sequence)
@@ -615,6 +658,9 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 	for file in [battle_save_path, out_save_path, out_demo_path, rom_image_path]:
 		os.remove(file)
+
+	if auto_level:
+		os.remove(cheat_file_path)
 
 	output_dir = OUTPUT_BASE
 
@@ -723,13 +769,15 @@ def seed_testing():
 			print("Mismatch!")
 			break
 
-def run_from_hashid(hashid):
+def run_from_hashid(hashid, save_movie=False, auto_level=True):
+	hashid = hashid.replace(" ", "")
 	your_class_id, your_instance_id, enemy_class_id, enemy_instance_id, hash_nonce = hash_encoder.decode(hashid)
 	your_class, your_instance = get_trainer_by_id(your_class_id, your_instance_id)
 	enemy_class, enemy_instance = get_trainer_by_id(enemy_class_id, enemy_instance_id)
 
 	battle_nonce = str(uuid.uuid4())
-	return battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=f"{hashid}_{battle_nonce}", save_movie=False, seed=hashid)
+	return battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=f"{hashid}_{battle_nonce}",
+	                     save_movie=save_movie, seed=hashid, auto_level=auto_level)
 
 def test_hash_id():
 	for _ in range(200):
@@ -755,19 +803,29 @@ def test_hash_id():
 def display_hashid(hashid):
 	return hashid[0:4] + " " + hashid[4:8] + " " + hashid[8:]
 
+def generate_hashid(player, enemy, seed):
+	your_class, your_instance = player
+	enemy_class, enemy_instance = enemy
+	hash_nonce = seed
+
+	your_class_id, your_instance_id = your_class["id"], your_instance["index"]
+	enemy_class_id, enemy_instance_id = enemy_class["id"], enemy_instance["index"]
+
+	hashid = hash_encoder.encode(your_class_id, your_instance_id, enemy_class_id, enemy_instance_id, hash_nonce)
+	print("The hashid is    :", display_hashid(hashid))
+	print("The simple id is :", f"{your_class_id}-{your_instance_id}-{enemy_class_id}-{enemy_instance_id}-{hash_nonce}")
+	return hashid
 
 def main():
-	your_class, your_instance = get_random_trainer()
-	# your_class, your_instance = get_trainer_by_id(226, 3)
-	enemy_class, enemy_instance = get_random_trainer()
-	# enemy_class, enemy_instance = get_trainer_by_id(226, 3)
+	hashid = generate_hashid(
+		get_random_trainer(),
+		get_random_trainer(),
+		random.randint(1, 100)
+	)
 
-	run_number = str(uuid.uuid4())
-	battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=f"extra/{run_number}",
-	                           save_movie=True)
+	battle_log = run_from_hashid(hashid, save_movie=True, auto_level=True)
 
 	pprint(battle_log)
-
 
 if __name__ == '__main__':
 	# battle_until_win()
