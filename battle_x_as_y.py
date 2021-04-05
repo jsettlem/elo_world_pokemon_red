@@ -400,8 +400,8 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	movie_index = 0
 
 	bgb_options = [
-		"-hf",
-	               "-nowarn", "-nobatt"]
+		# "-hf",
+		"-nowarn", "-nobatt"]
 	if auto_level:
 		bgb_options += ["-set", "CheatAutoSave=1"]
 	if save_movie:
@@ -425,10 +425,25 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	start = time.time()
 	load_trainer_info(your_class["id"], your_instance["index"],
 	                  your_instance["loneMoves"] if "loneMoves" in your_instance else 0,
-	                  battle_save_path, out_save_path)
+	                  battle_save_path, out_save_path, auto_level=auto_level)
+	new = load_save(out_save_path)
+
+	if auto_level:
+		print("Getting un-leveled trainer info")
+		load_trainer_info(your_class["id"], your_instance["index"],
+		                  your_instance["loneMoves"] if "loneMoves" in your_instance else 0,
+		                  battle_save_path, out_save_path, auto_level=False)
+		player_unleveled = load_save(out_save_path)
+
+		print("Getting un-leveled enemy info")
+		load_trainer_info(enemy_class["id"], enemy_instance["index"],
+		                  enemy_instance["loneMoves"] if "loneMoves" in enemy_instance else 0,
+		                  battle_save_path, out_save_path, auto_level=False)
+
+		enemy_unleveled = load_save(out_save_path)
+
 	print("Got trainer info in ", time.time() - start)
 
-	new = load_save(out_save_path)
 	copy_values(new, ENEMY_TRAINER_NAME, base, PLAYER_NAME, POKEMON_NAME_LENGTH - 1)
 	set_value(base, PLAYER_NAME + POKEMON_NAME_LENGTH - 1, [NAME_TERMINATOR], 1)
 
@@ -443,6 +458,10 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 		pokemon_name = name_to_bytes(pokemon_names[str(pokemon_index)])
 		set_value(base, PARTY_NICKNAMES + POKEMON_NAME_LENGTH * i, pokemon_name, POKEMON_NAME_LENGTH)
 		copy_values(new, ENEMY_TRAINER_NAME, base, PARTY_MON_OT + POKEMON_NAME_LENGTH * i, POKEMON_NAME_LENGTH)
+		if auto_level:
+			#copy moves
+			pass
+
 
 	set_value(base, TRAINER_CLASS, [enemy_class["id"]], 1)
 	set_value(base, TRAINER_INSTANCE, [enemy_instance["index"]], 1)
@@ -521,6 +540,10 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 		except subprocess.TimeoutExpired:
 			battle_log["winner"] = "Draw by bgb timeout in move"
 			break
+
+		if auto_level and turn_number == 0:
+			# copy enemy trainer moves
+			pass
 
 		battle_state = load_save(battle_save_path)
 		ai_base = load_save(AI_SAVE)
