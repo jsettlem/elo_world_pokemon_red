@@ -157,6 +157,12 @@ LETTER_PRINTING_DELAY_FLAG = 0b0100000
 PARTY_MENU_CHOICE = 0xcc2b
 GAIN_EXP_FLAG = 0xd058
 
+LEVEL_OFFSET = 0x21
+MAX_HP_OFFSET = 0x22
+ATTACK_OFFSET = 0x24
+MOVE_1_OFFSET = 0x8
+CURRENT_HP_OFFSET = 0x1
+
 
 def byte_to_pokestring(byte_array: Iterable[int]) -> str:
 	return "".join(characters[b_int] if (b_int := int(b)) in characters else f"[0x{b:x}]" for b in byte_array)
@@ -176,7 +182,7 @@ def load_trainer_info(trainer_id: int, trainer_index: int, lone_move_number: int
 	if auto_level:
 		bgb_options = ["-set", "CheatAutoSave=1"]
 	else:
-		bgb_options = []
+		bgb_options = ["-set", "CheatAutoSave=0"]
 
 
 	subprocess.call([BGB_PATH, '-rom', battle_save,
@@ -400,10 +406,9 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	movie_index = 0
 
 	bgb_options = [
-		# "-hf",
+		"-hf",
 		"-nowarn", "-nobatt"]
-	if auto_level:
-		bgb_options += ["-set", "CheatAutoSave=1"]
+
 	if save_movie:
 		os.makedirs(movie_path)
 		bgb_options = [*bgb_options,
@@ -428,12 +433,31 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	                  battle_save_path, out_save_path, auto_level=auto_level)
 	new = load_save(out_save_path)
 
+	party_size = get_value(new, ENEMY_PARTY_COUNT, 1)[0]
+	enemy_mons = get_value(new, ENEMY_PARTY_MONS, PARTY_STRUCT_SIZE * party_size)
+
+	player_unleveled = None
+	enemy_unleveled = None
 	if auto_level:
 		print("Getting un-leveled trainer info")
 		load_trainer_info(your_class["id"], your_instance["index"],
 		                  your_instance["loneMoves"] if "loneMoves" in your_instance else 0,
 		                  battle_save_path, out_save_path, auto_level=False)
 		player_unleveled = load_save(out_save_path)
+
+		unleveled_party_size = get_value(player_unleveled, ENEMY_PARTY_COUNT, 1)[0]
+		unleveled_enemy_mons = get_value(player_unleveled, ENEMY_PARTY_MONS, PARTY_STRUCT_SIZE * party_size)
+
+		for i in range(unleveled_party_size):
+			pokemon_index = unleveled_enemy_mons[PARTY_STRUCT_SIZE * i] - 1
+			pokemon_offset = ENEMY_PARTY_MONS + (i * PARTY_STRUCT_SIZE)
+			pprint({
+				"name": pokemon_names[str(pokemon_index)],
+				"level": get_value(player_unleveled, pokemon_offset + LEVEL_OFFSET, 1)[0],
+				"hp": get_stat(player_unleveled, pokemon_offset + MAX_HP_OFFSET),
+				"attack": get_stat(player_unleveled, pokemon_offset + ATTACK_OFFSET),
+				"moves": get_moves(player_unleveled, pokemon_offset + MOVE_1_OFFSET)
+			})
 
 		print("Getting un-leveled enemy info")
 		load_trainer_info(enemy_class["id"], enemy_instance["index"],
@@ -451,8 +475,6 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	copy_values(new, ENEMY_PARTY_MON_LIST, base, PARTY_MON_LIST, 7)
 	copy_values(new, ENEMY_PARTY_MONS, base, PARTY_MONS, PARTY_STRUCT_SIZE * 6)
 
-	party_size = get_value(new, ENEMY_PARTY_COUNT, 1)[0]
-	enemy_mons = get_value(new, ENEMY_PARTY_MONS, PARTY_STRUCT_SIZE * party_size)
 	for i in range(party_size):
 		pokemon_index = enemy_mons[PARTY_STRUCT_SIZE * i] - 1
 		pokemon_name = name_to_bytes(pokemon_names[str(pokemon_index)])
@@ -460,7 +482,11 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 		copy_values(new, ENEMY_TRAINER_NAME, base, PARTY_MON_OT + POKEMON_NAME_LENGTH * i, POKEMON_NAME_LENGTH)
 		if auto_level:
 			#copy moves
-			pass
+			copy_values(player_unleveled, ENEMY_PARTY_MONS + (i * PARTY_STRUCT_SIZE) + MOVE_1_OFFSET,
+			            base, PARTY_MONS + (i * PARTY_STRUCT_SIZE) + MOVE_1_OFFSET, 4)
+			#fix hp
+			copy_values(base, PARTY_MONS + (i * PARTY_STRUCT_SIZE) + MAX_HP_OFFSET, base, PARTY_MONS + (i * PARTY_STRUCT_SIZE) + CURRENT_HP_OFFSET, 2)
+
 
 
 	set_value(base, TRAINER_CLASS, [enemy_class["id"]], 1)
@@ -508,6 +534,29 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	record_low_total_hp = 99999999999
 	turns_without_damage = 0
 	last_time = time.time()
+
+	if auto_level:
+		if save_movie:
+			movie_index += 1
+			bgb_options[-1] = f"RecordPrefix={movie_path}/movie{movie_index:05}"
+
+		subprocess.call([BGB_PATH, battle_save_path, *bgb_options,
+		                 "-set", "CheatAutoSave=1",
+                         "-ab", "da44//w",
+		                 "-stateonexit", battle_save_path
+		                 ],
+		                timeout=10)
+		battle_state = load_save(battle_save_path)
+		enemy_party_size = get_value(battle_state, ENEMY_PARTY_COUNT, 1)[0]
+		for i in range(party_size):
+			# fix moves
+			copy_values(enemy_unleveled, ENEMY_PARTY_MONS + (i * PARTY_STRUCT_SIZE) + MOVE_1_OFFSET,
+			            battle_state, ENEMY_PARTY_MONS + (i * PARTY_STRUCT_SIZE) + MOVE_1_OFFSET, 4)
+			# fix hp
+			copy_values(battle_state, ENEMY_PARTY_MONS + (i * PARTY_STRUCT_SIZE) + MAX_HP_OFFSET, battle_state,
+			            ENEMY_PARTY_MONS + (i * PARTY_STRUCT_SIZE) + CURRENT_HP_OFFSET, 2)
+		write_file(battle_save_path, battle_state)
+
 	while True:
 		print("#############################")
 		if turn_number > 1000:
@@ -530,20 +579,18 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 		try:
 			subprocess.call([BGB_PATH, battle_save_path, *bgb_options,
+			                 "-set", "CheatAutoSave=0",
 			                 "-br", f"4eb6/{breakpoint_condition},"
 			                        f"1420/{breakpoint_condition},"
 			                        f"4696/{breakpoint_condition},"
 			                        f"4874/{breakpoint_condition}",
 			                 "-stateonexit", battle_save_path,
-			                 "-demoplay", out_demo_path],
+			                 "-demoplay", out_demo_path
+			                 ],
 			                timeout=60)
 		except subprocess.TimeoutExpired:
 			battle_log["winner"] = "Draw by bgb timeout in move"
 			break
-
-		if auto_level and turn_number == 0:
-			# copy enemy trainer moves
-			pass
 
 		battle_state = load_save(battle_save_path)
 		ai_base = load_save(AI_SAVE)
