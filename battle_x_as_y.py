@@ -24,6 +24,8 @@ LOSSLESS = True
 
 ROM_IMAGE = "Pokemon - Red Version (UE) [S][!].gb"
 CHEAT_FILE = "Pokemon - Red Version (UE) [S][!].cht"
+AUTOLEVEL_CHEAT_FILE = "autolevel.cht"
+EXP_CHEAT_FILE = "exp.cht"
 BASE_SAVE = "basestate.sn1"
 AI_SAVE = "ai_choose_state.sn1"
 
@@ -400,7 +402,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 	cheat_file_path = f"{working_dir}/{CHEAT_FILE}"
 	if auto_level:
-		shutil.copyfile(CHEAT_FILE, cheat_file_path)
+		shutil.copyfile(AUTOLEVEL_CHEAT_FILE, cheat_file_path)
 
 	movie_path = f"{working_dir}/movies"
 	movie_index = 0
@@ -557,6 +559,8 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			            ENEMY_PARTY_MONS + (i * PARTY_STRUCT_SIZE) + CURRENT_HP_OFFSET, 2)
 		write_file(battle_save_path, battle_state)
 
+	shutil.copyfile(EXP_CHEAT_FILE, cheat_file_path)
+
 	while True:
 		print("#############################")
 		if turn_number > 1000:
@@ -579,7 +583,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 		try:
 			subprocess.call([BGB_PATH, battle_save_path, *bgb_options,
-			                 "-set", "CheatAutoSave=0",
+			                 "-set", "CheatAutoSave=1",
 			                 "-br", f"4eb6/{breakpoint_condition},"
 			                        f"1420/{breakpoint_condition},"
 			                        f"4696/{breakpoint_condition},"
@@ -729,8 +733,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	for file in [battle_save_path, out_save_path, out_demo_path, rom_image_path]:
 		os.remove(file)
 
-	if auto_level:
-		os.remove(cheat_file_path)
+	os.remove(cheat_file_path)
 
 	output_dir = OUTPUT_BASE
 
