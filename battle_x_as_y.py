@@ -10,7 +10,7 @@ import uuid
 from pprint import pprint
 from typing import Iterable, Tuple
 from hashids import Hashids
-
+from hash_id_common import *
 
 class StupidHack(Exception):
 	pass
@@ -33,15 +33,6 @@ BATTLE_SAVE = "battlestate.sn1"
 OUT_SAVE = "outstate.sn1"
 OUT_DEMO = "outdemo.dem"
 
-SAFE_ALPHABET = "abcdefghijkmnopqrstuvwxyz1234567890-!"
-SALT = "elo"
-hash_encoder = Hashids(salt=SALT, alphabet=SAFE_ALPHABET)
-
-
-
-def load_json(path: str) -> dict:
-	with open(path, 'r', encoding='utf-8') as f:
-		return json.load(f)
 
 
 def load_memory_map(path: str) -> Tuple[dict, dict]:
@@ -50,7 +41,7 @@ def load_memory_map(path: str) -> Tuple[dict, dict]:
 
 
 pokemon_names = load_json("pokemon_names.json")
-trainers = load_json("trainers.json")
+
 characters, reverse_characters = load_memory_map('charmap.json')
 moves, reverse_moves = load_memory_map('moves.json')
 items, reverse_items = load_memory_map('items.json')
@@ -741,9 +732,8 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 		build_movie(movie_path, output_dir, run_number)
 
 	if save_json:
-		json_dir = f"{output_dir}/json/"
 		output_json = f"{output_dir}/json/{run_number}.json"
-		os.makedirs(json_dir, exist_ok=True)
+		os.makedirs(os.path.dirname(output_json), exist_ok=True)
 		with open(output_json, 'w') as f:
 			json.dump(battle_log, f, indent=2)
 
@@ -753,9 +743,8 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 
 def build_movie(movie_path, output_dir, run_number):
-	movie_output_dir = f"{output_dir}/movies/"
 	output_movie = f"{output_dir}/movies/{run_number}.mkv"
-	os.makedirs(movie_output_dir, exist_ok=True)
+	os.makedirs(os.path.dirname(output_movie), exist_ok=True)
 
 	files = [f for f in os.listdir(movie_path)]
 	files.sort()
@@ -842,14 +831,14 @@ def seed_testing():
 			print("Mismatch!")
 			break
 
-def run_from_hashid(hashid, save_movie=False, auto_level=True):
-	hashid = hashid.replace(" ", "")
+def run_from_hashid(hashid, save_movie=False, auto_level=True, folder=""):
+	hashid = hashid.replace(" ", "").strip()
 	your_class_id, your_instance_id, enemy_class_id, enemy_instance_id, hash_nonce = hash_encoder.decode(hashid)
 	your_class, your_instance = get_trainer_by_id(your_class_id, your_instance_id)
 	enemy_class, enemy_instance = get_trainer_by_id(enemy_class_id, enemy_instance_id)
 
 	battle_nonce = str(uuid.uuid4())
-	return battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=f"{hashid}_{battle_nonce}",
+	return battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=f"{folder}/{hashid}_{battle_nonce}",
 	                     save_movie=save_movie, seed=hashid, auto_level=auto_level)
 
 def test_hash_id():
@@ -872,22 +861,6 @@ def test_hash_id():
 
 		if battle_log_1["turn_count"] != battle_log_2["turn_count"]:
 			print("They don't match!")
-
-def display_hashid(hashid):
-	return hashid[0:4] + " " + hashid[4:8] + " " + hashid[8:]
-
-def generate_hashid(player, enemy, seed):
-	your_class, your_instance = player
-	enemy_class, enemy_instance = enemy
-	hash_nonce = seed
-
-	your_class_id, your_instance_id = your_class["id"], your_instance["index"]
-	enemy_class_id, enemy_instance_id = enemy_class["id"], enemy_instance["index"]
-
-	hashid = hash_encoder.encode(your_class_id, your_instance_id, enemy_class_id, enemy_instance_id, hash_nonce)
-	print("The hashid is    :", display_hashid(hashid))
-	print("The simple id is :", f"{your_class_id}-{your_instance_id}-{enemy_class_id}-{enemy_instance_id}-{hash_nonce}")
-	return hashid
 
 def main():
 	hashid = generate_hashid(
