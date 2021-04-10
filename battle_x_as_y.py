@@ -1,5 +1,4 @@
 import itertools
-import json
 import os
 import random
 import shutil
@@ -9,12 +8,18 @@ import time
 import uuid
 from pprint import pprint
 from typing import Iterable, Tuple
-from hashids import Hashids
+
 from hash_id_common import *
+
 
 class StupidHack(Exception):
 	pass
 
+
+DEBUG = True
+if not DEBUG:
+	print = lambda *_: None
+	pprint = lambda *_: None
 
 WORKING_DIR_BASE = "W:/elo_world_scratch/red_redux"
 OUTPUT_BASE = "W:/elo_world_output/red_redux"
@@ -32,7 +37,6 @@ AI_SAVE = "ai_choose_state.sn1"
 BATTLE_SAVE = "battlestate.sn1"
 OUT_SAVE = "outstate.sn1"
 OUT_DEMO = "outdemo.dem"
-
 
 
 def load_memory_map(path: str) -> Tuple[dict, dict]:
@@ -177,7 +181,6 @@ def load_trainer_info(trainer_id: int, trainer_index: int, lone_move_number: int
 	else:
 		bgb_options = ["-set", "CheatAutoSave=0"]
 
-
 	subprocess.call([BGB_PATH, '-rom', battle_save,
 	                 '-ab', 'da44//w',
 	                 '-hf',
@@ -304,6 +307,7 @@ def select_switch() -> bytearray:
 		RIGHT_BUTTON,
 		A_BUTTON
 	])
+
 
 def get_moves(battle_state: bytearray, offset: int) -> list:
 	battle_moves = get_value(battle_state, offset, 4)
@@ -474,13 +478,12 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 		set_value(base, PARTY_NICKNAMES + POKEMON_NAME_LENGTH * i, pokemon_name, POKEMON_NAME_LENGTH)
 		copy_values(new, ENEMY_TRAINER_NAME, base, PARTY_MON_OT + POKEMON_NAME_LENGTH * i, POKEMON_NAME_LENGTH)
 		if auto_level:
-			#copy moves
+			# copy moves
 			copy_values(player_unleveled, ENEMY_PARTY_MONS + (i * PARTY_STRUCT_SIZE) + MOVE_1_OFFSET,
 			            base, PARTY_MONS + (i * PARTY_STRUCT_SIZE) + MOVE_1_OFFSET, 4)
-			#fix hp
-			copy_values(base, PARTY_MONS + (i * PARTY_STRUCT_SIZE) + MAX_HP_OFFSET, base, PARTY_MONS + (i * PARTY_STRUCT_SIZE) + CURRENT_HP_OFFSET, 2)
-
-
+			# fix hp
+			copy_values(base, PARTY_MONS + (i * PARTY_STRUCT_SIZE) + MAX_HP_OFFSET, base,
+			            PARTY_MONS + (i * PARTY_STRUCT_SIZE) + CURRENT_HP_OFFSET, 2)
 
 	set_value(base, TRAINER_CLASS, [enemy_class["id"]], 1)
 	set_value(base, TRAINER_INSTANCE, [enemy_instance["index"]], 1)
@@ -535,7 +538,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 
 		subprocess.call([BGB_PATH, battle_save_path, *bgb_options,
 		                 "-set", "CheatAutoSave=1",
-                         "-ab", "da44//w",
+		                 "-ab", "da44//w",
 		                 "-stateonexit", battle_save_path
 		                 ],
 		                timeout=10)
@@ -661,7 +664,8 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			else:
 				turns_without_damage += 1
 
-			print("total hp", total_hp, "record low total hp", record_low_total_hp, "turns without damage", turns_without_damage)
+			print("total hp", total_hp, "record low total hp", record_low_total_hp, "turns without damage",
+			      turns_without_damage)
 
 			turn_summary = {
 				"turn_number": turn_number,
@@ -797,6 +801,7 @@ def run_one_battle(enemy, you):
 	battle_log_winner = battle_log["winner"]
 	return battle_log_winner
 
+
 def get_rival_videos():
 	for rival in range(1, 7):
 		for i in range(5):
@@ -809,6 +814,7 @@ def get_rival_videos():
 			battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance,
 			                           run_number=f"vidvals/{run_number}",
 			                           save_movie=True)
+
 
 def seed_testing():
 	for _ in range(100):
@@ -831,6 +837,7 @@ def seed_testing():
 			print("Mismatch!")
 			break
 
+
 def run_from_hashid(hashid, save_movie=False, auto_level=True, folder=""):
 	hashid = hashid.replace(" ", "").strip()
 	your_class_id, your_instance_id, enemy_class_id, enemy_instance_id, hash_nonce = hash_encoder.decode(hashid)
@@ -838,8 +845,10 @@ def run_from_hashid(hashid, save_movie=False, auto_level=True, folder=""):
 	enemy_class, enemy_instance = get_trainer_by_id(enemy_class_id, enemy_instance_id)
 
 	battle_nonce = str(uuid.uuid4())
-	return battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=f"{folder}/{hashid}_{battle_nonce}",
+	return battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance,
+	                     run_number=f"{folder}/{hashid}_{battle_nonce}",
 	                     save_movie=save_movie, seed=hashid, auto_level=auto_level)
+
 
 def test_hash_id():
 	for _ in range(200):
@@ -852,15 +861,18 @@ def test_hash_id():
 
 		hashid = hash_encoder.encode(your_class_id, your_instance_id, enemy_class_id, enemy_instance_id, hash_nonce)
 		print("The hashid is    :", display_hashid(hashid))
-		print("The simple id is :", f"{your_class_id}-{your_instance_id}-{enemy_class_id}-{enemy_instance_id}-{hash_nonce}")
+		print("The simple id is :",
+		      f"{your_class_id}-{your_instance_id}-{enemy_class_id}-{enemy_instance_id}-{hash_nonce}")
 		print()
 		battle_nonce = str(uuid.uuid4())
-		battle_log_1 = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number=f"{hashid}_{battle_nonce}", save_movie=False, seed=hashid)
+		battle_log_1 = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance,
+		                             run_number=f"{hashid}_{battle_nonce}", save_movie=False, seed=hashid)
 
 		battle_log_2 = run_from_hashid(hashid)
 
 		if battle_log_1["turn_count"] != battle_log_2["turn_count"]:
 			print("They don't match!")
+
 
 def main():
 	hashid = generate_hashid(
@@ -872,6 +884,7 @@ def main():
 	battle_log = run_from_hashid(hashid, save_movie=True, auto_level=True)
 
 	pprint(battle_log)
+
 
 if __name__ == '__main__':
 	# battle_until_win()
