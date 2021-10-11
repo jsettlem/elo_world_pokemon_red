@@ -14,7 +14,7 @@ First off, you'll need **Windows** (probably 10 or 11). The emulator this projec
 
 Second, install Python 3.8 or newer. You can get Python from python.org or from the Microsoft Store. If you need help, Google how to install Python on Windows. 
 
-Third, with Python installed, use pip to install the Hash ID library. If Python is set up correctly, you should be able to open a Command Prompt and type `pip install hashids`. If that doesn't work, try `python3 -m pip install hashids`. If that sitll doesn't work, Google how to install Python libraries with pip on Windows. 
+Third, with Python installed, use pip to install the Hash ID library. If Python is set up correctly, you should be able to open a Command Prompt and type `pip install hashids`. If that doesn't work, try `python -m pip install hashids`. If that sitll doesn't work, Google how to install Python libraries with pip on Windows. 
 
 Fourth, install ffmpeg, and make sure it's on your path. [This WikiHow article](https://www.wikihow.com/Install-FFmpeg-on-Windows) seems like a reasonable set of instructions.
 
@@ -46,7 +46,7 @@ elo_world_pokemon_red
 
 ## Run the script
 
-Run `battle_x_as_y.py`. If you've set up Python correctly, you should be able to just double-click on the .py file. If that doesn't work, you can open a command prompt window and run `python3 battle_x_as_y.py`. If that still doesn't work, Google how to run Python scripts in Windows.
+Run `battle_x_as_y.py`. If you've set up Python correctly, you should be able to just double-click on the .py file. If that doesn't work, you can open a command prompt window and run `python battle_x_as_y.py`. If that still doesn't work, Google how to run Python scripts in Windows.
 
 If a window appears and immediately closes when you double-click, that's probably Python erroring out because you didn't install the hashids library correctly. 
 
