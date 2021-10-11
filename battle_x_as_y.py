@@ -1,9 +1,11 @@
+import hashlib
 import itertools
 import os
 import random
 import shutil
 import struct
 import subprocess
+import sys
 import time
 import uuid
 from pprint import pprint
@@ -21,8 +23,12 @@ if not DEBUG:
 	print = lambda *_: None
 	pprint = lambda *_: None
 
-WORKING_DIR_BASE = "W:/elo_world_scratch/red_redux"
-OUTPUT_BASE = "W:/elo_world_output/red_redux"
+SCALE_VIDEO = True
+
+# WORKING_DIR_BASE = "W:/elo_world_scratch/red_redux"
+# OUTPUT_BASE = "W:/elo_world_output/red_redux"
+WORKING_DIR_BASE = "./scratch"
+OUTPUT_BASE = "./output"
 
 BGB_PATH = "bgb/bgb.exe"
 LOSSLESS = True
@@ -195,6 +201,9 @@ def get_trainer_string(trainer_class: dict, trainer_instance: dict) -> str:
 	return f"a {trainer_class['class']} from {location if location != '' else 'somewhere'} who has a " + \
 	       ", ".join(f"level {pokemon['level']} {pokemon['species']}" for pokemon in trainer_instance["party"]) + \
 	       f" (class id: {trainer_class['id']}, instance number: {trainer_instance['index']})"
+
+def get_short_trainer_string(trainer_class: dict, trainer_instance: dict) -> str:
+	return f"{trainer_class['class']}#{trainer_instance['index']}"
 
 
 def get_ai_action(out_save: str = OUT_SAVE) -> Tuple[int, int, bool]:
@@ -380,10 +389,12 @@ def get_party_mon(source: bytearray, offset: int, i: int):
 	except KeyError:
 		# gross edge case hack -- if the rival wins, the battle end breakpoint isn't hit. We can detect that here because the species of their first Pokemon becomes -1
 		raise StupidHack()
+		# pass
 
 
 def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_number="", save_movie=True,
-                  save_json=True, seed=None, auto_level=False) -> dict:
+                  save_json=True, auto_level=False, seed=None) -> dict:
+
 	if seed is None:
 		rng = random.Random()
 	else:
@@ -608,11 +619,12 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 			else:
 				button_sequence = choose_pokemon(current_party_menu_choice, get_pokemon_to_switch_to(battle_state))
 		elif pc == TRAINER_WIN_OFFSET:
-			print(f"{your_class['class']} wins!")
+
+			print(f"{get_trainer_string(your_class, your_instance)} wins!")
 			battle_log["winner"] = "trainer"
 			break
 		elif pc == ENEMY_WIN_OFFSET:
-			print(f"{enemy_class['class']} wins!")
+			print(f"{get_trainer_string(enemy_class, enemy_instance)} wins!")
 			battle_log["winner"] = "enemy"
 			break
 		else:
@@ -733,7 +745,8 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	output_dir = OUTPUT_BASE
 
 	if save_movie:
-		build_movie(movie_path, output_dir, run_number)
+		build_movie(movie_path, output_dir, run_number, player_name=get_short_trainer_string(your_class, your_instance),
+		            enemy_name=get_short_trainer_string(enemy_class, enemy_instance), hash_id=seed if seed else "")
 
 	if save_json:
 		output_json = f"{output_dir}/json/{run_number}.json"
@@ -746,9 +759,7 @@ def battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance, run_nu
 	return battle_log
 
 
-def build_movie(movie_path, output_dir, run_number):
-	output_movie = f"{output_dir}/movies/{run_number}.mkv"
-	os.makedirs(os.path.dirname(output_movie), exist_ok=True)
+def build_movie(movie_path, output_dir, run_number, player_name="", enemy_name="", hash_id=""):
 
 	files = [f for f in os.listdir(movie_path)]
 	files.sort()
@@ -759,17 +770,49 @@ def build_movie(movie_path, output_dir, run_number):
 	create_concat_file(video_list_txt, [f for f in files if f.endswith(".avi")])
 	create_concat_file(audio_list_txt, [f for f in files if f.endswith(".wav")])
 
-	subprocess.call(["ffmpeg",
-	                 "-i", video_list_txt,
-	                 "-i", audio_list_txt,
-	                 "-c:v", "libx265",
-	                 "-preset", "slow",
-	                 "-crf", "17",
-	                 "-c:a", "libopus",
-	                 "-b:a", "32k",
-	                 "-threads", "1",
-	                 output_movie])
 
+
+	if SCALE_VIDEO:
+		scaled_output_movie = f"{output_dir}/movies/{run_number}.mov"
+		os.makedirs(os.path.dirname(scaled_output_movie), exist_ok=True)
+
+		# subprocess.call(["ffmpeg",
+		#                  "-i", video_list_txt,
+		#                  "-i", audio_list_txt,
+		#                  "-s", "1600x1440",
+		#                  "-sws_flags", "neighbor",
+		#                  "-vcodec", "prores_ks",
+		#                  "-profile", "2",
+		#                  "-c:a", "aac",
+		#                  "-b:a", "128k",
+		#                  "-movflags", "faststart",
+		#                  scaled_output_movie])
+
+		escaped_pound = '\\#'
+		subprocess.call(["ffmpeg",
+		                 "-i", video_list_txt,
+		                 "-i", audio_list_txt,
+		                 "-vf", f"scale=1600x1440, pad=1600:1560:-1:-1:0xb0b5b8, drawtext=text='{player_name.replace('#', escaped_pound)} vs. {enemy_name.replace('#', escaped_pound)}':x=(w-text_w)/2:y=3:fontcolor=white:fontfile='C\\:/Users/pimanrules/AppData/Local/Microsoft/Windows/Fonts/FSEX302-alt.ttf':fontsize=80:borderw=4:bordercolor=0x1c1c1c, drawtext=text='{display_hashid(hash_id)}':x=(w-text_w)/2:y=h-text_h-3:fontcolor=0x70f1ff:fontfile='C\\:/Users/pimanrules/AppData/Local/Microsoft/Windows/Fonts/Pokemon_GB.ttf':fontsize=56:borderw=4:bordercolor=0x1c1c1c",
+		                 "-sws_flags", "neighbor",
+		                 "-c:v", "libx264",
+		                 "-crf", "23",
+		                 "-c:a", "aac",
+		                 "-b:a", "128k",
+		                 scaled_output_movie])
+	else:
+		output_movie = f"{output_dir}/movies/{run_number}.mkv"
+		os.makedirs(os.path.dirname(output_movie), exist_ok=True)
+
+		subprocess.call(["ffmpeg",
+		                 "-i", video_list_txt,
+		                 "-i", audio_list_txt,
+		                 "-c:v", "libx265",
+		                 "-preset", "slow",
+		                 "-crf", "17",
+		                 "-c:a", "libopus",
+		                 "-b:a", "32k",
+		                 "-threads", "1",
+		                 output_movie])
 	for f in [*files, "videos.txt", "audio.txt"]:
 		os.remove(f"{movie_path}/{f}")
 	os.rmdir(movie_path)
@@ -783,21 +826,23 @@ def create_concat_file(list_txt, files):
 
 def battle_until_win():
 	while True:
-		you = get_trainer_by_id(214, 9)
-		enemy = get_trainer_by_id(214, 8)
-		battle_log_winner = run_one_battle(enemy, you)
+		you, enemy = get_trainer_by_id(225, 2), get_trainer_by_id(225, 1)
+		battle_log_winner = run_one_battle(enemy, you, auto_level=False)
 		print(battle_log_winner)
-		if battle_log_winner == "trainer":
+		if battle_log_winner == "enemy":
 			break
 
 
-def run_one_battle(enemy, you):
-	your_class, your_instance = you
-	enemy_class, enemy_instance = enemy
-	run_number = str(uuid.uuid4())
-	battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance,
-	                           run_number=f"upset_attempts/{run_number}",
-	                           save_movie=True)
+def run_one_battle(enemy, you, auto_level=True):
+	# your_class, your_instance = you
+	# enemy_class, enemy_instance = enemy
+
+	battle_hashid = generate_hashid(you, enemy, random.randint(1, 100), debug=True)
+	battle_log = run_from_hashid(battle_hashid, save_movie=True, auto_level=auto_level, folder="for_video")
+	# run_number = str(uuid.uuid4())
+	# battle_log = battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance,
+	#                            run_number=f"upset_attempts/{run_number}",
+	#                            save_movie=True)
 	battle_log_winner = battle_log["winner"]
 	return battle_log_winner
 
@@ -844,9 +889,10 @@ def run_from_hashid(hashid, save_movie=False, auto_level=True, folder=""):
 	your_class, your_instance = get_trainer_by_id(your_class_id, your_instance_id)
 	enemy_class, enemy_instance = get_trainer_by_id(enemy_class_id, enemy_instance_id)
 
-	battle_nonce = str(uuid.uuid4())
+	battle_nonce = str(int(time.time() * 1000))
+	battle_name = f"{your_class['class']}_{your_instance_id}_vs_{enemy_class['class']}_{enemy_instance_id}_{battle_nonce}"
 	return battle_x_as_y(your_class, your_instance, enemy_class, enemy_instance,
-	                     run_number=f"{folder}/{hashid}_{battle_nonce}",
+	                     run_number=f"{folder}/{hashid}_{battle_name}",
 	                     save_movie=save_movie, seed=hashid, auto_level=auto_level)
 
 
@@ -873,20 +919,132 @@ def test_hash_id():
 		if battle_log_1["turn_count"] != battle_log_2["turn_count"]:
 			print("They don't match!")
 
+def quit_gracefully():
+	input("Press enter to exit")
+	sys.exit()
+
 
 def main():
-	hashid = generate_hashid(
-		get_random_trainer(),
-		get_random_trainer(),
-		random.randint(1, 100)
-	)
+	print("Looking for Pokémon Red ROM image at " + ROM_IMAGE)
+	if not ROM_IMAGE.endswith("Pokemon - Red Version (UE) [S][!].gb"):
+		print("Sorry, but you need to make sure the ROM image is named \"Pokemon - Red Version (UE) [S][!].gb\". That's what BGB will look for")
+		quit_gracefully()
 
-	battle_log = run_from_hashid(hashid, save_movie=True, auto_level=True)
+	if not os.path.exists(ROM_IMAGE):
+		print("No ROM image found with the file name " + ROM_IMAGE)
+		quit_gracefully()
 
-	pprint(battle_log)
+	with open(ROM_IMAGE, 'rb') as rom:
+		hasher = hashlib.sha1()
+		hasher.update(rom.read())
+		if hasher.hexdigest().upper() != "EA9BCAE617FDF159B045185467AE58B2E4A48B9A":
+			print("I found a file at " + ROM_IMAGE + ", but it doesn't look like it's the right version of Pokémon Red. Make sure you're getting a ROM with the SHA1 hash EA9BCAE617FDF159B045185467AE58B2E4A48B9A")
+			quit_gracefully()
+
+	print("Everything looks to be in order there...")
+	print()
+	print("Looking for BGB version 1.5.8 at " + BGB_PATH)
+
+	if not os.path.exists(BGB_PATH):
+		print("BGB wasn't found at " + BGB_PATH)
+		quit_gracefully()
+
+	with open(BGB_PATH, 'rb') as bgb:
+		hasher = hashlib.sha1()
+		hasher.update(bgb.read())
+		if hasher.hexdigest().upper() != "E07BCB5CA3B03E7BD854584148980E374082FFE0":
+			print("I found a file at " + BGB_PATH + ", but it doesn't look like it's the right version of BGB. Make sure you're getting BGB version 1.5.8 32 bit (which is not the newest version), and that you're pointing to the .exe file directly.")
+			quit_gracefully()
+
+	print("Great, it seems to be there. If you run into weird issues, try deleting your bgb.ini file, that can cause some issues.")
+	print()
+
+	print("Looking for ffmpeg on your path")
+	ffmpeg_path = shutil.which("ffmpeg")
+	if not ffmpeg_path:
+		print("It doesn't look like you have ffmpeg installed and on your path. If you just installed it, you might need to restart Command Prompt. Google it if you need help")
+		quit_gracefully()
+	print("Fantasic, looks like you have ffmpeg installed, but I didn't bother checking the version or anything. If you run into issues, make sure your ffmpeg installation is working.")
+	print()
+
+	print("I'm not checking for the CamStudio lossless codec (please don't ask me to read the Win32 documentation just for this dumb little script...). Make sure you have it installed or ffmpeg will complain.")
+	print()
+
+	print(f"You're scratch path is set to {WORKING_DIR_BASE} and your output path is set to {OUTPUT_BASE}. Make sure you're happy with those, or edit battle_x_as_y.py to change them")
+	print()
+
+	hash_id = input("Enter a Hash ID: ")
+	stripped_id = hash_id.replace(" ", "").strip()
+	parsed_id = hash_encoder.decode(stripped_id)
+	if not parsed_id or len(parsed_id) != 5:
+		print("That doesn't seem like a valid Hash ID...")
+		quit_gracefully()
+
+	run_from_hashid(hash_id, auto_level=True, save_movie=True, folder="hashid_run")
 
 
 if __name__ == '__main__':
+	green3_1 = get_trainer_by_id(243, 1)
+	green3_2 = get_trainer_by_id(243, 2)
+	green3_3 = get_trainer_by_id(243, 3)
+	green2_7 = get_trainer_by_id(242, 7)
+	green2_8 = get_trainer_by_id(242, 8)
+	green2_9 = get_trainer_by_id(242, 9)
+	green2_10 = get_trainer_by_id(242, 10)
+	green2_11 = get_trainer_by_id(242, 11)
+	green2_12 = get_trainer_by_id(242, 12)
+	oak_1 = get_trainer_by_id(226, 1)
+	oak_2 = get_trainer_by_id(226, 2)
+	oak_3 = get_trainer_by_id(226, 3)
+	sabrina = get_trainer_by_id(240, 1)
+	juggler_2 = get_trainer_by_id(221, 2)
+	agatha = get_trainer_by_id(246, 1)
+	lance = get_trainer_by_id(247, 1)
+
+	# run_one_battle( get_trainer_by_id(225, 2), get_trainer_by_id(225, 1), auto_level=True)
+	# run_from_hashid("mxrb ji5x fwty", save_movie=True, folder="final_video")
+	# run_from_hashid("-!zi oigp t!ir", save_movie=True, folder="final_video")
+	# run_from_hashid("gqot gur2 uquw", save_movie=True, folder="final_video")
+	# run_from_hashid("8xqi 5frx fmi-", save_movie=True, folder="final_video")
+	# run_from_hashid("eq5c raq5 s4aq", save_movie=True, folder="final_video")
+	# run_from_hashid("jqyt zupw fpf5", save_movie=True, folder="final_video")
+	# run_from_hashid("q22a 9h3w awa6", save_movie=True, folder="final_video")
+	# run_from_hashid("43rsgh-4unto", save_movie=True, folder="final_video")
+	# run_from_hashid("83eb et9j int-", save_movie=True, folder="final_video")
+	# run_from_hashid("!qdb wc3d cdtw", save_movie=True, folder="final_video")
+	# run_from_hashid("wq4s5hd5idtm", save_movie=True, folder="final_video")
+	# run_from_hashid("1oniot1qi!ir", save_movie=True, folder="final_video")
+	# run_from_hashid("6mzt 6ix4 t9t2", save_movie=True, folder="final_video")
+	# run_from_hashid("p2yu xh5n f4u6", save_movie=True, folder="final_video")
+	# run_from_hashid("283igc-ocdc!", save_movie=True, folder="final_video")
+	# run_from_hashid("!q3s wc31 c6cw", save_movie=True, folder="final_video")
+	# run_from_hashid("yqyu 9a41 a3ce", save_movie=True, folder="final_video")
+	# run_from_hashid("6p2h otzp ujs2", save_movie=True, folder="final_video")
+	# run_from_hashid("xq1i 1t4n bghk", save_movie=True, folder="final_video")
+	# run_from_hashid("8x8t etrd igh-", save_movie=True, folder="final_video")
+	# run_from_hashid("e3da 9h6g udtq", save_movie=True, folder="final_video")
+	# run_from_hashid("r2xb mh2j hnf-", save_movie=True, folder="final_video")
+	# run_from_hashid("6pqtmhxjc1i2", save_movie=True, folder="final_video")
+	# run_from_hashid("93qt 8ho8 fgtwn", save_movie=True, folder="final_video")
+	#
+	# run_from_hashid("93nu 8h!9 s!c4d", save_movie=True, folder="sweet_16")
+	# run_from_hashid("!9!i 8b!6 ixud9", save_movie=True, folder="sweet_16")
+	# run_from_hashid("d5pc ka8z a1hxe", save_movie=True, folder="sweet_16")
+	# run_from_hashid("53-t eh3p igtdy", save_movie=True, folder="sweet_16")
+	# run_from_hashid("1ozt 8t3q fjh6y", save_movie=True, folder="sweet_16")
+	# run_from_hashid("83yf 8crz hntkq", save_movie=True, folder="sweet_16")
+	# run_from_hashid("ypyf eh4g uotx", save_movie=True, folder="sweet_16")
+	# run_from_hashid("wx2a 5hdg tgc84", save_movie=True, folder="sweet_16")
+	# run_from_hashid("53-t pu3z fjc3", save_movie=True, folder="sweet_16")
+	# run_from_hashid("p28b rtq1 cmh3z", save_movie=True, folder="sweet_16")
+	# run_from_hashid("nqnu nc48 ukhx", save_movie=True, folder="sweet_16")
+	# run_from_hashid("j38a qhpy s2td5", save_movie=True, folder="sweet_16")
+	# run_from_hashid("53jf 2t3z fjc2", save_movie=True, folder="sweet_16")
+	# run_from_hashid("43oc etrn tqcd5", save_movie=True, folder="sweet_16")
+	# run_from_hashid("43oc etrn tytdg", save_movie=True, folder="sweet_16")
+
+
+
 	# battle_until_win()
 	# get_rival_videos()
 	main()
