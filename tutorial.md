@@ -14,7 +14,7 @@ First off, you'll need **Windows** (probably 10 or 11). The emulator this projec
 
 Second, install Python 3.8 or newer. You can get Python from python.org or from the Microsoft Store. If you need help, Google how to install Python on Windows. 
 
-Third, with Python installed, use pip to install the Hash ID library. If Python is set up correctly, you should be able to open a Command Prompt and type `pip install hashids`. If that doesn't work, try `python -m pip install hashids`. If that sitll doesn't work, Google how to install Python libraries with pip on Windows. 
+Third, with Python installed, use pip to install the Hash ID library. If Python is set up correctly, you should be able to open a Command Prompt and type `pip install hashids`. If that doesn't work, try `python -m pip install hashids`. If that still doesn't work, Google how to install Python libraries with pip on Windows. 
 
 Fourth, install ffmpeg, and make sure it's on your path. [This WikiHow article](https://www.wikihow.com/Install-FFmpeg-on-Windows) seems like a reasonable set of instructions.
 
