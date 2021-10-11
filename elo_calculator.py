@@ -73,6 +73,11 @@ def main():
 	pokemon_lorelei_drew_against = [p for b in lorelei_draws for p in b.enemy.party_mons]
 	print("Pokémon Lorelei drew against:")
 	print("\n".join([f"Lv. {p.level} {p.species}" for p in pokemon_lorelei_drew_against]))
+	
+	bug_draws = [b for b in battle_list if "bgb" in b.winner]
+	print(len(bug_draws))
+	karate_master_wins = [b for b in battle_list if b.winning_trainer.class_id == 224 and b.winning_trainer.instance_id == 1 and b.losing_trainer.class_id == 239]
+	lance_wins_against_oak = [b for b in battle_list if b.winning_trainer.class_id == 247 and b.losing_trainer.class_id == 226 and b.losing_trainer.instance_id == 1]
 
 	battles_with_wasted_heal(battle_list)
 
