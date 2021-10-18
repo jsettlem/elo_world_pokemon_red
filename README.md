@@ -4,6 +4,10 @@
 
 Confused? You should probably watch the [accompanying video](https://www.youtube.com/watch?v=8yUPhRJtNJM) first. 
 
+Or the [follow-up](https://www.youtube.com/watch?v=247qD1qulSQ).
+
+If you just wanna watch battles, you probably want the [tutorial](tutorial.md).
+
 ## About this repo
 
 This repo contains most of the code and data I used to run and analyze the tournament. It's very disorganized, but it should be relatively easy to get up and running (if not understand). This readme is far from a thorough explanation, though, so expect to need to do some fiddling. 
@@ -29,7 +33,7 @@ If you want video output, you'll also need:
 * ffmpeg
 * [the CamStudio lossless codec](https://www.free-codecs.com/download/camstudio_lossless_codec.htm)
 
-[battle_x_as_y.py](battle_x_as_y.py) is the main file that runs battles. You'll probably want to update `WORKING_DIR_BASE`, `OUTPUT_BASE`, and `BGB_PATH`. If you run this file, it should pick two random trainers and pit them against each other. 
+[battle_x_as_y.py](battle_x_as_y.py) is the main file that runs battles. You'll probably want to update `WORKING_DIR_BASE`, `OUTPUT_BASE`, and `BGB_PATH`. If you run this file, it should prompt you for a HashID, as described in the [tutorial](tutorial.md). 
 
 I'll probably make a more detailed explanation for this code when I inevitably make a "Code Review" video. Stay tuned for that if you want more help, but in the meantime feel free to poke around the code. 
 
