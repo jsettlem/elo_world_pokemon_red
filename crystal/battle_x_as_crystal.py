@@ -1,6 +1,7 @@
 import itertools
 import json
 import random
+import struct
 import subprocess
 from typing import Iterable, Tuple
 
@@ -8,13 +9,18 @@ BGB_PATH = "bgb/bgb.exe"
 ROM_IMAGE = "pokecrystal11.gbc"
 
 BASE_SAVE = "base_state_1.sna"
+BASE_AI_SAVE = "base_ai_state.sna"
 
 OUT_SAVE = "outstate.sn1"
+AI_INPUT_SAVE = "ai_input.sn1"
+AI_OUTPUT_SAVE = "ai_output.sn1"
 BATTLE_SAVE = "battlestate.sn1"
 OUT_DEMO = "outdemo.dem"
+AI_DEMO = "ai_demo.dem"
 
 # GLOBAL_OFFSET = 0xBBC3
 GLOBAL_OFFSET = 0xBAF0
+TOTAL_CLOCKS_OFFSET = 0x21F
 
 OTHER_TRAINER_CLASS = 0xd22f
 # TRAINER_CLASS = 0xd233
@@ -32,6 +38,7 @@ PLAYER_NAME_LENGTH = 8
 PLAYER_GENDER = 0xd472
 
 PARTY_STRUCT_SIZE = 0x30
+BATTLE_MON_SIZE = 0x20
 
 ENEMY_PARTY_START = 0xd280
 ENEMY_PARTY_STRUCTS_START = 0xd288
@@ -46,74 +53,97 @@ PLAYER_PARTY_NICKS = 0xde41
 PLAYER_PARTY_OTS = 0xddff
 PLAYER_PARTY_END = 0xde83
 
-wBattleMon = (0, 0)
-wEnemyMon = (0, 0)
-wEnemyMoveStruct = (0, 0)
-wPlayerMoveStruct = (0, 0)
+wBattleMonNickname = (0xc621, POKEMON_NAME_LENGTH)
+wEnemyMonNickname = (0xc616, POKEMON_NAME_LENGTH)
 
-wPlayerSubStatus1 = (0, 1)
-wEnemySubStatus1 = (0, 1)
-wPlayerSubStatus2 = (0, 1)
-wEnemySubStatus2 = (0, 1)
-wPlayerSubStatus3 = (0, 1)
-wEnemySubStatus3 = (0, 1)
-wPlayerSubStatus4 = (0, 1)
-wEnemySubStatus4 = (0, 1)
-wPlayerSubStatus5 = (0, 1)
-wEnemySubStatus5 = (0, 1)
-wBattleMonStatus = (0, 1)
-wEnemyMonStatus = (0, 1)
-wPlayerMoveStructAnimation = (0, 1)
-wEnemyMoveStructAnimation = (0, 1)
-wPlayerMoveStructEffect = (0, 1)
-wEnemyMoveStructEffect = (0, 1)
-wPlayerMoveStructPower = (0, 1)
-wEnemyMoveStructPower = (0, 1)
-wPlayerMoveStructType = (0, 1)
-wEnemyMoveStructType = (0, 1)
-wCurPlayerMove = (0, 1)
-wCurEnemyMove = (0, 1)
-wLastPlayerCounterMove = (0, 1)
-wLastEnemyCounterMove = (0, 1)
-wLastPlayerMove = (0, 1)
-wLastEnemyMove = (0, 1)
+wBattleMon = (0xc62c, BATTLE_MON_SIZE)
+wEnemyMon = (0xd206, BATTLE_MON_SIZE)
+wEnemyMoveStruct = (0xc608, 7)
+wPlayerMoveStruct = (0xc60f, 7)
 
-wPlayerRolloutCount = (0, 1)
-wEnemyRolloutCount = (0, 1)
-wPlayerConfuseCount = (0, 1)
-wEnemyConfuseCount = (0, 1)
-wPlayerToxicCount = (0, 1)
-wEnemyToxicCount = (0, 1)
-wPlayerDisableCount = (0, 1)
-wEnemyDisableCount = (0, 1)
-wPlayerEncoreCount = (0, 1)
-wEnemyEncoreCount = (0, 1)
-wPlayerPerishCount = (0, 1)
-wEnemyPerishCount = (0, 1)
-wPlayerFuryCutterCount = (0, 1)
-wEnemyFuryCutterCount = (0, 1)
-wPlayerProtectCount = (0, 1)
-wEnemyProtectCount = (0, 1)
+wPlayerSubStatus1 = (0xc668, 1)
+wEnemySubStatus1 = (0xc66d, 1)
+wPlayerSubStatus2 = (0xc669, 1)
+wEnemySubStatus2 = (0xc66e, 1)
+wPlayerSubStatus3 = (0xc66a, 1)
+wEnemySubStatus3 = (0xc66f, 1)
+wPlayerSubStatus4 = (0xc66b, 1)
+wEnemySubStatus4 = (0xc670, 1)
+wPlayerSubStatus5 = (0xc66c, 1)
+wEnemySubStatus5 = (0xc671, 1)
 
-wPlayerScreens = (0, 1)
-wEnemyScreens = (0, 1)
-wPlayerDamageTaken = (0, 1)
-wEnemyDamageTaken = (0, 1)
-wPlayerStats = (0, 1)
-wEnemyStats = (0, 1)
-wPlayerStatLevels = (0, 1)
-wEnemyStatLevels = (0, 1)
-wPlayerTurnsTaken = (0, 1)
-wEnemyTurnsTaken = (0, 1)
-wPlayerSubstituteHP = (0, 1)
-wEnemySubstituteHP = (0, 1)
-wDisabledMove = (0, 1)
-wEnemyDisabledMove = (0, 1)
+wCurPlayerMove = (0xc6e3, 1)
+wCurEnemyMove = (0xc6e4, 1)
+wLastPlayerCounterMove = (0xc6f8, 1)
+wLastEnemyCounterMove = (0xc6f9, 1)
+wLastPlayerMove = (0xc71b, 1)
+wLastEnemyMove = (0xc71c, 1)
+wPlayerRolloutCount = (0xc672, 1)
+wEnemyRolloutCount = (0xc67a, 1)
+wPlayerConfuseCount = (0xc673, 1)
+wEnemyConfuseCount = (0xc67b, 1)
+wPlayerToxicCount = (0xc674, 1)
+wEnemyToxicCount = (0xc67c, 1)
+wPlayerDisableCount = (0xc675, 1)
+wEnemyDisableCount = (0xc67d, 1)
+wPlayerEncoreCount = (0xc676, 1)
+wEnemyEncoreCount = (0xc67e, 1)
+wPlayerPerishCount = (0xc677, 1)
+wEnemyPerishCount = (0xc67f, 1)
+wPlayerFuryCutterCount = (0xc678, 1)
+wEnemyFuryCutterCount = (0xc680, 1)
+wPlayerProtectCount = (0xc679, 1)
+wEnemyProtectCount = (0xc681, 1)
+wPlayerScreens = (0xc6ff, 1)
+wEnemyScreens = (0xc700, 1)
+wPlayerDamageTaken = (0xc682, 2)
+wEnemyDamageTaken = (0xc684, 2)
+wPlayerStats = (0xc6b6, 10)
+wEnemyStats = (0xc6c1, 10)
+wPlayerStatLevels = (0xc6cc, 7)
+wEnemyStatLevels = (0xc6d4, 7)
+wPlayerTurnsTaken = (0xc6dd, 1)
+wEnemyTurnsTaken = (0xc6dc, 1)
+wPlayerSubstituteHP = (0xc6df, 1)
+wEnemySubstituteHP = (0xc6e0, 1)
+wDisabledMove = (0xc6f5, 1)
+wEnemyDisabledMove = (0xc6f6, 1)
 
-wEnemyItemState = (0, 1)
-wCurEnemyMoveNum = (0, 1)
-wEnemyMinimized = (0, 1)
-wAlreadyFailed = (0, 1)
+wEnemyItemState = (0xc6e6, 1)
+wCurEnemyMoveNum = (0xc6e9, 1)
+wEnemyMinimized = (0xc6fa, 1)
+wAlreadyFailed = (0xc6fb, 1)
+wCurMoveNum = (0xd0d5, 1)
+
+player_enemy_pairs = (
+	(wBattleMonNickname, wEnemyMonNickname),
+	(wBattleMon, wEnemyMon),
+	(wPlayerMoveStruct, wEnemyMoveStruct),
+	(wPlayerSubStatus1, wEnemySubStatus1),
+	(wPlayerSubStatus2, wEnemySubStatus2),
+	(wPlayerSubStatus3, wEnemySubStatus3),
+	(wPlayerSubStatus4, wEnemySubStatus4),
+	(wPlayerSubStatus5, wEnemySubStatus5),
+	(wCurPlayerMove, wCurEnemyMove),
+	(wLastPlayerCounterMove, wLastEnemyCounterMove),
+	(wLastPlayerMove, wLastEnemyMove),
+	(wPlayerRolloutCount, wEnemyRolloutCount),
+	(wPlayerConfuseCount, wEnemyConfuseCount),
+	(wPlayerToxicCount, wEnemyToxicCount),
+	(wPlayerDisableCount, wEnemyDisableCount),
+	(wPlayerEncoreCount, wEnemyEncoreCount),
+	(wPlayerPerishCount, wEnemyPerishCount),
+	(wPlayerFuryCutterCount, wEnemyFuryCutterCount),
+	(wPlayerProtectCount, wEnemyProtectCount),
+	(wPlayerScreens, wEnemyScreens),
+	(wPlayerDamageTaken, wEnemyDamageTaken),
+	(wPlayerStats, wEnemyStats),
+	(wPlayerStatLevels, wEnemyStatLevels),
+	(wPlayerTurnsTaken, wEnemyTurnsTaken),
+	(wPlayerSubstituteHP, wEnemySubstituteHP),
+	(wDisabledMove, wEnemyDisabledMove),
+)
+
 
 A_BUTTON = 0b00000001
 B_BUTTON = 0b00000010
@@ -134,6 +164,8 @@ def load_memory_map(path: str) -> Tuple[dict, dict]:
 pokemon_names = load_json("pokemon_names.json")
 
 characters, reverse_characters = load_memory_map('charmap.json')
+
+raw_trainer_data = load_json("trainers.json")
 
 def name_to_bytes(name: str, length: int = POKEMON_NAME_LENGTH) -> Iterable[int]:
 	return (reverse_characters[name[i]] if i < len(name) else NAME_TERMINATOR for i in range(length))
@@ -161,6 +193,9 @@ def load_save(file: str) -> bytearray:
 	with open(file, 'rb') as f:
 		save = bytearray(f.read())
 	return save
+
+def get_total_clocks(source: bytearray) -> int:
+	return struct.unpack_from("<Q", source[TOTAL_CLOCKS_OFFSET:])[0] & 0x7f_ff_ff_ff
 
 
 def load_trainer_info(trainer_id: int, trainer_index: int, battle_save: str = BATTLE_SAVE,
@@ -196,9 +231,44 @@ def generate_demo(buttons: Iterable[int], buffer_button: int = B_BUTTON, buffer_
 		*make_button_sequence([buffer_button] * buffer_size)
 	])
 
+def select_menu_item(current: int, target: int) -> Iterable[int]:
+	if target < current:
+		return [UP_BUTTON] * (current - target)
+	else:
+		return [DOWN_BUTTON] * (target - current)
+
+
+def select_move(current_move: int, target_move: int) -> bytearray:
+	return generate_demo([
+		B_BUTTON,
+		UP_BUTTON,
+		LEFT_BUTTON,
+		A_BUTTON,
+		0, 0,
+		*select_menu_item(current_move, target_move),
+		A_BUTTON
+	])
+
+def get_trainer_identifier(trainer_dict):
+	return f"{trainer_dict['title']} {trainer_dict['name']} #{trainer_dict['rematch']} (class: {trainer_dict['class']}, id: {trainer_dict['instance']})"
+
 def initial_testing():
+
+	# Set up player and enemy party data
+	seed = random.randint(0, 1000000000)
+	print("seed", seed)
+	random.seed(seed)
+	player_trainer, enemy_trainer = random.choice(raw_trainer_data), random.choice(raw_trainer_data)
+
+	player_class = player_trainer['class']
+	player_index = player_trainer['instance']
+	enemy_class = enemy_trainer['class']
+	enemy_index = enemy_trainer['instance']
+
+	print(f"You are {get_trainer_identifier(player_trainer)}. Your opponent is {get_trainer_identifier(enemy_trainer)}")
+
 	base = load_save(BASE_SAVE)
-	load_trainer_info(27, 7, BASE_SAVE, OUT_SAVE)
+	load_trainer_info(player_class, player_index, BASE_SAVE, OUT_SAVE)
 	new = load_save(OUT_SAVE)
 
 	copy_values(new, ENEMY_PARTY_START, base, PLAYER_PARTY_START, PLAYER_PARTY_END - PLAYER_PARTY_START)
@@ -208,7 +278,6 @@ def initial_testing():
 
 	for i in range(enemy_party_size):
 		pokemon_index = enemy_mons[PARTY_STRUCT_SIZE * i] - 1
-		print(pokemon_index)
 		pokemon_name = name_to_bytes(pokemon_names[str(pokemon_index)])
 		set_value(base, PLAYER_PARTY_NICKS + POKEMON_NAME_LENGTH * i, pokemon_name, POKEMON_NAME_LENGTH)
 		copy_values(new, STRING_BUFFER_1, base, PLAYER_PARTY_OTS + POKEMON_NAME_LENGTH * i, POKEMON_NAME_LENGTH)
@@ -218,19 +287,87 @@ def initial_testing():
 	set_value(base, PLAYER_GENDER, [0x1], 1)
 
 	write_file(OUT_DEMO, generate_demo([]))
+	write_file(AI_DEMO, generate_demo([B_BUTTON, B_BUTTON, B_BUTTON, B_BUTTON, A_BUTTON, A_BUTTON,
+	                                   B_BUTTON, B_BUTTON, A_BUTTON, DOWN_BUTTON, A_BUTTON,
+	                                   B_BUTTON, B_BUTTON, A_BUTTON, DOWN_BUTTON, A_BUTTON,
+	                                   B_BUTTON, B_BUTTON, A_BUTTON, DOWN_BUTTON, A_BUTTON]))
 
-	set_value(base, OTHER_TRAINER_CLASS, [15], 1)
+	set_value(base, OTHER_TRAINER_CLASS, [enemy_class], 1)
+	set_value(base, TRAINER_ID, [enemy_index], 1)
 	write_file(BATTLE_SAVE, base)
-	try:
-		subprocess.call([BGB_PATH, '-rom', BATTLE_SAVE,
-		                 '-br', 'BattleMenu',
-		                 # '-hf',
+	total_clocks = get_total_clocks(base)
+
+	for i in range(5):
+		# Play till the player first gains control
+		breakpoint_condition = f"TOTALCLKS!=${total_clocks:x}"
+		try:
+			subprocess.call([BGB_PATH, '-rom', BATTLE_SAVE,
+			                 '-br', f'BattleMenu/{breakpoint_condition}',
+			                 # '-hf',
+			                 '-nobatt',
+			                 '-stateonexit', BATTLE_SAVE,
+			                 "-demoplay", OUT_DEMO,
+			                 ], timeout=100)
+		except subprocess.TimeoutExpired:
+			pass
+
+		battle_save = load_save(BATTLE_SAVE)
+		ai_save = load_save(BASE_AI_SAVE)
+
+		# Copy data from battle save to ai save, swapping the player and enemy data
+		for pairing in player_enemy_pairs:
+			player_offset = pairing[0][0]
+			enemy_offset = pairing[1][0]
+			assert pairing[0][1] == pairing[1][1]
+			size = pairing[0][1]
+			copy_values(battle_save, player_offset, ai_save, enemy_offset, size)
+			copy_values(battle_save, enemy_offset, ai_save, player_offset, size)
+
+		# TODO: Randomize rdiv w/ seeded value
+		# TODO: Item counts
+		# TODO: Switching?
+		# TODO: we may need to update more values here. Check the disassembly.
+
+		write_file(AI_INPUT_SAVE, ai_save)
+
+		# Open the AI state, wait for the results
+
+		subprocess.call([BGB_PATH, '-rom', AI_INPUT_SAVE,
+		                 '-br', 'PlayerTurn_EndOpponentProtectEndureDestinyBond,'
+		                        'EnemyTurn_EndOpponentProtectEndureDestinyBond,'
+		                        'AI_Switch,'
+		                        'EnemyUsedFullHeal,'
+		                        'EnemyUsedMaxPotion,'
+		                        'EnemyUsedFullRestore,'
+		                        'EnemyUsedPotion,'
+		                        'EnemyUsedSuperPotion,'
+		                        'EnemyUsedHyperPotion,'
+		                        'EnemyUsedXAccuracy,'
+		                        'EnemyUsedGuardSpec,'
+		                        'EnemyUsedDireHit,'
+		                        'EnemyUsedXAttack,'
+		                        'EnemyUsedXDefend,'
+		                        'EnemyUsedXSpeed,'
+		                        'EnemyUsedXSpecial',
+		                 '-hf',
 		                 '-nobatt',
-		                 '-stateonexit', OUT_SAVE,
-		                 "-demoplay", OUT_DEMO,
-		                 ], timeout=100)
-	except subprocess.TimeoutExpired:
-		pass
+		                 # '-runfast',
+		                 '-stateonexit', AI_OUTPUT_SAVE,
+		                 "-demoplay", AI_DEMO,
+		                 ], timeout=1000)
+
+		# Parse AI actions
+		ai_output = load_save(AI_OUTPUT_SAVE)
+
+		selected_move_index = get_value(ai_output, wCurEnemyMoveNum[0], wCurEnemyMoveNum[1])[0]
+		print("The selected move was", selected_move_index)
+		current_move_index = get_value(battle_save, wCurMoveNum[0], wCurMoveNum[1])[0]
+
+		button_sequence = select_move(current_move_index, selected_move_index)
+		write_file(OUT_DEMO, button_sequence)
+
+		total_clocks = get_total_clocks(battle_save)
+
 
 
 if __name__ == '__main__':
