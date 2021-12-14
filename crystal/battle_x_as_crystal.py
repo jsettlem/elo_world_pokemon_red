@@ -292,8 +292,8 @@ def initial_testing():
 	# enemy_class = enemy_trainer['class']
 	# enemy_index = enemy_trainer['instance']
 
-	player_class = 16
-	player_index = 1
+	player_class = 36
+	player_index = 11
 	enemy_class = 63
 	enemy_index = 1
 
@@ -359,7 +359,7 @@ def initial_testing():
 
 			subprocess.call([BGB_PATH, '-rom', AI_INPUT_SAVE,
 			                 '-br', 'LoadEnemyMon',
-			                 # '-hf',
+			                 '-hf',
 			                 '-nobatt',
 			                 # '-runfast',
 			                 '-stateonexit', AI_OUTPUT_SAVE,
@@ -370,8 +370,11 @@ def initial_testing():
 			ai_output = load_save(AI_OUTPUT_SAVE)
 
 			selected_pokemon_index = get_value(ai_output, wCurPartyMon[0], wCurPartyMon[1])[0]
-			print("The selected pokemon was", selected_pokemon_index)
 			current_pokemon_index = get_value(battle_save, wPartyMenuCursor[0], wPartyMenuCursor[1])[0]
+
+			# wPartyMenu cursor starts unpopulated (0), but is 1-indexed
+			current_pokemon_index = max(current_pokemon_index, 1) - 1
+			print("The selected pokemon was", selected_pokemon_index, "and the current pokemon was", current_pokemon_index)
 
 			button_sequence = choose_pokemon(current_pokemon_index, selected_pokemon_index)
 		else:
