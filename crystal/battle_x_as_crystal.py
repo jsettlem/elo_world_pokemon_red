@@ -10,6 +10,7 @@ ROM_IMAGE = "pokecrystal11.gbc"
 
 BASE_SAVE = "base_state_1.sna"
 BASE_AI_SAVE = "base_ai_state.sna"
+BASE_SWITCH_SAVE = "ai_switch_base.sna"
 
 OUT_SAVE = "outstate.sn1"
 AI_INPUT_SAVE = "ai_input.sn1"
@@ -21,6 +22,7 @@ AI_DEMO = "ai_demo.dem"
 # GLOBAL_OFFSET = 0xBBC3
 GLOBAL_OFFSET = 0xBAF0
 TOTAL_CLOCKS_OFFSET = 0x21F
+PC_OFFSET = 0xC7
 
 OTHER_TRAINER_CLASS = 0xd22f
 # TRAINER_CLASS = 0xd233
@@ -49,6 +51,8 @@ ENEMY_PARTY_END = 0xd42c
 
 
 PLAYER_PARTY_START = 0xdcd7
+PLAYER_PARTY_COUNT = 0xdcd7
+PLAYER_PARTY_STURCTS_START = 0xdcdf
 PLAYER_PARTY_NICKS = 0xde41
 PLAYER_PARTY_OTS = 0xddff
 PLAYER_PARTY_END = 0xde83
@@ -114,6 +118,12 @@ wCurEnemyMoveNum = (0xc6e9, 1)
 wEnemyMinimized = (0xc6fa, 1)
 wAlreadyFailed = (0xc6fb, 1)
 wCurMoveNum = (0xd0d5, 1)
+wCurPartyMon = (0xd109, 1)
+wPartyMenuCursor = (0xd0d8, 1)
+
+breakpoints = {
+	"SetUpBattlePartyMenu": 0x52f7,
+}
 
 player_enemy_pairs = (
 	(wBattleMonNickname, wEnemyMonNickname),
@@ -194,8 +204,13 @@ def load_save(file: str) -> bytearray:
 		save = bytearray(f.read())
 	return save
 
+
 def get_total_clocks(source: bytearray) -> int:
 	return struct.unpack_from("<Q", source[TOTAL_CLOCKS_OFFSET:])[0] & 0x7f_ff_ff_ff
+
+
+def get_program_counter(source: bytearray) -> int:
+	return (source[PC_OFFSET + 1] << 8) | source[PC_OFFSET]
 
 
 def load_trainer_info(trainer_id: int, trainer_index: int, battle_save: str = BATTLE_SAVE,
@@ -249,8 +264,20 @@ def select_move(current_move: int, target_move: int) -> bytearray:
 		A_BUTTON
 	])
 
+
+def choose_pokemon(current: int, target: int) -> bytearray:
+	return generate_demo([
+		0, 0, 0, 0, 0,
+		*select_menu_item(current, target),
+		A_BUTTON,
+		0, 0, 0, 0, 0,
+		A_BUTTON
+	])
+
+
 def get_trainer_identifier(trainer_dict):
 	return f"{trainer_dict['title']} {trainer_dict['name']} #{trainer_dict['rematch']} (class: {trainer_dict['class']}, id: {trainer_dict['instance']})"
+
 
 def initial_testing():
 
@@ -260,10 +287,15 @@ def initial_testing():
 	random.seed(seed)
 	player_trainer, enemy_trainer = random.choice(raw_trainer_data), random.choice(raw_trainer_data)
 
-	player_class = player_trainer['class']
-	player_index = player_trainer['instance']
-	enemy_class = enemy_trainer['class']
-	enemy_index = enemy_trainer['instance']
+	# player_class = player_trainer['class']
+	# player_index = player_trainer['instance']
+	# enemy_class = enemy_trainer['class']
+	# enemy_index = enemy_trainer['instance']
+
+	player_class = 16
+	player_index = 1
+	enemy_class = 63
+	enemy_index = 1
 
 	print(f"You are {get_trainer_identifier(player_trainer)}. Your opponent is {get_trainer_identifier(enemy_trainer)}")
 
@@ -297,12 +329,13 @@ def initial_testing():
 	write_file(BATTLE_SAVE, base)
 	total_clocks = get_total_clocks(base)
 
-	for i in range(5):
+	while True:
 		# Play till the player first gains control
 		breakpoint_condition = f"TOTALCLKS!=${total_clocks:x}"
 		try:
 			subprocess.call([BGB_PATH, '-rom', BATTLE_SAVE,
-			                 '-br', f'BattleMenu/{breakpoint_condition}',
+			                 '-br', f'BattleMenu/{breakpoint_condition},'
+			                        f'SetUpBattlePartyMenu/{breakpoint_condition}',
 			                 # '-hf',
 			                 '-nobatt',
 			                 '-stateonexit', BATTLE_SAVE,
@@ -312,62 +345,98 @@ def initial_testing():
 			pass
 
 		battle_save = load_save(BATTLE_SAVE)
-		ai_save = load_save(BASE_AI_SAVE)
 
-		# Copy data from battle save to ai save, swapping the player and enemy data
-		for pairing in player_enemy_pairs:
-			player_offset = pairing[0][0]
-			enemy_offset = pairing[1][0]
-			assert pairing[0][1] == pairing[1][1]
-			size = pairing[0][1]
-			copy_values(battle_save, player_offset, ai_save, enemy_offset, size)
-			copy_values(battle_save, enemy_offset, ai_save, player_offset, size)
+		pc = get_program_counter(battle_save)
+		print(f'Program counter: {pc:x}')
+		if pc == breakpoints["SetUpBattlePartyMenu"]:
+			ai_save = load_save(BASE_SWITCH_SAVE)
 
-		# TODO: Randomize rdiv w/ seeded value
-		# TODO: Item counts
-		# TODO: Switching?
-		# TODO: we may need to update more values here. Check the disassembly.
+			swap_pairings(battle_save, ai_save)
 
-		write_file(AI_INPUT_SAVE, ai_save)
+			write_file(AI_INPUT_SAVE, ai_save)
 
-		# Open the AI state, wait for the results
+			# Open the AI state, wait for the results
 
-		subprocess.call([BGB_PATH, '-rom', AI_INPUT_SAVE,
-		                 '-br', 'PlayerTurn_EndOpponentProtectEndureDestinyBond,'
-		                        'EnemyTurn_EndOpponentProtectEndureDestinyBond,'
-		                        'AI_Switch,'
-		                        'EnemyUsedFullHeal,'
-		                        'EnemyUsedMaxPotion,'
-		                        'EnemyUsedFullRestore,'
-		                        'EnemyUsedPotion,'
-		                        'EnemyUsedSuperPotion,'
-		                        'EnemyUsedHyperPotion,'
-		                        'EnemyUsedXAccuracy,'
-		                        'EnemyUsedGuardSpec,'
-		                        'EnemyUsedDireHit,'
-		                        'EnemyUsedXAttack,'
-		                        'EnemyUsedXDefend,'
-		                        'EnemyUsedXSpeed,'
-		                        'EnemyUsedXSpecial',
-		                 '-hf',
-		                 '-nobatt',
-		                 # '-runfast',
-		                 '-stateonexit', AI_OUTPUT_SAVE,
-		                 "-demoplay", AI_DEMO,
-		                 ], timeout=1000)
+			subprocess.call([BGB_PATH, '-rom', AI_INPUT_SAVE,
+			                 '-br', 'LoadEnemyMon',
+			                 # '-hf',
+			                 '-nobatt',
+			                 # '-runfast',
+			                 '-stateonexit', AI_OUTPUT_SAVE,
+			                 "-demoplay", AI_DEMO,
+			                 ], timeout=1000)
 
-		# Parse AI actions
-		ai_output = load_save(AI_OUTPUT_SAVE)
+			# Parse AI actions
+			ai_output = load_save(AI_OUTPUT_SAVE)
 
-		selected_move_index = get_value(ai_output, wCurEnemyMoveNum[0], wCurEnemyMoveNum[1])[0]
-		print("The selected move was", selected_move_index)
-		current_move_index = get_value(battle_save, wCurMoveNum[0], wCurMoveNum[1])[0]
+			selected_pokemon_index = get_value(ai_output, wCurPartyMon[0], wCurPartyMon[1])[0]
+			print("The selected pokemon was", selected_pokemon_index)
+			current_pokemon_index = get_value(battle_save, wPartyMenuCursor[0], wPartyMenuCursor[1])[0]
 
-		button_sequence = select_move(current_move_index, selected_move_index)
+			button_sequence = choose_pokemon(current_pokemon_index, selected_pokemon_index)
+		else:
+			ai_save = load_save(BASE_AI_SAVE)
+
+			swap_pairings(battle_save, ai_save)
+
+			# TODO: Randomize rdiv w/ seeded value
+			# TODO: Item counts
+			# TODO: Switching?
+			# TODO: we may need to update more values here. Check the disassembly.
+
+			write_file(AI_INPUT_SAVE, ai_save)
+
+			# Open the AI state, wait for the results
+
+			subprocess.call([BGB_PATH, '-rom', AI_INPUT_SAVE,
+			                 '-br', 'PlayerTurn_EndOpponentProtectEndureDestinyBond,'
+			                        'EnemyTurn_EndOpponentProtectEndureDestinyBond,'
+			                        'AI_Switch,'
+			                        'EnemyUsedFullHeal,'
+			                        'EnemyUsedMaxPotion,'
+			                        'EnemyUsedFullRestore,'
+			                        'EnemyUsedPotion,'
+			                        'EnemyUsedSuperPotion,'
+			                        'EnemyUsedHyperPotion,'
+			                        'EnemyUsedXAccuracy,'
+			                        'EnemyUsedGuardSpec,'
+			                        'EnemyUsedDireHit,'
+			                        'EnemyUsedXAttack,'
+			                        'EnemyUsedXDefend,'
+			                        'EnemyUsedXSpeed,'
+			                        'EnemyUsedXSpecial',
+			                 '-hf',
+			                 '-nobatt',
+			                 # '-runfast',
+			                 '-stateonexit', AI_OUTPUT_SAVE,
+			                 "-demoplay", AI_DEMO,
+			                 ], timeout=1000)
+
+			# Parse AI actions
+			ai_output = load_save(AI_OUTPUT_SAVE)
+
+			selected_move_index = get_value(ai_output, wCurEnemyMoveNum[0], wCurEnemyMoveNum[1])[0]
+			print("The selected move was", selected_move_index)
+			current_move_index = get_value(battle_save, wCurMoveNum[0], wCurMoveNum[1])[0]
+
+			button_sequence = select_move(current_move_index, selected_move_index)
+
 		write_file(OUT_DEMO, button_sequence)
 
 		total_clocks = get_total_clocks(battle_save)
 
+
+def swap_pairings(source_save, target_save):
+	# Copy data from battle save to ai save, swapping the player and enemy data
+	for pairing in player_enemy_pairs:
+		player_offset = pairing[0][0]
+		enemy_offset = pairing[1][0]
+		assert pairing[0][1] == pairing[1][1]
+		size = pairing[0][1]
+		copy_values(source_save, player_offset, target_save, enemy_offset, size)
+		copy_values(source_save, enemy_offset, target_save, player_offset, size)
+	copy_values(source_save, PLAYER_PARTY_START, target_save, ENEMY_PARTY_START, ENEMY_PARTY_END - ENEMY_PARTY_START)
+	copy_values(source_save, ENEMY_PARTY_START, target_save, PLAYER_PARTY_START, PLAYER_PARTY_END - PLAYER_PARTY_START)
 
 
 if __name__ == '__main__':
