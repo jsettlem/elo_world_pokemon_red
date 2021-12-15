@@ -127,7 +127,9 @@ wEnemySwitchMonIndex = (0xc718, 1)
 
 breakpoints = {
 	"SetUpBattlePartyMenu": 0x52f7,
-	"AI_Switch": 0x446c
+	"AI_Switch": 0x446c,
+	"LostBattle": 0x538e,
+	"WinTrainerBattle": 0x4fa4
 }
 
 player_enemy_pairs = (
@@ -305,10 +307,10 @@ def initial_testing():
 	# enemy_class = enemy_trainer['class']
 	# enemy_index = enemy_trainer['instance']
 
-	player_class = 61
-	player_index = 9
-	enemy_class = 41
-	enemy_index = 6
+	player_class = 50
+	player_index = 1
+	enemy_class = 9
+	enemy_index = 1
 
 	print(f"You are {get_trainer_identifier(player_trainer)}. Your opponent is {get_trainer_identifier(enemy_trainer)}")
 
@@ -348,7 +350,9 @@ def initial_testing():
 		try:
 			subprocess.call([BGB_PATH, '-rom', BATTLE_SAVE,
 			                 '-br', f'BattleMenu/{breakpoint_condition},'
-			                        f'SetUpBattlePartyMenu/{breakpoint_condition}',
+			                        f'SetUpBattlePartyMenu/{breakpoint_condition},'
+			                        f'WinTrainerBattle/{breakpoint_condition},'
+			                        f'LostBattle/{breakpoint_condition},',
 			                 # '-hf',
 			                 '-nobatt',
 			                 '-stateonexit', BATTLE_SAVE,
@@ -361,7 +365,10 @@ def initial_testing():
 
 		pc = get_program_counter(battle_save)
 		print(f'Program counter: {pc:x}')
-		if pc == breakpoints["SetUpBattlePartyMenu"]:
+		if pc in [breakpoints["WinTrainerBattle"], breakpoints["LostBattle"]]:
+			print("You win and/or lose!")
+			break
+		elif pc == breakpoints["SetUpBattlePartyMenu"]:
 			ai_save = load_save(BASE_SWITCH_SAVE)
 
 			swap_pairings(battle_save, ai_save)
