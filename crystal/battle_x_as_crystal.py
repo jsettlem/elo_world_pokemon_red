@@ -2,25 +2,38 @@ import itertools
 import json
 import os
 import random
+import shutil
 import struct
 import subprocess
+from dataclasses import dataclass
+from pprint import pprint
 from typing import Iterable, Tuple
 
-BGB_PATH = "bgb/bgb.exe"
-ROM_IMAGE = "pokecrystal11.gbc"
+BASE_DIR = os.path.abspath("./static_files")
 
-BASE_SAVE = "base_state_1.sna"
-BASE_AI_SAVE = "base_ai_state.sna"
-BASE_SWITCH_SAVE = "ai_switch_base.sna"
+# static files
+BGB_PATH = f"{BASE_DIR}/bgb/bgb.exe"
 
+ROM_NAME = "pokecrystal11.gbc"
+MEMORY_MAP_NAME = "pokecrystal11.sym"
+
+ROM_IMAGE = f"{BASE_DIR}/{ROM_NAME}"
+MEMORY_MAP = f"{BASE_DIR}/{MEMORY_MAP_NAME}"
+
+
+BASE_SAVE = f"{BASE_DIR}/base_state_1.sna"
+BASE_AI_SAVE = f"{BASE_DIR}/base_ai_state.sna"
+BASE_SWITCH_SAVE = f"{BASE_DIR}/ai_switch_base.sna"
+
+AI_DEMO = f"{BASE_DIR}/ai_demo.dem"
+
+# dynamic files
 OUT_SAVE = "outstate.sn1"
 AI_INPUT_SAVE = "ai_input.sn1"
 AI_OUTPUT_SAVE = "ai_output.sn1"
 BATTLE_SAVE = "battlestate.sn1"
 OUT_DEMO = "outdemo.dem"
-AI_DEMO = "ai_demo.dem"
 
-# GLOBAL_OFFSET = 0xBBC3
 GLOBAL_OFFSET = 0xBAF0
 TOTAL_CLOCKS_OFFSET = 0x21F
 PC_OFFSET = 0xC7
@@ -49,7 +62,6 @@ ENEMY_PARTY_COUNT = 0xd280
 ENEMY_PARTY_NICKS = 0xd3ea
 MON_NICK_LENGTH = 11
 ENEMY_PARTY_END = 0xd42c
-
 
 PLAYER_PARTY_START = 0xdcd7
 PLAYER_PARTY_COUNT = 0xdcd7
@@ -160,7 +172,7 @@ player_enemy_pairs = (
 	(wPlayerTurnsTaken, wEnemyTurnsTaken),
 	(wPlayerSubstituteHP, wEnemySubstituteHP),
 	(wDisabledMove, wEnemyDisabledMove),
-	(wCurPartyMon, wCurOTMon) #TODO: check that wcurpartymon is correct
+	(wCurPartyMon, wCurOTMon)  # TODO: check that wcurpartymon is correct
 )
 
 NOTHING_BUTTON = 0b0
@@ -171,6 +183,7 @@ LEFT_BUTTON = 0b00100000
 UP_BUTTON = 0b01000000
 DOWN_BUTTON = 0b10000000
 
+
 def load_json(path: str) -> dict:
 	with open(path, 'r', encoding='utf-8') as f:
 		return json.load(f)
@@ -180,11 +193,13 @@ def load_memory_map(path: str) -> Tuple[dict, dict]:
 	base = load_json(path)
 	return {int(key, 16): value for key, value in base.items()}, {value: int(key, 16) for key, value in base.items()}
 
-pokemon_names = load_json("pokemon_names.json")
 
-characters, reverse_characters = load_memory_map('charmap.json')
+pokemon_names = load_json("data_files/pokemon_names.json")
 
-raw_trainer_data = load_json("trainers.json")
+characters, reverse_characters = load_memory_map('data_files/charmap.json')
+
+raw_trainer_data = load_json("data_files/trainers.json")
+
 
 def name_to_bytes(name: str, length: int = POKEMON_NAME_LENGTH) -> Iterable[int]:
 	return (reverse_characters[name[i]] if i < len(name) else NAME_TERMINATOR for i in range(length))
@@ -222,21 +237,22 @@ def get_program_counter(source: bytearray) -> int:
 	return (source[PC_OFFSET + 1] << 8) | source[PC_OFFSET]
 
 
-def load_trainer_info(trainer_id: int, trainer_index: int, battle_save: str = BATTLE_SAVE,
-                      out_save: str = OUT_SAVE) -> None:
-	save = load_save(BASE_SAVE)
+def load_trainer_info(trainer_id: int, trainer_index: int, in_save: bytearray, working_save: str) -> bytearray:
+	save = in_save.copy()
 	save[OTHER_TRAINER_CLASS - GLOBAL_OFFSET] = trainer_id
 	save[TRAINER_ID - GLOBAL_OFFSET] = trainer_index
-	write_file(battle_save, save)
+	write_file(working_save, save)
 
-	subprocess.call([BGB_PATH, '-rom', battle_save,
+	subprocess.call([BGB_PATH, '-rom', working_save,
 	                 # '-br', 'BackUpBGMap2',
 	                 '-br', 'PlaceCommandCharacter',
 	                 '-hf',
 	                 '-nobatt',
-	                 '-stateonexit', out_save],
+	                 '-stateonexit', working_save],
 	                timeout=10
 	                )
+
+	return load_save(working_save)
 
 
 def make_button_sequence(buttons: Iterable[int]) -> Iterable[int]:
@@ -254,6 +270,7 @@ def generate_demo(buttons: Iterable[int], buffer_button: int = B_BUTTON, buffer_
 		*make_button_sequence(buttons),
 		*make_button_sequence([buffer_button] * buffer_size)
 	])
+
 
 def select_menu_item(current: int, target: int) -> Iterable[int]:
 	if target < current:
@@ -283,6 +300,7 @@ def choose_pokemon(current: int, target: int) -> bytearray:
 		A_BUTTON
 	])
 
+
 def select_switch(buffer_size=1) -> bytearray:
 	return generate_demo([
 		B_BUTTON,
@@ -291,16 +309,69 @@ def select_switch(buffer_size=1) -> bytearray:
 		A_BUTTON
 	], buffer_button=NOTHING_BUTTON, buffer_size=buffer_size)
 
+
 def get_trainer_identifier(trainer_dict):
 	return f"{trainer_dict['title']} {trainer_dict['name']} #{trainer_dict['rematch']} (class: {trainer_dict['class']}, id: {trainer_dict['instance']})"
 
 
-def initial_testing():
-	run_number = random.randint(1, 10000000)
-	movie_path = f"./movie/{run_number}"
-	movie_index = 0
+@dataclass
+class MovieContext:
+	movie_name: str
+	movie_index: int
+	movie_working_dir: str
+	movie_output_dir: str
 
-	os.makedirs(movie_path)
+
+def call_bgb(in_save: str,
+             out_save: str,
+             demo: str,
+             breakpoint_list: Iterable[str],
+             movie_context: "MovieContext" = None,
+             hf: bool = True,
+             timeout: int = 10) -> None:
+	params = [BGB_PATH, '-rom', in_save,
+	          *(['-br', ",".join(breakpoint_list)] if breakpoint_list else []),
+	          '-hf' if hf else '',
+	          '-nobatt',
+	          '-stateonexit', out_save,
+	          *(['-demoplay', demo] if demo else []),
+	          *([
+		            "-set", "RecordAVI=1",
+		            "-set", "WavFileOut=1",
+		            "-set", f"RecordAVIfourCC=cscd",
+		            "-set", "RecordHalfSpeed=0",
+		            "-set", "Speed=1",
+		            "-set", f"RecordPrefix={movie_context.movie_working_dir}/movie{movie_context.movie_index:05}",
+	            ] if movie_context is not None else []),
+	          ]
+	pprint(params)
+	subprocess.call(params, timeout=timeout)
+
+
+def initial_testing():
+	run_identifier = random.randint(1, 10000000)
+	working_dir = os.path.abspath(f"./working/{run_identifier}")
+	output_dir = os.path.abspath(f"./output/{run_identifier}")
+	movie_working_dir = f"{working_dir}/movie"
+	save_working_dir = f"{working_dir}/saves"
+	demo_working_dir = f"{working_dir}/demo"
+	movie_context = MovieContext(movie_name=str(run_identifier),
+	                             movie_index=0,
+	                             movie_working_dir=movie_working_dir,
+	                             movie_output_dir=output_dir)
+
+	for dir in [working_dir, output_dir, save_working_dir, demo_working_dir, movie_working_dir]:
+		os.makedirs(dir, exist_ok=True)
+
+	out_save_path = f"{save_working_dir}/{OUT_SAVE}"
+	ai_input_save_path = f"{save_working_dir}/{AI_INPUT_SAVE}"
+	ai_output_save_path = f"{save_working_dir}/{AI_OUTPUT_SAVE}"
+	battle_save_path = f"{save_working_dir}/{BATTLE_SAVE}"
+	out_demo_path = f"{demo_working_dir}/{OUT_DEMO}"
+
+	print(BASE_DIR)
+	shutil.copyfile(ROM_IMAGE, f"{save_working_dir}/{ROM_NAME}")
+	shutil.copyfile(MEMORY_MAP, f"{save_working_dir}/{MEMORY_MAP_NAME}")
 
 	# Set up player and enemy party data
 	seed = random.randint(0, 1000000000)
@@ -308,150 +379,81 @@ def initial_testing():
 	random.seed(seed)
 	player_trainer, enemy_trainer = random.choice(raw_trainer_data), random.choice(raw_trainer_data)
 
-	# player_class = player_trainer['class']
-	# player_index = player_trainer['instance']
-	# enemy_class = enemy_trainer['class']
-	# enemy_index = enemy_trainer['instance']
+	player_class = player_trainer['class']
+	player_index = player_trainer['instance']
+	enemy_class = enemy_trainer['class']
+	enemy_index = enemy_trainer['instance']
 
-	player_class = 63
-	player_index = 1
-	enemy_class = 16
-	enemy_index = 1
+	# player_class = 63
+	# player_index = 1
+	# enemy_class = 16
+	# enemy_index = 1
 
 	print(f"You are {get_trainer_identifier(player_trainer)}. Your opponent is {get_trainer_identifier(enemy_trainer)}")
 
-	base = load_save(BASE_SAVE)
-	load_trainer_info(player_class, player_index, BASE_SAVE, OUT_SAVE)
-	new = load_save(OUT_SAVE)
+	base_save = load_save(BASE_SAVE)
 
-	copy_values(new, ENEMY_PARTY_START, base, PLAYER_PARTY_START, PLAYER_PARTY_END - PLAYER_PARTY_START)
-	enemy_party_size = get_value(new, ENEMY_PARTY_COUNT, 1)[0]
+	player_trainer_info = load_trainer_info(player_class, player_index, base_save, out_save_path)
 
-	enemy_mons = get_value(new, ENEMY_PARTY_STRUCTS_START, PARTY_STRUCT_SIZE * enemy_party_size)
+	battle_save = set_up_battle_save(base_save, player_trainer_info, enemy_class, enemy_index)
 
-	for i in range(enemy_party_size):
-		pokemon_index = enemy_mons[PARTY_STRUCT_SIZE * i] - 1
-		pokemon_name = name_to_bytes(pokemon_names[str(pokemon_index)])
-		set_value(base, PLAYER_PARTY_NICKS + POKEMON_NAME_LENGTH * i, pokemon_name, POKEMON_NAME_LENGTH)
-		copy_values(new, STRING_BUFFER_1, base, PLAYER_PARTY_OTS + POKEMON_NAME_LENGTH * i, POKEMON_NAME_LENGTH)
+	write_file(battle_save_path, battle_save)
 
-	copy_values(new, STRING_BUFFER_1, base, PLAYER_TRAINER_NAME, PLAYER_NAME_LENGTH)
-	set_value(base, PLAYER_TRAINER_NAME + PLAYER_NAME_LENGTH - 1, [NAME_TERMINATOR], 1)
-	set_value(base, PLAYER_GENDER, [0x1], 1)
-
-	write_file(OUT_DEMO, generate_demo([]))
-	write_file(AI_DEMO, generate_demo([B_BUTTON, B_BUTTON, B_BUTTON, B_BUTTON, A_BUTTON, A_BUTTON,
-	                                   B_BUTTON, B_BUTTON, A_BUTTON, DOWN_BUTTON, A_BUTTON,
-	                                   B_BUTTON, B_BUTTON, A_BUTTON, DOWN_BUTTON, A_BUTTON,
-	                                   B_BUTTON, B_BUTTON, A_BUTTON, DOWN_BUTTON, A_BUTTON]))
-
-	set_value(base, OTHER_TRAINER_CLASS, [enemy_class], 1)
-	set_value(base, TRAINER_ID, [enemy_index], 1)
-	write_file(BATTLE_SAVE, base)
-	total_clocks = get_total_clocks(base)
+	write_file(out_demo_path, generate_demo([]))
+	total_clocks = get_total_clocks(battle_save)
 
 	while True:
-		# Play till the player first gains control
+		# Play till the player gains control
 		breakpoint_condition = f"TOTALCLKS!=${total_clocks:x}"
-		try:
-			subprocess.call([BGB_PATH, '-rom', BATTLE_SAVE,
-			                 '-br', f'BattleMenu/{breakpoint_condition},'
-			                        f'SetUpBattlePartyMenu/{breakpoint_condition},'
-			                        f'WinTrainerBattle/{breakpoint_condition},'
-			                        f'LostBattle/{breakpoint_condition},',
-			                 '-hf',
-			                 '-nobatt',
-			                 '-stateonexit', BATTLE_SAVE,
-			                 "-demoplay", OUT_DEMO,
-			                 "-set", "RecordAVI=1",
-			                 "-set", "WavFileOut=1",
-			                 "-set", f"RecordAVIfourCC=cscd",
-			                 "-set", "RecordHalfSpeed=0",
-			                 "-set", "Speed=1",
-			                 "-set", f"RecordPrefix={movie_path}/movie{movie_index:05}",
-			                 ], timeout=100)
-		except subprocess.TimeoutExpired:
-			pass
+		call_bgb(in_save=battle_save_path,
+		         out_save=battle_save_path,
+		         demo=out_demo_path,
+		         breakpoint_list=[
+			         f'BattleMenu/{breakpoint_condition}',
+			         f'SetUpBattlePartyMenu/{breakpoint_condition}',
+			         f'WinTrainerBattle/{breakpoint_condition}',
+			         f'LostBattle/{breakpoint_condition},',
+		         ],
+		         movie_context=movie_context)
 
-		battle_save = load_save(BATTLE_SAVE)
+		battle_save = load_save(battle_save_path)
 
 		pc = get_program_counter(battle_save)
 		print(f'Program counter: {pc:x}')
-		if pc in [breakpoints["WinTrainerBattle"], breakpoints["LostBattle"]]:
-			print("You win and/or lose!")
+		if pc == breakpoints["WinTrainerBattle"]:
+			# Player won!
+
+			print("You win!")
+			break
+		elif pc == breakpoints["LostBattle"]:
+			# Enemy won!
+
+			print("You lose!")
 			break
 		elif pc == breakpoints["SetUpBattlePartyMenu"]:
-			ai_save = load_save(BASE_SWITCH_SAVE)
+			# AI is forced to switch out, what should we switch to?
 
-			swap_pairings(battle_save, ai_save)
-
-			write_file(AI_INPUT_SAVE, ai_save)
-
-			# Open the AI state, wait for the results
-
-			subprocess.call([BGB_PATH, '-rom', AI_INPUT_SAVE,
-			                 '-br', 'LoadEnemyMon',
-			                 '-hf',
-			                 '-nobatt',
-			                 # '-runfast',
-			                 '-stateonexit', AI_OUTPUT_SAVE,
-			                 "-demoplay", AI_DEMO,
-			                 ], timeout=1000)
-
-			# Parse AI actions
-			ai_output = load_save(AI_OUTPUT_SAVE)
+			ai_output = get_ai_action(battle_save=battle_save,
+			                          base_save=BASE_SWITCH_SAVE,
+			                          working_save=ai_input_save_path,
+			                          out_save=ai_output_save_path)
 
 			selected_pokemon_index = get_value(ai_output, wCurPartyMon[0], wCurPartyMon[1])[0]
 			current_pokemon_index = get_value(battle_save, wPartyMenuCursor[0], wPartyMenuCursor[1])[0]
 
 			# wPartyMenu cursor starts unpopulated (0), but is 1-indexed
 			current_pokemon_index = max(current_pokemon_index, 1) - 1
-			print("The selected pokemon was", selected_pokemon_index, "and the current pokemon was", current_pokemon_index)
+			print("The selected pokemon was", selected_pokemon_index, "and the current pokemon was",
+			      current_pokemon_index)
 
 			button_sequence = choose_pokemon(current_pokemon_index, selected_pokemon_index)
 		else:
-			ai_save = load_save(BASE_AI_SAVE)
+			# We're at the battle menu, what should we choose?
 
-			swap_pairings(battle_save, ai_save)
-
-			# TODO: Randomize rdiv w/ seeded value
-			# TODO: Item counts
-			# TODO: we may need to update more values here. Check the disassembly.
-			# TODO: wTrainerClass in the AI branch
-
-			# These allow us to make the game think our Pokemon is always on the last turn of Perish Song
-			# set_value(ai_save, wEnemySubStatus1[0], [0x10], 1)
-			# set_value(ai_save, wEnemyPerishCount[0], [0x1], 1)
-			write_file(AI_INPUT_SAVE, ai_save)
-
-			# Open the AI state, wait for the results
-
-			subprocess.call([BGB_PATH, '-rom', AI_INPUT_SAVE,
-			                 '-br', 'PlayerTurn_EndOpponentProtectEndureDestinyBond,'
-			                        'EnemyTurn_EndOpponentProtectEndureDestinyBond,'
-			                        'AI_Switch,'
-			                        'EnemyUsedFullHeal,'
-			                        'EnemyUsedMaxPotion,'
-			                        'EnemyUsedFullRestore,'
-			                        'EnemyUsedPotion,'
-			                        'EnemyUsedSuperPotion,'
-			                        'EnemyUsedHyperPotion,'
-			                        'EnemyUsedXAccuracy,'
-			                        'EnemyUsedGuardSpec,'
-			                        'EnemyUsedDireHit,'
-			                        'EnemyUsedXAttack,'
-			                        'EnemyUsedXDefend,'
-			                        'EnemyUsedXSpeed,'
-			                        'EnemyUsedXSpecial',
-			                 '-hf',
-			                 '-nobatt',
-			                 # '-runfast',
-			                 '-stateonexit', AI_OUTPUT_SAVE,
-			                 "-demoplay", AI_DEMO,
-			                 ], timeout=1000)
-
-			# Parse AI actions
-			ai_output = load_save(AI_OUTPUT_SAVE)
+			ai_output = get_ai_action(battle_save=battle_save,
+			                          base_save=BASE_AI_SAVE,
+			                          working_save=ai_input_save_path,
+			                          out_save=ai_output_save_path)
 
 			ai_pc = get_program_counter(ai_output)
 
@@ -474,11 +476,90 @@ def initial_testing():
 
 				button_sequence = select_move(current_move_index, selected_move_index)
 
-		write_file(OUT_DEMO, button_sequence)
+		write_file(out_demo_path, button_sequence)
 
 		total_clocks = get_total_clocks(battle_save)
 
-	build_movie(movie_path, "./output", run_number)
+	build_movie(movie_context)
+
+
+def set_up_battle_save(base_save: bytearray, player_trainer_info: bytearray, enemy_class: int,
+                       enemy_index: int) -> bytearray:
+	battle_save = base_save.copy()
+
+	copy_values(player_trainer_info, ENEMY_PARTY_START, battle_save, PLAYER_PARTY_START,
+	            PLAYER_PARTY_END - PLAYER_PARTY_START)
+
+	enemy_party_size = get_value(player_trainer_info, ENEMY_PARTY_COUNT, 1)[0]
+	enemy_mons = get_value(player_trainer_info, ENEMY_PARTY_STRUCTS_START, PARTY_STRUCT_SIZE * enemy_party_size)
+
+	for i in range(enemy_party_size):
+		pokemon_index = enemy_mons[PARTY_STRUCT_SIZE * i] - 1
+		pokemon_name = name_to_bytes(pokemon_names[str(pokemon_index)])
+		set_value(battle_save, PLAYER_PARTY_NICKS + POKEMON_NAME_LENGTH * i, pokemon_name, POKEMON_NAME_LENGTH)
+		copy_values(player_trainer_info, STRING_BUFFER_1, battle_save, PLAYER_PARTY_OTS + POKEMON_NAME_LENGTH * i,
+		            POKEMON_NAME_LENGTH)
+
+	copy_values(player_trainer_info, STRING_BUFFER_1, battle_save, PLAYER_TRAINER_NAME, PLAYER_NAME_LENGTH)
+	set_value(battle_save, PLAYER_TRAINER_NAME + PLAYER_NAME_LENGTH - 1, [NAME_TERMINATOR], 1)
+	set_value(battle_save, PLAYER_GENDER, [0x1], 1)
+
+	set_value(battle_save, OTHER_TRAINER_CLASS, [enemy_class], 1)
+	set_value(battle_save, TRAINER_ID, [enemy_index], 1)
+
+	return battle_save
+
+
+def generate_ai_demo():
+	write_file(AI_DEMO, generate_demo([B_BUTTON, B_BUTTON, B_BUTTON, B_BUTTON, A_BUTTON, A_BUTTON,
+	                                   B_BUTTON, B_BUTTON, A_BUTTON, DOWN_BUTTON, A_BUTTON,
+	                                   B_BUTTON, B_BUTTON, A_BUTTON, DOWN_BUTTON, A_BUTTON,
+	                                   B_BUTTON, B_BUTTON, A_BUTTON, DOWN_BUTTON, A_BUTTON]))
+
+
+def get_ai_action(battle_save: bytearray, base_save: str, working_save: str, out_save: str):
+	ai_save = load_save(base_save)
+	swap_pairings(battle_save, ai_save)
+
+	# TODO: Randomize rdiv w/ seeded value
+	# TODO: Item counts
+	# TODO: we may need to update more values here. Check the disassembly.
+	# TODO: wTrainerClass in the AI branch
+
+	# These allow us to make the game think our Pokemon is always on the last turn of Perish Song
+	# set_value(ai_save, wEnemySubStatus1[0], [0x10], 1)
+	# set_value(ai_save, wEnemyPerishCount[0], [0x1], 1)
+
+	write_file(working_save, ai_save)
+	# Open the AI state, wait for the results
+	call_bgb(in_save=working_save,
+	         out_save=out_save,
+	         demo=AI_DEMO,
+	         breakpoint_list=[
+		         # for switching:
+		         'LoadEnemyMon',
+		         # for move selection:
+		         'PlayerTurn_EndOpponentProtectEndureDestinyBond',
+		         'EnemyTurn_EndOpponentProtectEndureDestinyBond',
+		         'AI_Switch',
+		         'EnemyUsedFullHeal',
+		         'EnemyUsedMaxPotion',
+		         'EnemyUsedFullRestore',
+		         'EnemyUsedPotion',
+		         'EnemyUsedSuperPotion',
+		         'EnemyUsedHyperPotion',
+		         'EnemyUsedXAccuracy',
+		         'EnemyUsedGuardSpec',
+		         'EnemyUsedDireHit',
+		         'EnemyUsedXAttack',
+		         'EnemyUsedXDefend',
+		         'EnemyUsedXSpeed',
+		         'EnemyUsedXSpecial',
+	         ])
+	# Parse AI actions
+	ai_output = load_save(out_save)
+	return ai_output
+
 
 def create_concat_file(list_txt, files):
 	with open(list_txt, 'w') as f:
@@ -486,19 +567,18 @@ def create_concat_file(list_txt, files):
 		f.write("\n".join(f"file '{f}'" for f in files))
 
 
-def build_movie(movie_path, output_dir, run_number):
-	files = [f for f in os.listdir(movie_path)]
+def build_movie(movie_context: "MovieContext"):
+	files = [f for f in os.listdir(movie_context.movie_working_dir)]
 	files.sort()
 
-	video_list_txt = f"{movie_path}/videos.txt"
-	audio_list_txt = f"{movie_path}/audio.txt"
+	video_list_txt = f"{movie_context.movie_working_dir}/videos.txt"
+	audio_list_txt = f"{movie_context.movie_working_dir}/audio.txt"
 
 	create_concat_file(video_list_txt, [f for f in files if f.endswith(".avi")])
 	create_concat_file(audio_list_txt, [f for f in files if f.endswith(".wav")])
 
-	output_movie = f"{output_dir}/movies/{run_number}.mkv"
+	output_movie = f"{movie_context.movie_output_dir}/movies/{movie_context.movie_name}.mkv"
 	os.makedirs(os.path.dirname(output_movie), exist_ok=True)
-
 
 	subprocess.call(["ffmpeg",
 	                 "-i", video_list_txt,

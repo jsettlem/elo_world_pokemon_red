@@ -106,6 +106,8 @@ for line in lines:
 			current_instance_index += 1
 			parsed_line = line.strip()[2:].partition(";")[0].split(",")
 			current_trainer_type = parsed_line[1].strip().removeprefix("TRAINERTYPE_")
+			rematch_count = 1 + len([t for t in trainers if
+			                         t["name"] == current_trainer["name"] and t["title"] == current_trainer["title"]])
 			current_trainer = {
 				"title": class_names[current_class_index],
 				"name": parsed_line[0].strip().strip("\"").rstrip("@"),
@@ -116,11 +118,8 @@ for line in lines:
 				"techniques": class_attributes[current_class_index]["techniques"],
 				"switch_style": class_attributes[current_class_index]["switch_style"],
 				"dvs": class_dvs[current_class_index],
-				"gender": class_genders[current_class_index]
+				"gender": class_genders[current_class_index],
+				"rematch": rematch_count
 			}
-			rematch_count = 1 + len([t for t in trainers if
-			                         t["name"] == current_trainer["name"] and t["title"] == current_trainer["title"]])
-			if rematch_count > 1:
-				current_trainer["rematch"] = rematch_count
 
 pprint(trainers)
