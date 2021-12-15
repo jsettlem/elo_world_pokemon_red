@@ -113,16 +113,21 @@ wEnemySubstituteHP = (0xc6e0, 1)
 wDisabledMove = (0xc6f5, 1)
 wEnemyDisabledMove = (0xc6f6, 1)
 
+wCurPartyMon = (0xd109, 1)
+wCurOTMon = (0xc663, 1)
+
 wEnemyItemState = (0xc6e6, 1)
 wCurEnemyMoveNum = (0xc6e9, 1)
 wEnemyMinimized = (0xc6fa, 1)
 wAlreadyFailed = (0xc6fb, 1)
 wCurMoveNum = (0xd0d5, 1)
-wCurPartyMon = (0xd109, 1)
+
 wPartyMenuCursor = (0xd0d8, 1)
+wEnemySwitchMonIndex = (0xc718, 1)
 
 breakpoints = {
 	"SetUpBattlePartyMenu": 0x52f7,
+	"AI_Switch": 0x446c
 }
 
 player_enemy_pairs = (
@@ -152,9 +157,10 @@ player_enemy_pairs = (
 	(wPlayerTurnsTaken, wEnemyTurnsTaken),
 	(wPlayerSubstituteHP, wEnemySubstituteHP),
 	(wDisabledMove, wEnemyDisabledMove),
+	(wCurPartyMon, wCurOTMon) #TODO: check that wcurpartymon is correct
 )
 
-
+NOTHING_BUTTON = 0b0
 A_BUTTON = 0b00000001
 B_BUTTON = 0b00000010
 RIGHT_BUTTON = 0b00010000
@@ -274,6 +280,13 @@ def choose_pokemon(current: int, target: int) -> bytearray:
 		A_BUTTON
 	])
 
+def select_switch(buffer_size=1) -> bytearray:
+	return generate_demo([
+		B_BUTTON,
+		UP_BUTTON,
+		RIGHT_BUTTON,
+		A_BUTTON
+	], buffer_button=NOTHING_BUTTON, buffer_size=buffer_size)
 
 def get_trainer_identifier(trainer_dict):
 	return f"{trainer_dict['title']} {trainer_dict['name']} #{trainer_dict['rematch']} (class: {trainer_dict['class']}, id: {trainer_dict['instance']})"
@@ -292,10 +305,10 @@ def initial_testing():
 	# enemy_class = enemy_trainer['class']
 	# enemy_index = enemy_trainer['instance']
 
-	player_class = 36
-	player_index = 11
-	enemy_class = 63
-	enemy_index = 1
+	player_class = 61
+	player_index = 9
+	enemy_class = 41
+	enemy_index = 6
 
 	print(f"You are {get_trainer_identifier(player_trainer)}. Your opponent is {get_trainer_identifier(enemy_trainer)}")
 
@@ -384,9 +397,12 @@ def initial_testing():
 
 			# TODO: Randomize rdiv w/ seeded value
 			# TODO: Item counts
-			# TODO: Switching?
 			# TODO: we may need to update more values here. Check the disassembly.
+			# TODO: wTrainerClass in the AI branch
 
+			# These allow us to make the game think our Pokemon is always on the last turn of Perish Song
+			# set_value(ai_save, wEnemySubStatus1[0], [0x10], 1)
+			# set_value(ai_save, wEnemyPerishCount[0], [0x1], 1)
 			write_file(AI_INPUT_SAVE, ai_save)
 
 			# Open the AI state, wait for the results
@@ -418,11 +434,26 @@ def initial_testing():
 			# Parse AI actions
 			ai_output = load_save(AI_OUTPUT_SAVE)
 
-			selected_move_index = get_value(ai_output, wCurEnemyMoveNum[0], wCurEnemyMoveNum[1])[0]
-			print("The selected move was", selected_move_index)
-			current_move_index = get_value(battle_save, wCurMoveNum[0], wCurMoveNum[1])[0]
+			ai_pc = get_program_counter(ai_output)
 
-			button_sequence = select_move(current_move_index, selected_move_index)
+			if ai_pc == breakpoints["AI_Switch"]:
+				print("The AI wants to switcharino")
+				target_pokemon = get_value(ai_output, wEnemySwitchMonIndex[0], wEnemySwitchMonIndex[1])[0] - 1
+				current_pokemon_index = get_value(battle_save, wPartyMenuCursor[0], wPartyMenuCursor[1])[0]
+
+				# wPartyMenu cursor starts unpopulated (0), but is 1-indexed
+				current_pokemon_index = max(current_pokemon_index, 1) - 1
+				print("The selected pokemon was", target_pokemon, "and the current pokemon was",
+				      current_pokemon_index)
+
+				button_sequence = select_switch() + choose_pokemon(current_pokemon_index, target_pokemon)
+
+			else:
+				selected_move_index = get_value(ai_output, wCurEnemyMoveNum[0], wCurEnemyMoveNum[1])[0]
+				print("The selected move was", selected_move_index)
+				current_move_index = get_value(battle_save, wCurMoveNum[0], wCurMoveNum[1])[0]
+
+				button_sequence = select_move(current_move_index, selected_move_index)
 
 		write_file(OUT_DEMO, button_sequence)
 
