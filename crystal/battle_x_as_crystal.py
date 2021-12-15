@@ -1,5 +1,6 @@
 import itertools
 import json
+import os
 import random
 import struct
 import subprocess
@@ -295,6 +296,11 @@ def get_trainer_identifier(trainer_dict):
 
 
 def initial_testing():
+	run_number = random.randint(1, 10000000)
+	movie_path = f"./movie/{run_number}"
+	movie_index = 0
+
+	os.makedirs(movie_path)
 
 	# Set up player and enemy party data
 	seed = random.randint(0, 1000000000)
@@ -307,9 +313,9 @@ def initial_testing():
 	# enemy_class = enemy_trainer['class']
 	# enemy_index = enemy_trainer['instance']
 
-	player_class = 50
+	player_class = 63
 	player_index = 1
-	enemy_class = 9
+	enemy_class = 16
 	enemy_index = 1
 
 	print(f"You are {get_trainer_identifier(player_trainer)}. Your opponent is {get_trainer_identifier(enemy_trainer)}")
@@ -353,10 +359,16 @@ def initial_testing():
 			                        f'SetUpBattlePartyMenu/{breakpoint_condition},'
 			                        f'WinTrainerBattle/{breakpoint_condition},'
 			                        f'LostBattle/{breakpoint_condition},',
-			                 # '-hf',
+			                 '-hf',
 			                 '-nobatt',
 			                 '-stateonexit', BATTLE_SAVE,
 			                 "-demoplay", OUT_DEMO,
+			                 "-set", "RecordAVI=1",
+			                 "-set", "WavFileOut=1",
+			                 "-set", f"RecordAVIfourCC=cscd",
+			                 "-set", "RecordHalfSpeed=0",
+			                 "-set", "Speed=1",
+			                 "-set", f"RecordPrefix={movie_path}/movie{movie_index:05}",
 			                 ], timeout=100)
 		except subprocess.TimeoutExpired:
 			pass
@@ -465,6 +477,39 @@ def initial_testing():
 		write_file(OUT_DEMO, button_sequence)
 
 		total_clocks = get_total_clocks(battle_save)
+
+	build_movie(movie_path, "./output", run_number)
+
+def create_concat_file(list_txt, files):
+	with open(list_txt, 'w') as f:
+		f.write("ffconcat version 1.0\n")
+		f.write("\n".join(f"file '{f}'" for f in files))
+
+
+def build_movie(movie_path, output_dir, run_number):
+	files = [f for f in os.listdir(movie_path)]
+	files.sort()
+
+	video_list_txt = f"{movie_path}/videos.txt"
+	audio_list_txt = f"{movie_path}/audio.txt"
+
+	create_concat_file(video_list_txt, [f for f in files if f.endswith(".avi")])
+	create_concat_file(audio_list_txt, [f for f in files if f.endswith(".wav")])
+
+	output_movie = f"{output_dir}/movies/{run_number}.mkv"
+	os.makedirs(os.path.dirname(output_movie), exist_ok=True)
+
+
+	subprocess.call(["ffmpeg",
+	                 "-i", video_list_txt,
+	                 "-i", audio_list_txt,
+	                 "-c:v", "libx265",
+	                 "-preset", "slow",
+	                 "-crf", "17",
+	                 "-c:a", "libopus",
+	                 "-b:a", "32k",
+	                 "-threads", "1",
+	                 output_movie])
 
 
 def swap_pairings(source_save, target_save):
